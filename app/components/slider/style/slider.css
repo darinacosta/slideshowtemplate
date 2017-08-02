@@ -1,0 +1,204 @@
+/* Defining each section background and styles
+* --------------------------------------- */
+#section0 {
+  background-size: cover;
+  background-image: url('../img/sasol_2.jpg');
+}
+
+#section2 #slide1 {
+  background-size: cover;
+  background-image: url('../img/sasol_2.jpg');
+}
+
+#section2 #slide2 {
+  background-size: cover;
+  background-image: url('../img/sasol_2.jpg');
+}
+
+#section2 #slide3 {
+  background-size: cover;
+  background-image: url('../img/WoodTexture.jpg');
+}
+
+#section3 #slide1 {
+  background-size: cover;
+  background-image: url('../img/fullpage/eyes.gif');
+}
+
+#fullpage {
+  margin-top: -21px;
+}
+
+body .panel-arrow {
+  width: 88px;
+  height: 28px;
+  position: fixed;
+  bottom: 4%;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  background-image: url(../img/slide-arrow.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 1000;
+  -webkit-animation: upDownMain 6s ease 3s infinite;
+  animation: upDownMain 6s ease 3s infinite;
+  cursor: pointer;
+}
+
+/*
+  Video
+*/
+
+body .video-pane__background-still {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: top;
+  background-size: cover;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: opacity .3s ease;
+  transition: opacity .3s ease;
+}
+
+body .video-pane__container {
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  visibility: hidden;
+  /*opacity: 0;*/
+}
+
+a {
+  color: #e48904;
+}
+
+.blurb {
+  color: #fff;
+  width: 50%;
+  margin: 40px auto;
+  font-family: FreightSans-Book;
+  font-size: 20px;
+  width: 480px;
+  line-height: 30px;
+}
+
+.title-wrapper {
+  top: 30%;
+  color: white;
+  position: relative;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.show {
+  visibility: visible;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.video-pane__play-wrap {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.125em;
+  letter-spacing: .5em;
+  opacity: 1;
+  z-index: 10;
+  -webkit-transition: all .3s ease;
+  transition: all .3s ease;
+  padding-top: 7px;
+}
+
+.video-pane__intro-text-holder {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -40%);
+  -ms-transform: translate(-50%, -40%);
+  transform: translate(-50%, -40%);
+  text-align: center;
+  z-index: 4;
+}
+.video-pane__play-wrap span.first {
+  margin-right: -.5em;
+}
+
+.playBtn.intro {
+  position: relative;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 1.33333em;
+  -webkit-transform: translateX(0) !important;
+  -ms-transform: translateX(0) !important;
+  transform: translateX(0) !important;
+  left: auto !important;
+}
+
+/*
+  Parallax
+*/
+
+.parallax-container {
+  position: absolute;
+  overflow: hidden;
+  display: table;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.scene,
+.layer {
+  display: block;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.scene {
+  left: 0px;
+  bottom: 0;
+  min-height: 460px;
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  /*background: url(../../../images/background.jpg) no-repeat 50% 100%;*/
+  bottom: 0;
+  background-size: contain;
+  position: absolute;
+  background-repeat: repeat 50% 100%;
+  width: 110%;
+  left: -5%;
+  top: 30%;
+}
+
+.layer {
+  position: absolute;
+}
+.layer div {
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

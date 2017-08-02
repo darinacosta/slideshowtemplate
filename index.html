@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>Mossville, Louisiana</title>
+  <link rel="stylesheet" type="text/css" href="node_modules/fullpage.js/dist/jquery.fullpage.min.css" />
+  <!-- Custom CSS -->
+  <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"-->
+  <link rel="stylesheet" href="app/assets/builds/bundle.css"></script>
+</head>
+<body>
+  <div id="fullpage">
+  	<div class="section" id="section0">
+        <div class="title-wrapper">
+          <h1>
+            <img src="app/assets/img/MOSSVILLE_Distressed_White_500px.png"/>
+          </h1>
+          <h5 class="blurb">
+            A simple example using the Slideshow library that was used on the <a href="http://arconic.com/THEFUTURE/" target="_blank">Arconic</a> site. I borrowed some of their styles to start with. You can navigate using mouse or arrow keys. The whole thing is very mobile friendly and scales well.
+          </h5>
+        </div>
+  	</div>
+  	<div class="section moveDown" id="section1">
+  		<div class="wrap">
+  			<div class="box">
+          <div class="video-pane__intro-text-holder">
+            <div class="video-pane__play-wrap">
+              <span class="watch-video">watch <span class="glyphicon glyphicon-play-circle" style="font-size:30px;top:9px;"></span> video</span>
+            </div>
+          </div>
+          <div style="background-image: url(app/assets/img/masthead_orig.png);" data-src="app/assets/img/masthead_orig.png" class="video-pane__background-still"></div>
+          <div class="video-pane__container">
+  				  <iframe data-keepplaying="data-keepplaying" id="slide01" height="100%" width="100%" class="video-pane__youtube slide1" frameborder="0" allowfullscreen="1" title="YouTube video player" src="//player.vimeo.com/video/122496816"></iframe>
+          </div>
+        </div>
+  		</div>
+  	</div>
+  	<div class="section moveDown" id="section2">
+          <div class="slide" id="slide1">
+            <div class="title-wrapper">
+                <h1>Horizontal slide</h1>
+            </div>
+          </div>
+          <div class="slide" id="slide2">
+            <div class="title-wrapper">
+                <h1>Section 2 Example</h1>
+            </div>
+          </div>
+          <div class="slide" id="slide3">
+            <div class="title-wrapper">
+                <h1>Etc.</h1>
+            </div>
+          </div>
+  	</div>
+  <div class="section moveDown" id="section3">
+    <div class="slide" id="slide1">
+      <div id="container" class="parallax-container">
+        <ul id="scene" class="scene">
+          <li class="layer" data-depth="0.60">
+            <div class="background" style="background-image: url(app/assets/img/fullpage/layer4.png);"></div>
+          </li>
+          <li class="layer" data-depth="0.40">
+            <div class="background" style="background-image: url(app/assets/img/fullpage/layer3.png);"></div>
+          </li>
+          <li class="layer" data-depth="0.20">
+            <div class="background" style="background-image: url(app/assets/img/fullpage/layer2.png);"></div>
+          </li>
+          <li class="layer" data-depth="0.00">
+            <div class="background" style="background-image: url(app/assets/img/fullpage/layer1.png);"></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="panel-arrow" id="click-down"></div>
+</body>
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script src="app/assets/builds/vendor.bundle.js"></script>
+<script src="app/assets/builds/app.bundle.js"></script>
+</html>
