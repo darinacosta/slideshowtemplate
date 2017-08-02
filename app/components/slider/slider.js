@@ -106,6 +106,7 @@ function _init() {
 }
 
 $(document).ready(function() {
+  console.log("HI");
   _init();
 });
 

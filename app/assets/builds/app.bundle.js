@@ -118,9 +118,14 @@ function _init() {
   }
 }
 
-$(document).ready(function() {
+//$(document).ready(function() {
+//  _init();
+//});
+
+setTimeout(function() {
+  console.log("INIT");
   _init();
-});
+}, 12000);
 
 module.exports = test;
 

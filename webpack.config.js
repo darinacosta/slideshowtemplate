@@ -37,11 +37,12 @@ module.exports = {
   },
   output: {
     path: __dirname + "/app/assets/builds",
+    publicPath: "/app/assets/builds",
     filename: "[name].bundle.js"
   },
   devServer: {
     compress: true,
-    port: 9090
+    port: 8070
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
