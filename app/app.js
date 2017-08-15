@@ -1,1 +1,3 @@
-require("./components/slider/slider.js");
+require("./components/slider/sliderCtrl.js");
+
+("use strict");

@@ -1,5 +1,6 @@
 var $ = require("jquery");
 var Parallax = require("parallax-js");
+var sliderSvc = require("./sliderSvc.js");
 
 var test = {};
 if (typeof $.fn.fullpage.destroy === "function") {
@@ -25,7 +26,7 @@ function _init() {
     navigationTooltips: ["Home", "Video", "Slide Test"],
     afterLoad: function(anchorLink, index) {
       enableSlideActivity();
-      if (index == 3) {
+      if (index == 4) {
         $(".panel-arrow").addClass("hide");
       } else {
         $(".panel-arrow").removeClass("hide");
@@ -72,9 +73,8 @@ function _init() {
   */
 
   $("#click-down").on("click", function() {
-    var sectionStr = $(".fp-section.active")[0].id.split("section")[1];
-    activeSection = parseInt(sectionStr) - 1;
-    $.fn.fullpage.moveTo(activeSection++, 0);
+    activeSection = sliderSvc.getActiveSection();
+    $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
 
   /*
@@ -91,22 +91,12 @@ function _init() {
     $(".fp-section.active .watch-video").on("click", function() {
       $(".fp-section.active .video-pane__youtube").addClass("show");
       $(".fp-section.active .video-pane__background-still").addClass("hide");
-      setTimeout(function() {
-        console.log("#slide" + activeSection + 1);
-
-        var iframe = document.querySelector("#slide" + activeSection + 1);
-        player = new Vimeo.Player(iframe);
-        player.play();
-        player.on("play", function() {
-          console.log("played the video!");
-        });
-      });
+      setTimeout(sliderSvc.playCurrentVideo);
     });
   }
 }
 
 $(document).ready(function() {
-  console.log("HI");
   _init();
 });
 

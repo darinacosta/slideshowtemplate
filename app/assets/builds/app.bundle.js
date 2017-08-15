@@ -118,14 +118,9 @@ function _init() {
   }
 }
 
-//$(document).ready(function() {
-//  _init();
-//});
-
-setTimeout(function() {
-  console.log("INIT");
+$(document).ready(function() {
   _init();
-}, 12000);
+});
 
 module.exports = test;
 

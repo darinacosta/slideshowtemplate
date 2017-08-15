@@ -29,11 +29,11 @@
   margin-top: -21px;
 }
 
-body .panel-arrow {
+body .panel-arrow-down {
   width: 88px;
   height: 28px;
   position: fixed;
-  bottom: 4%;
+  bottom: 6%;
   left: 50%;
   -webkit-transform: translate(-50%, 0);
   -ms-transform: translate(-50%, 0);
