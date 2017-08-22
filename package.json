@@ -17,6 +17,8 @@
     "jquery": "^3.2.1",
     "less": "^2.7.2",
     "less-loader": "^4.0.5",
+    "modernizr": "^3.5.0",
+    "modernizr-loader": "^1.0.1",
     "parallax-js": "git+https://github.com/wagerfield/parallax.git",
     "serve-static": "^1.12.3",
     "webpack": "^3.4.1",

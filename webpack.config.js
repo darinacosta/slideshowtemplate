@@ -20,6 +20,14 @@ module.exports = {
           fallback: "style-loader",
           use: "css-loader!less-loader?url=false"
         })
+      },
+      {
+        test: /\.modernizrrc.js$/,
+        use: ["modernizr-loader"]
+      },
+      {
+        test: /\.modernizrrc(\.json)?$/,
+        use: ["modernizr-loader", "json-loader"]
       }
     ]
   },
@@ -27,6 +35,7 @@ module.exports = {
     extensions: [".js", ".jsx"],
     modules: [__dirname + "/node_modules", "lib"],
     alias: {
+      modernizr$: path.resolve(__dirname, ".modernizrrc"),
       fittext: "lib/jquery.fittext.js"
     }
   },
