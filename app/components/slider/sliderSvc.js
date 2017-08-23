@@ -7,14 +7,13 @@ svc.getActiveSection = function() {
   return parseInt(sectionStr) + 1;
 };
 
-svc.playCurrentVideo = function() {
-  var activeSection = svc.getActiveSection() - 1;
-  var iframe = document.querySelector("#slide0" + activeSection);
-  var player = new Vimeo.Player(iframe);
-  player.play();
-  player.on("play", function() {
-    console.log("played the video!");
-  });
+svc.togglePanelArrow = function(slideIndex) {
+  var isLastSlide = $(".fp-section.active .fp-slide").length;
+  if (isLastSlide) {
+    $(".panel-arrow-down").addClass("hide");
+  } else {
+    $(".panel-arrow-down").removeClass("hide");
+  }
 };
 
 module.exports = svc;

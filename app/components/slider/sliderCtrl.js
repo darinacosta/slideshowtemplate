@@ -1,19 +1,16 @@
 var $ = require("jquery");
 var Parallax = require("parallax-js");
 var sliderSvc = require("./sliderSvc.js");
+var videoSvc = require("./videoSvc.js");
+var pipelineGallery = require("./../pipeline-gallery/pipelineGallery.js");
 
-var test = {};
+var ctrl = {};
 if (typeof $.fn.fullpage.destroy === "function") {
   $.fn.fullpage.destroy("all");
 }
 
-function _init() {
-  /*
-    Initialize fullpage
-  */
-
+ctrl.init = function() {
   var activeSection = 00;
-  var player;
   var scene = document.getElementById("scene");
   var parallax = new Parallax(scene);
 
@@ -23,50 +20,15 @@ function _init() {
     sectionsColor: ["#ffffff", "#fff", "#fff", "#fff"],
     navigation: true,
     navigationPosition: "left",
-    navigationTooltips: ["Home", "Video", "Slide Test"],
+    navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      enableSlideActivity();
-      if (index == 4) {
-        $(".panel-arrow").addClass("hide");
-      } else {
-        $(".panel-arrow").removeClass("hide");
+      if (pipelineGallery.currentSlideIsPipelineGallery()) {
+        pipelineGallery.switchVideo("etppath");
       }
+      videoSvc.handleVideoSlide();
     },
-    onLeave: function(index, nextIndex, direction) {
-      if (index == 3 && direction == "down") {
-        $(".section").eq(index - 1).removeClass("moveDown").addClass("moveUp");
-      } else if (index == 3 && direction == "up") {
-        $(".section").eq(index - 1).removeClass("moveUp").addClass("moveDown");
-      }
-
-      $("#staticImg").toggleClass(
-        "active",
-        (index == 2 && direction == "down") || (index == 4 && direction == "up")
-      );
-      $("#staticImg").toggleClass("moveDown", nextIndex == 4);
-      $("#staticImg").toggleClass("moveUp", index == 4 && direction == "up");
-    }
+    onLeave: function(index, nextIndex, direction) {}
   });
-
-  /*
-    Handle video resizing on page load
-  */
-
-  $(window)
-    .resize(function() {
-      var $window = $(window);
-      var $video = $("iframe");
-      var height = $window.height();
-      $video.css("height", height);
-      var videoWidth = $video.width(),
-        windowWidth = $window.width(),
-        marginLeftAdjust = (windowWidth - videoWidth) / 2;
-      $video.css({
-        height: height,
-        marginLeft: marginLeftAdjust
-      });
-    })
-    .resize();
 
   /*
     Track state
@@ -76,28 +38,6 @@ function _init() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
+};
 
-  /*
-    Slides
-  */
-  function enableSlideActivity() {
-    // https://github.com/vimeo/player.js
-    if (player) {
-      player.pause();
-    }
-    $(".video-pane__background-still").removeClass("hide");
-    $(".video-pane__youtube").removeClass("show");
-
-    $(".fp-section.active .watch-video").on("click", function() {
-      $(".fp-section.active .video-pane__youtube").addClass("show");
-      $(".fp-section.active .video-pane__background-still").addClass("hide");
-      setTimeout(sliderSvc.playCurrentVideo);
-    });
-  }
-}
-
-$(document).ready(function() {
-  _init();
-});
-
-module.exports = test;
+module.exports = ctrl;

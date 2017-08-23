@@ -22,6 +22,10 @@ module.exports = {
         })
       },
       {
+        test: /\.(png|woff|woff2|eot|ttf|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+        loader: "url"
+      },
+      {
         test: /\.modernizrrc.js$/,
         use: ["modernizr-loader"]
       },

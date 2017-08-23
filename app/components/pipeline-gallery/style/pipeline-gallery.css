@@ -1,5 +1,7 @@
 #pipeline-display-wrapper {
-  height: 100%;
+  top: 10%;
+  position: relative;
+  height: 70%;
   width: 100%;
   background-color: white;
   background-size: contain;
@@ -9,10 +11,15 @@
   background-position-x: center;
 }
 
+.video-gallery-caption {
+  height: 20px;
+}
+
 .btn-collection {
   z-index: 9999;
   position: absolute;
-  bottom: 30px;
+  top: 82%;
   width: 100%;
   margin: 0 auto;
+  text-align: center;
 }

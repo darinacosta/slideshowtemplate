@@ -14,6 +14,10 @@ svc.videoUrls = {
   spills: ""
 };
 
+svc.currentSlideIsPipelineGallery = function() {
+  return $(".fp-section.active #pipeline-display-wrapper").length > 0;
+};
+
 svc.handleVideoReplace = function(videoUrl) {
   var targetVideo = $("#pipeline");
   var src = videoUrl;
