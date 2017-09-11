@@ -2,7 +2,7 @@ var $ = require("jquery");
 var Parallax = require("parallax-js");
 var sliderSvc = require("./sliderSvc.js");
 var videoSvc = require("./videoSvc.js");
-var pipelineGallery = require("./../pipeline-gallery/pipelineGallery.js");
+var gallerySvc = require("./../gallery/gallerySvc.js");
 
 var ctrl = {};
 if (typeof $.fn.fullpage.destroy === "function") {
@@ -22,8 +22,8 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      if (pipelineGallery.currentSlideIsPipelineGallery()) {
-        pipelineGallery.switchVideo("etppath");
+      if (gallerySvc.currentVideoSlide() === "US") {
+        gallerySvc.switchVideo("pipeline", "etppath");
       }
       videoSvc.handleVideoSlide();
     },
@@ -38,6 +38,8 @@ ctrl.init = function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
+
+  gallerySvc.init();
 };
 
 module.exports = ctrl;
