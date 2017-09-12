@@ -12,6 +12,18 @@ svc.playCurrentVideo = function() {
   });
 };
 
+svc.currentVideoSlide = function() {
+  if ($(".fp-section.active #video_1").length > 0) {
+    return "video_1";
+  } else if ($(".fp-section.active #video_2").length > 0) {
+    return "video_2";
+  } else if ($(".fp-section.active #video_3").length > 0) {
+    return "video_3";
+  }
+
+  return false;
+};
+
 svc.handleVideoSlide = function() {
   if (svc.player) {
     svc.player.pause();

@@ -19,6 +19,70 @@
   margin-top: -21px;
 }
 
+@-webkit-keyframes upDownMain {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  85% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+
+  90% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  95% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes upDownMain {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  85% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+
+  90% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  95% {
+    -webkit-transform: translate(-50%, 10px);
+    transform: translate(-50%, 10px);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
 body .panel-arrow-down {
   width: 88px;
   height: 28px;
@@ -31,7 +95,7 @@ body .panel-arrow-down {
   background-image: url(../img/slide-arrow.png);
   background-repeat: no-repeat;
   background-size: contain;
-  z-index: 1000;
+  z-index: 99999;
   -webkit-animation: upDownMain 6s ease 3s infinite;
   animation: upDownMain 6s ease 3s infinite;
   cursor: pointer;
@@ -77,7 +141,7 @@ a {
   margin: 40px auto;
   font-family: FreightSans-Book;
   font-size: 20px;
-  width: 480px;
+  max-width: 480px;
   line-height: 30px;
 }
 

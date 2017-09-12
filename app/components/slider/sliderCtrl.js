@@ -22,9 +22,9 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      if (gallerySvc.currentVideoSlide() === "pipeline") {
+      if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
-      } else if (gallerySvc.currentVideoSlide() === "louisiana") {
+      } else if (gallerySvc.currentGallerySlide() === "louisiana") {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
       }
       videoSvc.handleVideoSlide();
