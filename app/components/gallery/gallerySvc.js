@@ -1,26 +1,38 @@
 var Modernizr = require("modernizr");
 
 var svc = {};
-svc.videoHost = "https://s3.amazonaws.com/fireriver/";
+svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = {
-  etpspills: {
-    url: "spills_2015-2016",
-    caption: "Energy Transfer Partners Oil Spills 2015 - 16"
+  us_all_pipelines: {
+    url: "us_all_pipelines",
+    caption: "Energy Transfer Partners Oil Spills 2015 - 16",
+    mapId: "pipeline"
   },
-  etppath: {
-    url: "etp_pipeline_us",
-    caption: "Pipelines"
+  us_etp_pipelines: {
+    url: "us_etp_pipelines",
+    caption: "Pipelines",
+    mapId: "pipeline"
   },
-  spills: "",
+  us_etp_spills: {
+    url: "us_etp_spills",
+    caption: "Pipelines",
+    mapId: "pipeline"
+  },
+  us_spills_2010: {
+    url: "us_spills_2010",
+    caption: "Pipelines",
+    mapId: "pipeline"
+  },
   louisiana_erosion: {
-    url: "louisiana_erosion",
-    caption: "Erosion"
+    url: "blacktest",
+    caption: "Erosion",
+    mapId: "louisiana"
   }
 };
 
 svc.currentVideoSlide = function() {
-  if ($(".fp-section.active #pipeline-display-wrapper").length > 0) {
-    return "US";
+  if ($(".fp-section.active #pipeline").length > 0) {
+    return "pipeline";
   }
 
   return false;
@@ -53,11 +65,11 @@ svc.handleVideoReplace = function(targetId, videoUrl) {
   var targetVideo = $("#" + targetId);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
-    src = videoUrl + ".webm";
-  } else if (Modernizr.video && Modernizr.video.ogg) {
-    src = videoUrl + ".ogg";
-  } else {
     src = videoUrl + ".mp4";
+  } else if (Modernizr.video && Modernizr.video.ogg) {
+    src = videoUrl + ".webm";
+  } else {
+    src = videoUrl + ".ogv";
   }
   targetVideo.attr("src", src);
 };
@@ -78,9 +90,10 @@ svc.switchVideo = function(targetId, videoId) {
 };
 
 svc.init = function() {
-  $(".toggle-pipeline").on("click", function(e) {
-    var id = e.target.id;
-    svc.switchVideo("pipeline", id);
+  $(".toggle-gallery").on("click", function(e) {
+    var videoId = e.target.id;
+    var mapId = svc.videoUrls[videoId].mapId;
+    svc.switchVideo(mapId, videoId);
   });
   svc.initGalleryKeyControls();
 };

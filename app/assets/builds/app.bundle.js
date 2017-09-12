@@ -69,7 +69,7 @@ svc.switchVideo = function(id) {
   var caption = svc.videoUrls[id].caption;
   setActiveButton(id);
   svc.handleVideoReplace(url);
-  $("#toggle-pipeline-caption").text(caption);
+  $("#toggle-gallery-caption").text(caption);
 };
 
 svc.initGalleryKeyControls = function() {
@@ -96,13 +96,13 @@ svc.initGalleryKeyControls = function() {
 };
 
 function setActiveButton(id) {
-  $(".toggle-pipeline").removeClass("btn-warning");
-  $(".toggle-pipeline").addClass("btn-primary");
-  $(".toggle-pipeline#" + id).removeClass("btn-primary");
-  $(".toggle-pipeline#" + id).addClass("btn-warning");
+  $(".toggle-gallery").removeClass("btn-warning");
+  $(".toggle-gallery").addClass("btn-primary");
+  $(".toggle-gallery#" + id).removeClass("btn-primary");
+  $(".toggle-gallery#" + id).addClass("btn-warning");
 }
 
-$(".toggle-pipeline").on("click", function(e) {
+$(".toggle-gallery").on("click", function(e) {
   var id = e.target.id;
   svc.switchVideo(id);
 });

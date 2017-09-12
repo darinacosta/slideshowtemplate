@@ -22,8 +22,9 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      if (gallerySvc.currentVideoSlide() === "US") {
-        gallerySvc.switchVideo("pipeline", "etppath");
+      if (gallerySvc.currentVideoSlide() === "pipeline") {
+        console.log("PIPELINE");
+        gallerySvc.switchVideo("pipeline", "us_all_pipelines");
       }
       videoSvc.handleVideoSlide();
     },
