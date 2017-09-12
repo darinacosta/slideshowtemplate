@@ -23,8 +23,9 @@ ctrl.init = function() {
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       if (gallerySvc.currentVideoSlide() === "pipeline") {
-        console.log("PIPELINE");
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
+      } else if (gallerySvc.currentVideoSlide() === "louisiana") {
+        gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
       }
       videoSvc.handleVideoSlide();
     },

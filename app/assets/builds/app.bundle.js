@@ -31,95 +31,10 @@ module.exports = svc;
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var Modernizr = __webpack_require__(8);
-
-var svc = {};
-svc.videoHost = "https://s3.amazonaws.com/fireriver/";
-svc.videoUrls = {
-  etpspills: {
-    url: "spills_2015-2016",
-    caption: "Energy Transfer Partners Oil Spills 2015 - 16"
-  },
-  etppath: {
-    url: "etp_pipeline_us",
-    caption: "Pipelines"
-  },
-  spills: ""
-};
-
-svc.currentSlideIsPipelineGallery = function() {
-  return $(".fp-section.active #pipeline-display-wrapper").length > 0;
-};
-
-svc.handleVideoReplace = function(videoUrl) {
-  var targetVideo = $("#pipeline");
-  var src = videoUrl;
-  if (Modernizr.video && Modernizr.video.webm) {
-    src = videoUrl + ".webm";
-  } else if (Modernizr.video && Modernizr.video.ogg) {
-    src = videoUrl + ".ogg";
-  } else {
-    src = videoUrl + ".mp4";
-  }
-  targetVideo.attr("src", src);
-};
-
-svc.switchVideo = function(id) {
-  var url = svc.videoHost + svc.videoUrls[id].url;
-  var caption = svc.videoUrls[id].caption;
-  setActiveButton(id);
-  svc.handleVideoReplace(url);
-  $("#toggle-gallery-caption").text(caption);
-};
-
-svc.initGalleryKeyControls = function() {
-  $(document).keydown(function(e) {
-    switch (e.which) {
-      case 37: // left
-        break;
-
-      case 38: // up
-        break;
-
-      case 39: // right
-        console.log("RIGHTKEY");
-        break;
-
-      case 40: // down
-        break;
-
-      default:
-        return; // exit this handler for other keys
-    }
-    e.preventDefault(); // prevent the default action (scroll / move caret)
-  });
-};
-
-function setActiveButton(id) {
-  $(".toggle-gallery").removeClass("btn-warning");
-  $(".toggle-gallery").addClass("btn-primary");
-  $(".toggle-gallery#" + id).removeClass("btn-primary");
-  $(".toggle-gallery#" + id).addClass("btn-warning");
-}
-
-$(".toggle-gallery").on("click", function(e) {
-  var id = e.target.id;
-  svc.switchVideo(id);
-});
-
-module.exports = svc;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var sliderCtrl = __webpack_require__(5);
-var pipelineGallery = __webpack_require__(3);
+var sliderCtrl = __webpack_require__(4);
 
 function init() {
   sliderCtrl.init();
@@ -132,14 +47,14 @@ $(document).ready(function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
 var Parallax = __webpack_require__(1);
 var sliderSvc = __webpack_require__(2);
-var videoSvc = __webpack_require__(7);
-var pipelineGallery = __webpack_require__(3);
+var videoSvc = __webpack_require__(6);
+var gallerySvc = __webpack_require__(7);
 
 var ctrl = {};
 if (typeof $.fn.fullpage.destroy === "function") {
@@ -159,8 +74,10 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      if (pipelineGallery.currentSlideIsPipelineGallery()) {
-        pipelineGallery.switchVideo("etppath");
+      if (gallerySvc.currentVideoSlide() === "pipeline") {
+        gallerySvc.switchVideo("pipeline", "us_all_pipelines");
+      } else if (gallerySvc.currentVideoSlide() === "louisiana") {
+        gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
       }
       videoSvc.handleVideoSlide();
     },
@@ -175,14 +92,16 @@ ctrl.init = function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
+
+  gallerySvc.init();
 };
 
 module.exports = ctrl;
 
 
 /***/ }),
-/* 6 */,
-/* 7 */
+/* 5 */,
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var sliderSvc = __webpack_require__(2);
@@ -232,6 +151,131 @@ module.exports = svc;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {var Modernizr = __webpack_require__(8);
+
+var svc = {};
+svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
+svc.videoUrls = {
+  us_all_pipelines: {
+    url: "us_all_pipelines",
+    caption: "Energy Transfer Partners Oil Spills 2015 - 16",
+    mapId: "pipeline"
+  },
+  us_etp_pipelines: {
+    url: "us_etp_pipelines",
+    caption: "Pipelines",
+    mapId: "pipeline"
+  },
+  us_etp_spills: {
+    url: "us_etp_spills",
+    caption: "Pipelines",
+    mapId: "pipeline"
+  },
+  us_spills_2010: {
+    url: "us_spills_2010",
+    caption: "Pipelines",
+    mapId: "pipeline"
+  },
+  la_coastal_erosion_tb: {
+    url: "la_coastal_erosion_tb",
+    caption: "Erosion",
+    mapId: "louisiana"
+  },
+  la_current_pipelines_tb: {
+    url: "la_current_pipelines_tb",
+    caption: "Pipelines",
+    mapId: "louisiana"
+  },
+  la_pipeline_path_tb: {
+    url: "la_pipeline_path_tb",
+    caption: "Path",
+    mapId: "louisiana"
+  },
+  la_pipeline_spills_tb: {
+    url: "la_pipeline_spills_tb",
+    caption: "Spills",
+    mapId: "louisiana"
+  }
+};
+
+svc.currentVideoSlide = function() {
+  if ($(".fp-section.active #pipeline").length > 0) {
+    return "pipeline";
+  } else if ($(".fp-section.active #louisiana").length > 0) {
+    return "louisiana";
+  }
+
+  return false;
+};
+
+svc.initGalleryKeyControls = function() {
+  $(document).keydown(function(e) {
+    switch (e.which) {
+      case 37: // left
+        break;
+
+      case 38: // up
+        break;
+
+      case 39: // right
+        console.log("RIGHTKEY");
+        break;
+
+      case 40: // down
+        break;
+
+      default:
+        return; // exit this handler for other keys
+    }
+    e.preventDefault(); // prevent the default action (scroll / move caret)
+  });
+};
+
+svc.handleVideoReplace = function(targetId, videoUrl) {
+  var targetVideo = $("#" + targetId);
+  var src = videoUrl;
+  if (Modernizr.video && Modernizr.video.webm) {
+    src = videoUrl + ".mp4";
+  } else if (Modernizr.video && Modernizr.video.ogg) {
+    src = videoUrl + ".webm";
+  } else {
+    src = videoUrl + ".ogv";
+  }
+  targetVideo.attr("src", src);
+};
+
+svc.setActiveButton = function setActiveButton(targetId, videoId) {
+  $(".toggle-" + targetId).removeClass("btn-warning");
+  $(".toggle-" + targetId).addClass("btn-primary");
+  $(".toggle-" + targetId + "#" + videoId).removeClass("btn-primary");
+  $(".toggle-" + targetId + "#" + videoId).addClass("btn-warning");
+};
+
+svc.switchVideo = function(targetId, videoId) {
+  var url = svc.videoHost + svc.videoUrls[videoId].url;
+  var caption = svc.videoUrls[videoId].caption;
+  svc.setActiveButton(targetId, videoId);
+  svc.handleVideoReplace(targetId, url);
+  $("#toggle-" + targetId + "-caption").text(caption);
+};
+
+svc.init = function() {
+  $(".toggle-gallery").on("click", function(e) {
+    var videoId = e.target.id;
+    var mapId = svc.videoUrls[videoId].mapId;
+    svc.switchVideo(mapId, videoId);
+  });
+  svc.initGalleryKeyControls();
+};
+
+module.exports = svc;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 8 */
 /***/ (function(module, exports) {
 
@@ -247,4 +291,4 @@ else { delete window.Modernizr; }
 })(window);
 
 /***/ })
-],[4]);
+],[3]);

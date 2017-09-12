@@ -11442,14 +11442,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     }, { "performance-now": 3 }] }, {}, [2])(2);
 });
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(6)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(5)))
 
 /***/ }),
 /* 2 */,
 /* 3 */,
 /* 4 */,
-/* 5 */,
-/* 6 */
+/* 5 */
 /***/ (function(module, exports) {
 
 var g;
@@ -11476,6 +11475,7 @@ module.exports = g;
 
 
 /***/ }),
+/* 6 */,
 /* 7 */,
 /* 8 */,
 /* 9 */,

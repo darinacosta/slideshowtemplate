@@ -23,9 +23,24 @@ svc.videoUrls = {
     caption: "Pipelines",
     mapId: "pipeline"
   },
-  louisiana_erosion: {
-    url: "blacktest",
+  la_coastal_erosion_tb: {
+    url: "la_coastal_erosion_tb",
     caption: "Erosion",
+    mapId: "louisiana"
+  },
+  la_current_pipelines_tb: {
+    url: "la_current_pipelines_tb",
+    caption: "Pipelines",
+    mapId: "louisiana"
+  },
+  la_pipeline_path_tb: {
+    url: "la_pipeline_path_tb",
+    caption: "Path",
+    mapId: "louisiana"
+  },
+  la_pipeline_spills_tb: {
+    url: "la_pipeline_spills_tb",
+    caption: "Spills",
     mapId: "louisiana"
   }
 };
@@ -33,6 +48,8 @@ svc.videoUrls = {
 svc.currentVideoSlide = function() {
   if ($(".fp-section.active #pipeline").length > 0) {
     return "pipeline";
+  } else if ($(".fp-section.active #louisiana").length > 0) {
+    return "louisiana";
   }
 
   return false;

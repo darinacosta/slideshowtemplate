@@ -23,11 +23,23 @@
   height: 20px;
 }
 
-.btn-collection {
+.video-gallery-caption {
   z-index: 9999;
   position: absolute;
   top: 82%;
   width: 100%;
   margin: 0 auto;
   text-align: center;
+}
+
+.btn-collection {
+  z-index: 9999;
+  background-color: black;
+  position: absolute;
+  width: 100%;
+  top: 1px;
+  margin: 0 auto;
+  text-align: center;
+  border-bottom: 1px solid white;
+  padding: 5px;
 }

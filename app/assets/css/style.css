@@ -20,6 +20,10 @@ body[class*="fp-viewing-"] {
   display: block;
 }
 
+button:focus {
+  outline: 0;
+}
+
 hr {
   max-width: 50px;
   border-color: #202020;
