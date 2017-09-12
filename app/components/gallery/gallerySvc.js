@@ -7,9 +7,10 @@ svc.videoUrls = [
     url: "us_all_pipelines",
     caption: "Energy Transfer Partners Oil Spills 2015 - 16",
     mapId: "pipeline",
+    default: true,
     coords: {
-      x: 50,
-      y: 50
+      x: 120,
+      y: 100
     }
   },
   {
@@ -17,8 +18,8 @@ svc.videoUrls = [
     caption: "Pipelines",
     mapId: "pipeline",
     coords: {
-      x: 50,
-      y: 80
+      x: 120,
+      y: 200
     }
   },
   {
@@ -26,8 +27,8 @@ svc.videoUrls = [
     caption: "Pipelines",
     mapId: "pipeline",
     coords: {
-      x: 50,
-      y: 150
+      x: 120,
+      y: 300
     }
   },
   {
@@ -35,29 +36,46 @@ svc.videoUrls = [
     caption: "Pipelines",
     mapId: "pipeline",
     coords: {
-      x: 50,
-      y: 190
+      x: 120,
+      y: 400
     }
   },
   {
     url: "la_coastal_erosion_tb",
     caption: "Erosion",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    default: true,
+    coords: {
+      x: 120,
+      y: 100
+    }
   },
   {
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 200
+    }
   },
   {
     url: "la_pipeline_path_tb",
     caption: "Path",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 300
+    }
   },
   {
     url: "la_pipeline_spills_tb",
     caption: "Spills",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 400
+    }
   }
 ];
 
@@ -104,7 +122,7 @@ svc.initGalleryKeyControls = function() {
 };
 
 svc.handleVideoReplace = function(targetId, videoUrl) {
-  var targetVideo = $("#" + targetId);
+  var targetVideo = $("video#" + targetId);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
     src = videoUrl + ".mp4";
@@ -139,9 +157,14 @@ svc.buildHotspots = function(mapId) {
   var htmlString = "";
   for (var i = 0; i < svc.videoUrls.length; i += 1) {
     var videoObject = svc.videoUrls[i];
+    var buttonStyle = videoObject.default ? "btn-warning" : "btn-primary";
     if (videoObject.mapId === mapId) {
       htmlString +=
-        '<div class="hotspot" id="' +
+        '<div class="hotspot toggle-' +
+        mapId +
+        " " +
+        buttonStyle +
+        '" id="' +
         videoObject.url +
         '" style="top:' +
         videoObject.coords.y +
@@ -150,10 +173,8 @@ svc.buildHotspots = function(mapId) {
         'px" />';
     }
   }
-  $(".hotspot-container#pipeline").html(htmlString);
+  $(".hotspot-container#" + mapId).html(htmlString);
 };
-
-//svc.buildHotspots("pipeline");
 
 svc.init = function() {
   $(".toggle-gallery").on("click", function(e) {

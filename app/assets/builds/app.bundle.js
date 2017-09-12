@@ -74,10 +74,12 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      if (gallerySvc.currentVideoSlide() === "pipeline") {
+      if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
-      } else if (gallerySvc.currentVideoSlide() === "louisiana") {
+        gallerySvc.buildHotspots("pipeline");
+      } else if (gallerySvc.currentGallerySlide() === "louisiana") {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
+        gallerySvc.buildHotspots("louisiana");
       }
       videoSvc.handleVideoSlide();
     },
@@ -116,6 +118,18 @@ svc.playCurrentVideo = function() {
   svc.player.on("play", function() {
     console.log("played the video!");
   });
+};
+
+svc.currentVideoSlide = function() {
+  if ($(".fp-section.active #video_1").length > 0) {
+    return "video_1";
+  } else if ($(".fp-section.active #video_2").length > 0) {
+    return "video_2";
+  } else if ($(".fp-section.active #video_3").length > 0) {
+    return "video_3";
+  }
+
+  return false;
 };
 
 svc.handleVideoSlide = function() {
@@ -158,50 +172,93 @@ module.exports = svc;
 
 var svc = {};
 svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
-svc.videoUrls = {
-  us_all_pipelines: {
+svc.videoUrls = [
+  {
     url: "us_all_pipelines",
     caption: "Energy Transfer Partners Oil Spills 2015 - 16",
-    mapId: "pipeline"
+    mapId: "pipeline",
+    default: true,
+    coords: {
+      x: 120,
+      y: 100
+    }
   },
-  us_etp_pipelines: {
+  {
     url: "us_etp_pipelines",
     caption: "Pipelines",
-    mapId: "pipeline"
+    mapId: "pipeline",
+    coords: {
+      x: 120,
+      y: 200
+    }
   },
-  us_etp_spills: {
+  {
     url: "us_etp_spills",
     caption: "Pipelines",
-    mapId: "pipeline"
+    mapId: "pipeline",
+    coords: {
+      x: 120,
+      y: 300
+    }
   },
-  us_spills_2010: {
+  {
     url: "us_spills_2010",
     caption: "Pipelines",
-    mapId: "pipeline"
+    mapId: "pipeline",
+    coords: {
+      x: 120,
+      y: 400
+    }
   },
-  la_coastal_erosion_tb: {
+  {
     url: "la_coastal_erosion_tb",
     caption: "Erosion",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    default: true,
+    coords: {
+      x: 120,
+      y: 100
+    }
   },
-  la_current_pipelines_tb: {
+  {
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 200
+    }
   },
-  la_pipeline_path_tb: {
+  {
     url: "la_pipeline_path_tb",
     caption: "Path",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 300
+    }
   },
-  la_pipeline_spills_tb: {
+  {
     url: "la_pipeline_spills_tb",
     caption: "Spills",
-    mapId: "louisiana"
+    mapId: "louisiana",
+    coords: {
+      x: 120,
+      y: 400
+    }
+  }
+];
+
+svc.getVideoObject = function(id) {
+  for (var i = 0; i < svc.videoUrls.length; i++) {
+    var o = svc.videoUrls[i];
+    if (o.url === id) {
+      return o;
+    }
   }
 };
 
-svc.currentVideoSlide = function() {
+svc.currentGallerySlide = function() {
   if ($(".fp-section.active #pipeline").length > 0) {
     return "pipeline";
   } else if ($(".fp-section.active #louisiana").length > 0) {
@@ -235,7 +292,7 @@ svc.initGalleryKeyControls = function() {
 };
 
 svc.handleVideoReplace = function(targetId, videoUrl) {
-  var targetVideo = $("#" + targetId);
+  var targetVideo = $("video#" + targetId);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
     src = videoUrl + ".mp4";
@@ -244,6 +301,7 @@ svc.handleVideoReplace = function(targetId, videoUrl) {
   } else {
     src = videoUrl + ".ogv";
   }
+  console.log("SRC", src);
   targetVideo.attr("src", src);
 };
 
@@ -255,17 +313,44 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 };
 
 svc.switchVideo = function(targetId, videoId) {
-  var url = svc.videoHost + svc.videoUrls[videoId].url;
-  var caption = svc.videoUrls[videoId].caption;
+  var videoObject = svc.getVideoObject(videoId);
+  console.log("VIDEO OBJECT", videoObject);
+  var url = svc.videoHost + videoObject.url;
+  console.log("URL", url);
+  var caption = videoObject.caption;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, url);
   $("#toggle-" + targetId + "-caption").text(caption);
 };
 
+svc.buildHotspots = function(mapId) {
+  var htmlString = "";
+  for (var i = 0; i < svc.videoUrls.length; i += 1) {
+    var videoObject = svc.videoUrls[i];
+    var buttonStyle = videoObject.default ? "btn-warning" : "btn-primary";
+    if (videoObject.mapId === mapId) {
+      htmlString +=
+        '<div class="hotspot toggle-' +
+        mapId +
+        " " +
+        buttonStyle +
+        '" id="' +
+        videoObject.url +
+        '" style="top:' +
+        videoObject.coords.y +
+        "px;left:" +
+        videoObject.coords.x +
+        'px" />';
+    }
+  }
+  $(".hotspot-container#" + mapId).html(htmlString);
+};
+
 svc.init = function() {
   $(".toggle-gallery").on("click", function(e) {
     var videoId = e.target.id;
-    var mapId = svc.videoUrls[videoId].mapId;
+    var videoObject = svc.getVideoObject(videoId);
+    var mapId = videoObject.mapId;
     svc.switchVideo(mapId, videoId);
   });
   svc.initGalleryKeyControls();

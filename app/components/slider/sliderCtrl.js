@@ -24,8 +24,10 @@ ctrl.init = function() {
     afterLoad: function(anchorLink, index) {
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
+        gallerySvc.buildHotspots("pipeline");
       } else if (gallerySvc.currentGallerySlide() === "louisiana") {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
+        gallerySvc.buildHotspots("louisiana");
       }
       videoSvc.handleVideoSlide();
     },
