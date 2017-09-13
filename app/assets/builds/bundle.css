@@ -20,6 +20,8 @@ body {
   margin: 0;
   padding: 0;
   background-color: black;
+  overflow: hidden;
+  height: 100%;
 }
 
 body {
@@ -33,6 +35,11 @@ body[class*="fp-viewing-"] {
 
 button:focus {
   outline: 0;
+}
+
+div {
+  padding: 0;
+  margin: 0;
 }
 
 hr {
@@ -620,7 +627,7 @@ body {
 * --------------------------------------- */
 #section0 {
   background-size: cover;
-  background-image: url('../img/sasol_2.jpg');
+  background-color: black;
 }
 
 #section2 #slide1 {
@@ -634,8 +641,8 @@ body {
 }
 
 #fullpage {
-  margin-top: -21px;
-}
+  margin-top: 0px;
+} /*!DJA*/
 
 @-webkit-keyframes upDownMain {
   0% {
@@ -701,6 +708,70 @@ body {
   }
 }
 
+@-webkit-keyframes upDownUp {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  85% {
+    -webkit-transform: translate(-50%, -10px);
+    transform: translate(-50%, -10px);
+  }
+
+  90% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  95% {
+    -webkit-transform: translate(-50%, -10px);
+    transform: translate(-50%, -10px);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes upDownUp {
+  0% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  80% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  85% {
+    -webkit-transform: translate(-50%, -10px);
+    transform: translate(-50%, -10px);
+  }
+
+  90% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  95% {
+    -webkit-transform: translate(-50%, -10px);
+    transform: translate(-50%, -10px);
+  }
+
+  100% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+}
+
 body .panel-arrow-down {
   width: 88px;
   height: 28px;
@@ -719,9 +790,45 @@ body .panel-arrow-down {
   cursor: pointer;
 }
 
+body .panel-arrow-up {
+  width: 88px;
+  height: 28px;
+  position: fixed;
+  top: 6%;
+  visibility: hidden;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+  background-image: url(../img/slide-arrow-up.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: 99999;
+  -webkit-animation: upDownUp 6s ease 3s infinite;
+  animation: upDownUp 6s ease 3s infinite;
+  cursor: pointer;
+}
+
 /*
   Video
 */
+
+.coverVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-size: 100% 100%;
+  background-color: black;
+  background-image: ;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover;
+  z-index: 3;
+}
 
 body .video-pane__background-still {
   position: absolute;
@@ -764,11 +871,15 @@ a {
 }
 
 .title-wrapper {
-  top: 30%;
+  z-index: 100;
   color: white;
   position: relative;
   margin: 0 auto;
   text-align: center;
+  background-color: rgba(0, 0, 0, 0.51);
+  padding: 10px;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 .show {
@@ -976,6 +1087,10 @@ a {
 @media only screen and (min-width: 1300px) {
   .hotspot-container {
     display: block;
+  }
+
+  .gallery-display-wrapper {
+    width: 70%;
   }
 
   .btn-collection {

@@ -9,17 +9,23 @@ webpackJsonp([1],[
 
 var svc = {};
 
+svc.numberOfSections = $(".section").length;
+svc.upArrow = $(".panel-arrow-up");
+svc.downArrow = $(".panel-arrow-down");
+
 svc.getActiveSection = function() {
   var sectionStr = $(".fp-section.active")[0].id.split("section")[1];
   return parseInt(sectionStr) + 1;
 };
 
-svc.togglePanelArrow = function(slideIndex) {
-  var isLastSlide = $(".fp-section.active .fp-slide").length;
-  if (isLastSlide) {
-    $(".panel-arrow-down").addClass("hide");
+svc.togglePanelArrows = function(index) {
+  if (index === 1) {
+    svc.upArrow.css("visibility", "hidden");
+  } else if (index === svc.numberOfSections) {
+    svc.downArrow.css("visibility", "hidden");
   } else {
-    $(".panel-arrow-down").removeClass("hide");
+    svc.downArrow.css("visibility", "visible");
+    svc.upArrow.css("visibility", "visible");
   }
 };
 
@@ -63,17 +69,19 @@ if (typeof $.fn.fullpage.destroy === "function") {
 
 ctrl.init = function() {
   var activeSection = 00;
-  var scene = document.getElementById("scene");
-  var parallax = new Parallax(scene);
+  var $introVid = $("#introVid");
+  // var scene = document.getElementById("scene");
+  // var parallax = new Parallax(scene);
 
   $("#fullpage").fullpage({
     verticalCentered: false,
     css3: true,
-    sectionsColor: ["#ffffff", "#fff", "#fff", "#fff"],
+    sectionsColor: ["black", "#fff", "#fff", "#fff"],
     navigation: true,
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
+      sliderSvc.togglePanelArrows(index);
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
         gallerySvc.buildHotspots("pipeline");
@@ -83,7 +91,13 @@ ctrl.init = function() {
       }
       videoSvc.handleVideoSlide();
     },
-    onLeave: function(index, nextIndex, direction) {}
+    onLeave: function(index, nextIndex, direction) {
+      if (index === 1) {
+        $introVid.fadeTo("slow", 0);
+      } else if (index === 2 && nextIndex === 1) {
+        $introVid.fadeTo("slow", 1);
+      }
+    }
   });
 
   /*
@@ -180,7 +194,7 @@ svc.videoUrls = [
     default: true,
     coords: {
       x: 120,
-      y: 100
+      y: 200
     }
   },
   {
@@ -189,7 +203,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 200
+      y: 300
     }
   },
   {
@@ -198,7 +212,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 300
+      y: 400
     }
   },
   {
@@ -207,7 +221,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 400
+      y: 500
     }
   },
   {
@@ -217,7 +231,7 @@ svc.videoUrls = [
     default: true,
     coords: {
       x: 120,
-      y: 100
+      y: 200
     }
   },
   {
@@ -226,7 +240,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 200
+      y: 300
     }
   },
   {
@@ -235,7 +249,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 300
+      y: 400
     }
   },
   {
@@ -244,7 +258,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 400
+      y: 500
     }
   }
 ];
@@ -338,7 +352,7 @@ svc.buildHotspots = function(mapId) {
         videoObject.url +
         '" style="top:' +
         videoObject.coords.y +
-        "px;left:" +
+        "px;right:" +
         videoObject.coords.x +
         'px" />';
     }

@@ -11,6 +11,7 @@ if (typeof $.fn.fullpage.destroy === "function") {
 
 ctrl.init = function() {
   var activeSection = 00;
+  var $introVid = $("#introVid");
   // var scene = document.getElementById("scene");
   // var parallax = new Parallax(scene);
 
@@ -22,6 +23,7 @@ ctrl.init = function() {
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
+      sliderSvc.togglePanelArrows(index);
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
         gallerySvc.buildHotspots("pipeline");
@@ -31,7 +33,13 @@ ctrl.init = function() {
       }
       videoSvc.handleVideoSlide();
     },
-    onLeave: function(index, nextIndex, direction) {}
+    onLeave: function(index, nextIndex, direction) {
+      if (index === 1) {
+        $introVid.fadeTo("slow", 0);
+      } else if (index === 2 && nextIndex === 1) {
+        $introVid.fadeTo("slow", 1);
+      }
+    }
   });
 
   /*
