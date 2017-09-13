@@ -109,6 +109,11 @@ ctrl.init = function() {
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
 
+  $("#click-up").on("click", function() {
+    activeSection = sliderSvc.getActiveSection();
+    $.fn.fullpage.moveTo(activeSection - 1, 0);
+  });
+
   gallerySvc.init();
 };
 
