@@ -1,5 +1,9 @@
 /* Defining each section background and styles
 * --------------------------------------- */
+.section {
+  background-color: black;
+}
+
 #section0 {
   background-size: cover;
   background-color: black;
@@ -7,11 +11,13 @@
 
 #section2 #slide1 {
   background-size: cover;
+  background-color: black;
   background-image: url('../img/sasol_2.jpg');
 }
 
 #section4 #slide1 {
   background-size: cover;
+  background-color: black;
   background-image: url('../img/fullpage/eyes.gif');
 }
 
