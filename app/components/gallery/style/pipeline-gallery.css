@@ -53,6 +53,10 @@
     display: block;
   }
 
+  .gallery-display-wrapper {
+    width: 70%;
+  }
+
   .btn-collection {
     display: none;
   }

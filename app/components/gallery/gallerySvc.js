@@ -10,7 +10,7 @@ svc.videoUrls = [
     default: true,
     coords: {
       x: 120,
-      y: 100
+      y: 200
     }
   },
   {
@@ -19,7 +19,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 200
+      y: 300
     }
   },
   {
@@ -28,7 +28,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 300
+      y: 400
     }
   },
   {
@@ -37,7 +37,7 @@ svc.videoUrls = [
     mapId: "pipeline",
     coords: {
       x: 120,
-      y: 400
+      y: 500
     }
   },
   {
@@ -47,7 +47,7 @@ svc.videoUrls = [
     default: true,
     coords: {
       x: 120,
-      y: 100
+      y: 200
     }
   },
   {
@@ -56,7 +56,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 200
+      y: 300
     }
   },
   {
@@ -65,7 +65,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 300
+      y: 400
     }
   },
   {
@@ -74,7 +74,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     coords: {
       x: 120,
-      y: 400
+      y: 500
     }
   }
 ];
@@ -168,7 +168,7 @@ svc.buildHotspots = function(mapId) {
         videoObject.url +
         '" style="top:' +
         videoObject.coords.y +
-        "px;left:" +
+        "px;right:" +
         videoObject.coords.x +
         'px" />';
     }

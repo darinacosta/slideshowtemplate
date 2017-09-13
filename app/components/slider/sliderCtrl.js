@@ -17,7 +17,7 @@ ctrl.init = function() {
   $("#fullpage").fullpage({
     verticalCentered: false,
     css3: true,
-    sectionsColor: ["#ffffff", "#fff", "#fff", "#fff"],
+    sectionsColor: ["black", "#fff", "#fff", "#fff"],
     navigation: true,
     navigationPosition: "left",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
