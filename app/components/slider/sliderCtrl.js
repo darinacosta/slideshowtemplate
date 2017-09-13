@@ -1,6 +1,7 @@
 var $ = require("jquery");
 var Parallax = require("parallax-js");
 var sliderSvc = require("./sliderSvc.js");
+var timelineSvc = require("./timelineSvc.js");
 var videoSvc = require("./videoSvc.js");
 var gallerySvc = require("./../gallery/gallerySvc.js");
 
@@ -34,6 +35,7 @@ ctrl.init = function() {
       videoSvc.handleVideoSlide();
     },
     onLeave: function(index, nextIndex, direction) {
+      timelineSvc.setNavBlockTop(nextIndex);
       if (index === 1) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {

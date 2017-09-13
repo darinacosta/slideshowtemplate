@@ -1,11 +1,11 @@
 webpackJsonp([1],[
 /* 0 */,
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
+var timelineSvc = __webpack_require__(3);
 
 var svc = {};
 
@@ -34,13 +34,32 @@ module.exports = svc;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
+/* 2 */,
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {var svc = {};
+var sliderSvc = __webpack_require__(1);
+
+svc.navBlock = $(".product-timeline__navBlock.travel.extra");
+svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
+
+svc.setNavBlockTop = function(index) {
+  svc.navBlock.css("top", svc.navBlockPosition[index] + "%");
+};
+
+module.exports = svc;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function($) {
 
-var sliderCtrl = __webpack_require__(4);
+var sliderCtrl = __webpack_require__(5);
 
 function init() {
   sliderCtrl.init();
@@ -53,14 +72,15 @@ $(document).ready(function() {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var $ = __webpack_require__(0);
-var Parallax = __webpack_require__(1);
-var sliderSvc = __webpack_require__(2);
-var videoSvc = __webpack_require__(6);
-var gallerySvc = __webpack_require__(7);
+var Parallax = __webpack_require__(2);
+var sliderSvc = __webpack_require__(1);
+var timelineSvc = __webpack_require__(3);
+var videoSvc = __webpack_require__(7);
+var gallerySvc = __webpack_require__(8);
 
 var ctrl = {};
 if (typeof $.fn.fullpage.destroy === "function") {
@@ -92,6 +112,7 @@ ctrl.init = function() {
       videoSvc.handleVideoSlide();
     },
     onLeave: function(index, nextIndex, direction) {
+      timelineSvc.setNavBlockTop(nextIndex);
       if (index === 1) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
@@ -121,11 +142,11 @@ module.exports = ctrl;
 
 
 /***/ }),
-/* 5 */,
-/* 6 */
+/* 6 */,
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var sliderSvc = __webpack_require__(2);
+/* WEBPACK VAR INJECTION */(function($) {var sliderSvc = __webpack_require__(1);
 var svc = {};
 svc.player = null;
 
@@ -184,10 +205,10 @@ module.exports = svc;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 7 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {var Modernizr = __webpack_require__(8);
+/* WEBPACK VAR INJECTION */(function($) {var Modernizr = __webpack_require__(9);
 
 var svc = {};
 svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
@@ -380,7 +401,7 @@ module.exports = svc;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 8 */
+/* 9 */
 /***/ (function(module, exports) {
 
 ;(function(window){
@@ -395,4 +416,4 @@ else { delete window.Modernizr; }
 })(window);
 
 /***/ })
-],[3]);
+],[4]);

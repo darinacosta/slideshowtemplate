@@ -1,4 +1,5 @@
 "use strict";
+var timelineSvc = require("./timelineSvc.js");
 
 var svc = {};
 
