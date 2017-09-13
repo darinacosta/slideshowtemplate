@@ -11,8 +11,8 @@ if (typeof $.fn.fullpage.destroy === "function") {
 
 ctrl.init = function() {
   var activeSection = 00;
-  var scene = document.getElementById("scene");
-  var parallax = new Parallax(scene);
+  // var scene = document.getElementById("scene");
+  // var parallax = new Parallax(scene);
 
   $("#fullpage").fullpage({
     verticalCentered: false,

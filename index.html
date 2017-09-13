@@ -11,10 +11,12 @@
 </head>
 <body>
   <div id="fullpage">
-  	<div class="section" id="section0">
-      <video id="video" autoplay loop muted>
-          <source src="https://s3.amazonaws.com/fireriver/pipeline_flyover.webm" type="video/webm" />
-       </video>
+  	<div class="section fp-table" id="section0">
+      <div class="fp-tableCell">
+      <video id="testVideo" loop muted data-autoplay>
+  			<source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+  			<source src="https://www.w3schools.com/html/mov_bbb.ogg" type="video/ogg">
+  		</video>
         <div class="title-wrapper">
           <h1>
             <img src="app/assets/img/MOSSVILLE_Distressed_White_500px.png"/>
@@ -23,8 +25,10 @@
             A simple example using the Slideshow library that was used on the <a href="http://arconic.com/THEFUTURE/" target="_blank">Arconic</a> site. I borrowed some of their styles to start with. You can navigate using mouse or arrow keys. The whole thing is very mobile friendly and scales well.
           </h5>
         </div>
+      </div>
   	</div>
   	<div class="section moveDown" id="section1">
+      <div class="">
   		<div class="wrap" id="video_1">
   			<div class="box">
           <div class="video-pane__intro-text-holder">
@@ -38,6 +42,7 @@
           </div>
         </div>
   		</div>
+    </div>
   	</div>
   	<div class="section moveDown gallery-slide" id="section2">
       <div class="hotspot-container toggle-gallery" id="pipeline">
@@ -71,26 +76,6 @@
         <button type="button" class="toggle-louisiana btn btn-primary" id="la_pipeline_path_tb">Pipeline path</button>
         <button type="button" class="toggle-louisiana btn btn-primary" id="la_pipeline_spills_tb">Spills</button>
       </div>
-  </div>
-  <div class="section moveDown" id="section4">
-    <div class="slide" id="slide1">
-      <div id="container" class="parallax-container">
-        <ul id="scene" class="scene">
-          <li class="layer" data-depth="0.60">
-            <div class="background" style="background-image: url(app/assets/img/fullpage/layer4.png);"></div>
-          </li>
-          <li class="layer" data-depth="0.40">
-            <div class="background" style="background-image: url(app/assets/img/fullpage/layer3.png);"></div>
-          </li>
-          <li class="layer" data-depth="0.20">
-            <div class="background" style="background-image: url(app/assets/img/fullpage/layer2.png);"></div>
-          </li>
-          <li class="layer" data-depth="0.00">
-            <div class="background" style="background-image: url(app/assets/img/fullpage/layer1.png);"></div>
-          </li>
-        </ul>
-      </div>
-    </div>
   </div>
   <div class="panel-arrow-up" id="click-up"></div>
   <div class="panel-arrow-down" id="click-down"></div>
