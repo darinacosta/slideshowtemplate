@@ -1,7 +1,7 @@
 .product-timeline {
   position: fixed;
   top: 0;
-  width: 10%;
+  width: 6%;
   height: 100vh;
   z-index: 1000;
   pointer-events: none;
@@ -9,7 +9,7 @@
 }
 
 .product-timeline__navBlock.extra {
-  top: 19.66%;
+  top: 3%;
 }
 
 .product-timeline__navBlock {
@@ -84,4 +84,12 @@ timeline__textContainer .text-wrapper {
   transform: translateY(-50%);
   -webkit-transition: opacity .3s ease;
   transition: opacity .3s ease;
+}
+
+.product-timeline__textContainer.active .text-wrapper {
+  display: block;
+}
+
+.product-timeline__textContainer .text-wrapper {
+  display: none;
 }

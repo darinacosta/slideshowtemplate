@@ -48,6 +48,25 @@ svc.setNavBlockTop = function(index) {
   svc.navBlock.css("top", svc.navBlockPosition[index] + "%");
 };
 
+svc.activateTimeLineComponent = function(index) {
+  if (index === undefined) {
+    return;
+  }
+  var navIndex = index - 1;
+  svc.setNavBlockTop(navIndex);
+  setTimeout(function() {
+    svc.iterateTimelineText(index);
+  }, 200);
+};
+
+svc.iterateTimelineText = function(index) {
+  var textIndex = index + 1;
+  $(".product-timeline__textContainer").removeClass("active");
+  $(".product-timeline__textContainer:nth-child(" + textIndex + ")").addClass(
+    "active"
+  );
+};
+
 module.exports = svc;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -96,7 +115,12 @@ ctrl.init = function() {
   $("#fullpage").fullpage({
     verticalCentered: false,
     css3: true,
-    sectionsColor: ["black", "#fff", "#fff", "#fff"],
+    sectionsColor: [
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)"
+    ],
     navigation: true,
     navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
@@ -112,7 +136,7 @@ ctrl.init = function() {
       videoSvc.handleVideoSlide();
     },
     onLeave: function(index, nextIndex, direction) {
-      timelineSvc.setNavBlockTop(nextIndex);
+      timelineSvc.activateTimeLineComponent(nextIndex);
       if (index === 1) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {

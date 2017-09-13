@@ -40,7 +40,7 @@ ctrl.init = function() {
       videoSvc.handleVideoSlide();
     },
     onLeave: function(index, nextIndex, direction) {
-      timelineSvc.setNavBlockTop(nextIndex);
+      timelineSvc.activateTimeLineComponent(nextIndex);
       if (index === 1) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
