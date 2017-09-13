@@ -8,8 +8,8 @@ svc.upArrow = $(".panel-arrow-up");
 svc.downArrow = $(".panel-arrow-down");
 
 svc.getActiveSection = function() {
-  var sectionStr = $(".fp-section.active")[0].id.split("section")[1];
-  return parseInt(sectionStr) + 1;
+  var sectionIndex = $(".fp-section.active").index();
+  return sectionIndex + 1;
 };
 
 svc.togglePanelArrows = function(index) {

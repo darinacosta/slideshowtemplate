@@ -21,7 +21,7 @@ ctrl.init = function() {
     css3: true,
     sectionsColor: ["black", "#fff", "#fff", "#fff"],
     navigation: true,
-    navigationPosition: "left",
+    navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       sliderSvc.togglePanelArrows(index);
@@ -44,10 +44,6 @@ ctrl.init = function() {
     }
   });
 
-  /*
-    Track state
-  */
-
   $("#click-down").on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
@@ -55,6 +51,7 @@ ctrl.init = function() {
 
   $("#click-up").on("click", function() {
     activeSection = sliderSvc.getActiveSection();
+    console.log("ACTIVE SECTION", activeSection);
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 
