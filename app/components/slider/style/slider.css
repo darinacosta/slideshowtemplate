@@ -25,6 +25,23 @@
   margin-top: 0px;
 } /*!DJA*/
 
+h1 {
+  letter-spacing: 5px;
+  font-family: "Oswald";
+  color: #c80813;
+  font-weight: bold;
+  font-size: 65px;
+}
+
+h2 {
+  letter-spacing: 3px;
+  font-family: "Droid Serif";
+  color: white;
+  padding-top: 10px;
+  font-style: italic;
+  font-size: 27px;
+}
+
 @-webkit-keyframes upDownMain {
   0% {
     -webkit-transform: translate(-50%, 0);
@@ -194,6 +211,10 @@ body .panel-arrow-up {
   Video
 */
 
+.watch-video {
+  cursor: pointer;
+}
+
 .coverVideo {
   position: absolute;
   right: 0;
@@ -256,11 +277,12 @@ a {
   color: white;
   position: relative;
   margin: 0 auto;
+  margin-top: -20%;
   text-align: center;
+  padding: 10px; /*
   background-color: rgba(0, 0, 0, 0.51);
-  padding: 10px;
   border-top: 1px solid white;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid white;*/
 }
 
 .show {

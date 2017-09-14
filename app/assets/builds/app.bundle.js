@@ -41,7 +41,7 @@ module.exports = svc;
 /* WEBPACK VAR INJECTION */(function($) {var svc = {};
 var sliderSvc = __webpack_require__(1);
 
-svc.navBlock = $(".product-timeline__navBlock.travel.extra");
+svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
 svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
 
 svc.setNavBlockTop = function(index) {
@@ -61,8 +61,8 @@ svc.activateTimeLineComponent = function(index) {
 
 svc.iterateTimelineText = function(index) {
   var textIndex = index + 1;
-  $(".product-timeline__textContainer").removeClass("active");
-  $(".product-timeline__textContainer:nth-child(" + textIndex + ")").addClass(
+  $(".bayou-timeline__textContainer").removeClass("active");
+  $(".bayou-timeline__textContainer:nth-child(" + textIndex + ")").addClass(
     "active"
   );
 };

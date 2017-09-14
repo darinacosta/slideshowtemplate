@@ -30,6 +30,9 @@ ctrl.init = function() {
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       sliderSvc.togglePanelArrows(index);
+      if (index === 2) {
+        $(".bayou-timeline").css("visibility", "visible");
+      }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
         gallerySvc.buildHotspots("pipeline");
@@ -37,7 +40,7 @@ ctrl.init = function() {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
         gallerySvc.buildHotspots("louisiana");
       }
-      videoSvc.handleVideoSlide();
+      videoSvc.handleVideoSlide(index);
     },
     onLeave: function(index, nextIndex, direction) {
       timelineSvc.activateTimeLineComponent(nextIndex);
@@ -45,6 +48,7 @@ ctrl.init = function() {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
         $introVid.fadeTo("slow", 1);
+        $(".bayou-timeline").css("visibility", "hidden");
       }
     }
   });
