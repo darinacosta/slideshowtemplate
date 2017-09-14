@@ -3,6 +3,7 @@ var sliderSvc = require("./sliderSvc.js");
 
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
 svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
+svc.$timeline = $(".bayou-timeline");
 
 svc.setNavBlockTop = function(index) {
   svc.navBlock.css("top", svc.navBlockPosition[index] + "%");

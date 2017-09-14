@@ -47,17 +47,3 @@
 .hotspot-container {
   display: none;
 }
-
-@media only screen and (min-width: 1300px) {
-  .hotspot-container {
-    display: block;
-  }
-
-  .gallery-display-wrapper {
-    width: 70%;
-  }
-
-  .btn-collection {
-    display: none;
-  }
-}

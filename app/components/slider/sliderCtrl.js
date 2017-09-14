@@ -30,8 +30,9 @@ ctrl.init = function() {
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       sliderSvc.togglePanelArrows(index);
+      videoSvc.hideIframeEmbeds();
       if (index === 2) {
-        $(".bayou-timeline").css("visibility", "visible");
+        timelineSvc.$timeline.css("visibility", "visible");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
@@ -48,7 +49,7 @@ ctrl.init = function() {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
         $introVid.fadeTo("slow", 1);
-        $(".bayou-timeline").css("visibility", "hidden");
+        timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
   });
@@ -60,7 +61,6 @@ ctrl.init = function() {
 
   $("#click-up").on("click", function() {
     activeSection = sliderSvc.getActiveSection();
-    console.log("ACTIVE SECTION", activeSection);
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 

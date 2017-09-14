@@ -5,3 +5,4 @@ require("./components/slider/style/slider.css");
 require("./components/slider/style/timeline.css");
 require("./components/hotspots/style/hotspots.css");
 require("./components/gallery/style/pipeline-gallery.css");
+require("./assets/css/media-queries.css");

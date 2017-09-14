@@ -40,13 +40,28 @@
       <div class="">
   		<div class="wrap" id="video_1">
   			<div class="box">
-          <div class="video-pane__intro-text-holder">
+          <div class="video-caption desktop hide-on-play">
+            <h3>LORUM IPSUM</h3> <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
+          <div class="video-pane__intro-text-holder hide-on-play">
             <div class="video-pane__play-wrap">
               <img class="watch-video" src="app/assets/img/playbutton.png" width="100px"/>
+            </div>
+            <div class="video-caption mobile">
+              <h3>LORUM IPSUM</h3> <hr>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
             </div>
           </div>
           <div style="background-image: url(app/assets/img/character_freetown.jpg);" data-src="app/assets/img/character_freetown.jpg" class="video-pane__background-still"></div>
           <div class="video-pane__container">
+            <div class="video-pane__video-close first">
+              <button type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11.96 11.96"><path class="cls-1" d="M367.56,229.17l-4.72,4.71,4.54,4.53-1.21,1.21-4.53-4.54-4.75,4.76-1.28-1.28,4.75-4.75-4.53-4.54,1.2-1.2,4.54,4.53,4.71-4.71Z" transform="translate(-355.6 -227.88)"></path></svg>
+              </button>
+            </div>
             <div id="videoslide02" class="video-pane__youtube slide1"></div>
             <!--iframe data-keepplaying="data-keepplaying" id="videoslide01" height="100%" width="100%" class="video-pane__youtube slide1" frameborder="0" allowfullscreen="1" title="YouTube video player" src="https://www.youtube.com/embed/37waZeR4isc?showinfo=0&amp;modestbranding=0&amp;controls=1&amp;disablekb=0&amp;loop=1&amp;enablejsapi=1&amp;origin=http%3A%2F%2Farconic.com&amp;widgetid=1"></iframe-->
           </div>
@@ -63,7 +78,11 @@
         </video>
       </div>
       <br>
-      <div class="h5 video-pipeline-caption video-gallery-caption"><span id="toggle-pipeline-caption"></span></div><br>
+      <div class="map-caption desktop">
+        <h3><span id="toggle-pipeline-title"></span></h3> <hr>
+        <p><span id="toggle-pipeline-caption"></span></p>
+      </div>
+      <div class="h5 video-pipeline-caption video-gallery-caption mobile"><span id="toggle-pipeline-caption"></span></div><br>
       <div class="btn-collection toggle-gallery">
         <button type="button" class="toggle-pipeline btn btn-warning" id="us_all_pipelines">US All Pipelines</button>
         <button type="button" class="toggle-pipeline btn btn-primary" id="us_etp_pipelines">ETP Pipelines</button>
@@ -80,7 +99,7 @@
             <span class="watch-video">watch <span class="glyphicon glyphicon-play-circle" style="font-size:30px;top:9px;"></span> video</span>
           </div>
         </div>
-        <div style="background-image: url(app/assets/img/masthead_orig.png);" data-src="app/assets/img/masthead_orig.png" class="video-pane__background-still"></div>
+        <div style="background-image: url(app/assets/img/masthead_orig.png);" data-src="app/assets/img/masthead_orig.png" class="video-pane__background-still hide-on-play"></div>
         <div class="video-pane__container">
           <div id="videoslide04" class="video-pane__youtube slide4"></div>
         </div>
@@ -96,7 +115,11 @@
         </video>
       </div>
       <br>
-      <div class="h5 video-gallery-caption"><span id="toggle-louisiana-caption"></span></div><br>
+      <div class="map-caption desktop">
+        <h3><span id="toggle-louisiana-title"></span></h3> <hr>
+        <p><span id="toggle-louisiana-caption"></span></p>
+      </div>
+      <div class="h5 video-gallery-caption"><span id="toggle-louisiana-caption mobile"></span></div><br>
       <div class="btn-collection toggle-gallery">
         <button type="button" class="toggle-louisiana btn btn-warning" id="la_coastal_erosion_tb">Erosion</button>
         <button type="button" class="toggle-louisiana btn btn-primary" id="la_current_pipelines_tb">Current Pipelines</button>

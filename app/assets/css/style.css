@@ -79,6 +79,10 @@ p {
   line-height: 1.5;
 }
 
+.desktop {
+  visibility: hidden;
+}
+
 .bg-primary {
   background-color: #000000;
 }

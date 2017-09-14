@@ -19,6 +19,7 @@
   right: -2px;
   height: 10%;
   width: 4px;
+  z-index: 1001;
   background-color: #c80813;
   -webkit-transition: top .5s ease;
   transition: top .5s ease;

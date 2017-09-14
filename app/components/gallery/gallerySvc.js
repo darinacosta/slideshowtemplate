@@ -5,8 +5,9 @@ svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = [
   {
     url: "us_all_pipelines",
-    caption: "Energy Transfer Partners Oil Spills 2015 - 16",
+    caption: "Caption one",
     mapId: "pipeline",
+    title: "Title One",
     default: true,
     coords: {
       x: 120,
@@ -15,8 +16,9 @@ svc.videoUrls = [
   },
   {
     url: "us_etp_pipelines",
-    caption: "Pipelines",
+    caption: "Caption Two",
     mapId: "pipeline",
+    title: "Title Two",
     coords: {
       x: 120,
       y: 300
@@ -24,8 +26,9 @@ svc.videoUrls = [
   },
   {
     url: "us_etp_spills",
-    caption: "Pipelines",
+    caption: "Caption Three",
     mapId: "pipeline",
+    title: "Title Three",
     coords: {
       x: 120,
       y: 400
@@ -33,7 +36,8 @@ svc.videoUrls = [
   },
   {
     url: "us_spills_2010",
-    caption: "Pipelines",
+    caption: "Caption Four",
+    title: "Title Four",
     mapId: "pipeline",
     coords: {
       x: 120,
@@ -44,6 +48,8 @@ svc.videoUrls = [
     url: "la_coastal_erosion_tb",
     caption: "Erosion",
     mapId: "louisiana",
+    caption: "Caption One",
+    title: "Title One",
     default: true,
     coords: {
       x: 120,
@@ -54,6 +60,8 @@ svc.videoUrls = [
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
     mapId: "louisiana",
+    caption: "Caption Two",
+    title: "Title Two",
     coords: {
       x: 120,
       y: 300
@@ -63,6 +71,8 @@ svc.videoUrls = [
     url: "la_pipeline_path_tb",
     caption: "Path",
     mapId: "louisiana",
+    caption: "Caption Three",
+    title: "Title Three",
     coords: {
       x: 120,
       y: 400
@@ -72,6 +82,8 @@ svc.videoUrls = [
     url: "la_pipeline_spills_tb",
     caption: "Spills",
     mapId: "louisiana",
+    caption: "Caption Four",
+    title: "Title Four",
     coords: {
       x: 120,
       y: 500
@@ -144,12 +156,12 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 
 svc.switchVideo = function(targetId, videoId) {
   var videoObject = svc.getVideoObject(videoId);
-  console.log("VIDEO OBJECT", videoObject);
   var url = svc.videoHost + videoObject.url;
-  console.log("URL", url);
   var caption = videoObject.caption;
+  var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, url);
+  $("#toggle-" + targetId + "-title").text(title);
   $("#toggle-" + targetId + "-caption").text(caption);
 };
 

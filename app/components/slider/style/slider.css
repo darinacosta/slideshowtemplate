@@ -4,6 +4,11 @@
   background-color: black;
 }
 
+.section,
+.slide {
+  position: relative;
+}
+
 #section0 {
   background-size: cover;
   background-color: black;
@@ -215,6 +220,36 @@ body .panel-arrow-up {
   cursor: pointer;
 }
 
+.video-pane__video-close {
+  position: absolute;
+  color: #fff;
+  fill: #fff;
+  top: 1em;
+  right: 1em;
+  z-index: 11;
+  -webkit-transition: .2s;
+  transition: .2s;
+  cursor: pointer;
+}
+
+.video-pane__video-close button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 0;
+  background: 0 0;
+  outline: 0;
+}
+
+.video-pane__video-close svg {
+  width: 40px;
+  height: 40px;
+}
+
+.video-pane__video-close.first {
+  top: 110px;
+}
+
 .coverVideo {
   position: absolute;
   right: 0;
@@ -286,7 +321,7 @@ a {
 }
 
 .show {
-  visibility: visible;
+  visibility: visible !important;
 }
 
 .hide {
@@ -387,4 +422,44 @@ a {
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
+}
+
+.video-caption {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.48);
+  border: 1px solid white;
+  width: 70%;
+  padding: 10px;
+  margin: 0 auto;
+  margin-top: 50px;
+  text-align: left;
+}
+
+.video-caption h3,
+.map-caption h3 {
+  letter-spacing: 2px;
+  font-family: "Oswald";
+  font-weight: bold;
+  color: white;
+  padding-top: 0px;
+  margin-top: 0px;
+  text-transform: uppercase;
+}
+
+.video-caption p,
+.map-caption p {
+  font-family: "Droid Serif";
+  font-size: 12px;
+}
+
+.video-caption hr,
+.map-caption hr {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid white;
+  margin: 1em 0;
+  padding: 0;
 }
