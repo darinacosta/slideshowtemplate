@@ -49,13 +49,13 @@ svc.setNavBlockTop = function(index) {
 };
 
 svc.activateTimeLineComponent = function(index) {
-  if (index === undefined) {
+  if (index < 1) {
     return;
   }
-  var navIndex = index - 1;
+  var navIndex = index - 2;
   svc.setNavBlockTop(navIndex);
   setTimeout(function() {
-    svc.iterateTimelineText(index);
+    svc.iterateTimelineText(index - 1);
   }, 200);
 };
 
@@ -126,6 +126,9 @@ ctrl.init = function() {
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       sliderSvc.togglePanelArrows(index);
+      if (index === 2) {
+        $(".bayou-timeline").css("visibility", "visible");
+      }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
         gallerySvc.buildHotspots("pipeline");
@@ -133,7 +136,7 @@ ctrl.init = function() {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
         gallerySvc.buildHotspots("louisiana");
       }
-      videoSvc.handleVideoSlide();
+      videoSvc.handleVideoSlide(index);
     },
     onLeave: function(index, nextIndex, direction) {
       timelineSvc.activateTimeLineComponent(nextIndex);
@@ -141,6 +144,7 @@ ctrl.init = function() {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
         $introVid.fadeTo("slow", 1);
+        $(".bayou-timeline").css("visibility", "hidden");
       }
     }
   });
@@ -169,9 +173,15 @@ module.exports = ctrl;
 
 /* WEBPACK VAR INJECTION */(function($) {var sliderSvc = __webpack_require__(1);
 var svc = {};
+var player;
 svc.player = null;
 
-svc.playCurrentVideo = function() {
+var tag = document.createElement("script");
+tag.src = "https://www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName("script")[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+svc.playCurrentVimeoVideo = function() {
   var activeSection = sliderSvc.getActiveSection() - 1;
   var iframe = document.querySelector("#slide0" + activeSection);
   svc.player = new Vimeo.Player(iframe);
@@ -181,29 +191,38 @@ svc.playCurrentVideo = function() {
   });
 };
 
+svc.playCurrentYoutubeVideo = function(ev) {
+  var activeSection = sliderSvc.getActiveSection() - 1;
+  var iframe = document.querySelector("#videoslide0" + activeSection);
+  console.log("TIME --- >", iframe.getCurrentTime());
+  iframe.src += "&autoplay=1";
+  ev.preventDefault();
+};
+
 svc.currentVideoSlide = function() {
   if ($(".fp-section.active #video_1").length > 0) {
-    return "video_1";
+    return 0;
   } else if ($(".fp-section.active #video_2").length > 0) {
-    return "video_2";
+    return 1;
   } else if ($(".fp-section.active #video_3").length > 0) {
-    return "video_3";
+    return 2;
   }
 
   return false;
 };
 
-svc.handleVideoSlide = function() {
+svc.handleVideoSlide = function(index) {
   if (svc.player) {
     svc.player.pause();
   }
   $(".video-pane__background-still").removeClass("hide");
   $(".video-pane__youtube").removeClass("show");
-
   $(".fp-section.active .watch-video").on("click", function() {
     $(".fp-section.active .video-pane__youtube").addClass("show");
     $(".fp-section.active .video-pane__background-still").addClass("hide");
-    setTimeout(svc.playCurrentVideo);
+    console.log(iframeSvc);
+    iframeSvc.players[svc.currentVideoSlide()].playVideo();
+    //setTimeout(svc.playCurrentYoutubeVideo);
   });
 };
 
