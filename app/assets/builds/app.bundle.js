@@ -43,6 +43,7 @@ var sliderSvc = __webpack_require__(1);
 
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
 svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
+svc.$timeline = $(".bayou-timeline");
 
 svc.setNavBlockTop = function(index) {
   svc.navBlock.css("top", svc.navBlockPosition[index] + "%");
@@ -126,8 +127,9 @@ ctrl.init = function() {
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
       sliderSvc.togglePanelArrows(index);
+      videoSvc.hideIframeEmbeds();
       if (index === 2) {
-        $(".bayou-timeline").css("visibility", "visible");
+        timelineSvc.$timeline.css("visibility", "visible");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_all_pipelines");
@@ -144,7 +146,7 @@ ctrl.init = function() {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
         $introVid.fadeTo("slow", 1);
-        $(".bayou-timeline").css("visibility", "hidden");
+        timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
   });
@@ -156,7 +158,6 @@ ctrl.init = function() {
 
   $("#click-up").on("click", function() {
     activeSection = sliderSvc.getActiveSection();
-    console.log("ACTIVE SECTION", activeSection);
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 
@@ -175,12 +176,15 @@ module.exports = ctrl;
 var svc = {};
 var player;
 svc.player = null;
+svc.$videoPaneContainers = $(".video-pane__container");
 
+// Create Youtube Iframe API script
 var tag = document.createElement("script");
 tag.src = "https://www.youtube.com/iframe_api";
 var firstScriptTag = document.getElementsByTagName("script")[0];
 firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
+// Used for Vimeo embeds with API
 svc.playCurrentVimeoVideo = function() {
   var activeSection = sliderSvc.getActiveSection() - 1;
   var iframe = document.querySelector("#slide0" + activeSection);
@@ -191,12 +195,17 @@ svc.playCurrentVimeoVideo = function() {
   });
 };
 
+// Used for Youtube videos not loaded by Iframe API
 svc.playCurrentYoutubeVideo = function(ev) {
   var activeSection = sliderSvc.getActiveSection() - 1;
   var iframe = document.querySelector("#videoslide0" + activeSection);
   console.log("TIME --- >", iframe.getCurrentTime());
   iframe.src += "&autoplay=1";
   ev.preventDefault();
+};
+
+svc.hideIframeEmbeds = function() {
+  svc.$videoPaneContainers.removeClass("show");
 };
 
 svc.currentVideoSlide = function() {
@@ -215,14 +224,28 @@ svc.handleVideoSlide = function(index) {
   if (svc.player) {
     svc.player.pause();
   }
-  $(".video-pane__background-still").removeClass("hide");
-  $(".video-pane__youtube").removeClass("show");
+  // @TODO: clean up hide/show class handling
+  var currentIframe = iframeSvc.players[svc.currentVideoSlide()];
+  var $cover = $(".hide-on-play");
+  var $iframe = $(".video-pane__youtube");
+  $cover.removeClass("hide");
+  $iframe.removeClass("show");
   $(".fp-section.active .watch-video").on("click", function() {
-    $(".fp-section.active .video-pane__youtube").addClass("show");
-    $(".fp-section.active .video-pane__background-still").addClass("hide");
-    console.log(iframeSvc);
-    iframeSvc.players[svc.currentVideoSlide()].playVideo();
+    $iframe.addClass("show");
+    $cover.removeClass("show");
+    $cover.addClass("hide");
+    svc.$videoPaneContainers.addClass("show");
+    currentIframe.playVideo();
     //setTimeout(svc.playCurrentYoutubeVideo);
+  });
+  $(".fp-section.active .video-pane__video-close").on("click", function() {
+    svc.$videoPaneContainers.addClass("hide");
+    svc.$videoPaneContainers.removeClass("show");
+    $cover.addClass("show");
+    $cover.removeClass("hide");
+    $iframe.removeClass("show");
+    $iframe.addClass("hide");
+    currentIframe.pauseVideo();
   });
 };
 
@@ -255,8 +278,9 @@ svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = [
   {
     url: "us_all_pipelines",
-    caption: "Energy Transfer Partners Oil Spills 2015 - 16",
+    caption: "Caption one",
     mapId: "pipeline",
+    title: "Title One",
     default: true,
     coords: {
       x: 120,
@@ -265,8 +289,9 @@ svc.videoUrls = [
   },
   {
     url: "us_etp_pipelines",
-    caption: "Pipelines",
+    caption: "Caption Two",
     mapId: "pipeline",
+    title: "Title Two",
     coords: {
       x: 120,
       y: 300
@@ -274,8 +299,9 @@ svc.videoUrls = [
   },
   {
     url: "us_etp_spills",
-    caption: "Pipelines",
+    caption: "Caption Three",
     mapId: "pipeline",
+    title: "Title Three",
     coords: {
       x: 120,
       y: 400
@@ -283,7 +309,8 @@ svc.videoUrls = [
   },
   {
     url: "us_spills_2010",
-    caption: "Pipelines",
+    caption: "Caption Four",
+    title: "Title Four",
     mapId: "pipeline",
     coords: {
       x: 120,
@@ -294,6 +321,8 @@ svc.videoUrls = [
     url: "la_coastal_erosion_tb",
     caption: "Erosion",
     mapId: "louisiana",
+    caption: "Caption One",
+    title: "Title One",
     default: true,
     coords: {
       x: 120,
@@ -304,6 +333,8 @@ svc.videoUrls = [
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
     mapId: "louisiana",
+    caption: "Caption Two",
+    title: "Title Two",
     coords: {
       x: 120,
       y: 300
@@ -313,6 +344,8 @@ svc.videoUrls = [
     url: "la_pipeline_path_tb",
     caption: "Path",
     mapId: "louisiana",
+    caption: "Caption Three",
+    title: "Title Three",
     coords: {
       x: 120,
       y: 400
@@ -322,6 +355,8 @@ svc.videoUrls = [
     url: "la_pipeline_spills_tb",
     caption: "Spills",
     mapId: "louisiana",
+    caption: "Caption Four",
+    title: "Title Four",
     coords: {
       x: 120,
       y: 500
@@ -394,12 +429,12 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 
 svc.switchVideo = function(targetId, videoId) {
   var videoObject = svc.getVideoObject(videoId);
-  console.log("VIDEO OBJECT", videoObject);
   var url = svc.videoHost + videoObject.url;
-  console.log("URL", url);
   var caption = videoObject.caption;
+  var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, url);
+  $("#toggle-" + targetId + "-title").text(title);
   $("#toggle-" + targetId + "-caption").text(caption);
 };
 
