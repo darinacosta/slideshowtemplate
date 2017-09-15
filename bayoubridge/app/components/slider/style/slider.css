@@ -35,7 +35,7 @@ h1 {
   font-family: "Oswald";
   color: #c80813;
   font-weight: bold;
-  font-size: 65px;
+  font-size: 30px;
 }
 
 h2 {
@@ -44,7 +44,7 @@ h2 {
   color: white;
   padding-top: 10px;
   font-style: italic;
-  font-size: 27px;
+  font-size: 20px;
 }
 
 @-webkit-keyframes upDownMain {
@@ -246,10 +246,6 @@ body .panel-arrow-up {
   height: 40px;
 }
 
-.video-pane__video-close.first {
-  top: 110px;
-}
-
 .coverVideo {
   position: absolute;
   right: 0;
@@ -342,7 +338,7 @@ a {
 
 .video-pane__intro-text-holder {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   width: 100%;
   -webkit-transform: translate(-50%, -40%);

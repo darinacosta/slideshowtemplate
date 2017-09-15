@@ -25,7 +25,6 @@ svc.playCurrentVimeoVideo = function() {
 svc.playCurrentYoutubeVideo = function(ev) {
   var activeSection = sliderSvc.getActiveSection() - 1;
   var iframe = document.querySelector("#videoslide0" + activeSection);
-  console.log("TIME --- >", iframe.getCurrentTime());
   iframe.src += "&autoplay=1";
   ev.preventDefault();
 };
@@ -58,6 +57,7 @@ svc.handleVideoSlide = function(index) {
   $iframe.removeClass("show");
   $(".fp-section.active .watch-video").on("click", function() {
     $iframe.addClass("show");
+    $iframe.removeClass("hide");
     $cover.removeClass("show");
     $cover.addClass("hide");
     svc.$videoPaneContainers.addClass("show");

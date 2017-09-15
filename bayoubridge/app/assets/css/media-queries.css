@@ -1,4 +1,40 @@
+@media all and (orientation: landscape) and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .title-wrapper {
+    margin-top: -10%;
+  }
+
+  .video-caption {
+    margin-top: 25px;
+  }
+
+  .video-pane__play-wrap {
+    position: absolute;
+    top: -14%;
+    right: 5%;
+  }
+}
+
 @media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 65px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
   .desktop {
     visibility: visible;
   }
@@ -46,5 +82,9 @@
   .video-caption p {
     font-family: "Droid Serif";
     font-size: 15px;
+  }
+
+  .bayou-timeline {
+    width: 6%;
   }
 }

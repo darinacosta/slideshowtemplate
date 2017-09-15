@@ -1,5 +1,4 @@
 var Modernizr = require("modernizr");
-
 var svc = {};
 svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = [
@@ -137,11 +136,11 @@ svc.handleVideoReplace = function(targetId, videoUrl) {
   var targetVideo = $("video#" + targetId);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
-    src = videoUrl + ".mp4";
-  } else if (Modernizr.video && Modernizr.video.ogg) {
     src = videoUrl + ".webm";
-  } else {
+  } else if (Modernizr.video && Modernizr.video.ogg) {
     src = videoUrl + ".ogv";
+  } else {
+    src = videoUrl + ".mp4";
   }
   console.log("SRC", src);
   targetVideo.attr("src", src);

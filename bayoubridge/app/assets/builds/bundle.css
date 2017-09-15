@@ -302,86 +302,6 @@ iframe {
   background-color: black;
 }
 
-@media (min-width: 768px) {
-  header {
-    background-image: none;
-    min-height: auto;
-  }
-
-  header .header-content {
-    position: absolute;
-    top: 35%;
-    padding: 0 0;
-    -webkit-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-  }
-
-  header .header-content .header-content-inner {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1000px;
-  }
-
-  header .header-content .header-content-inner p {
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 80%;
-    font-size: 18px;
-  }
-
-  header .header-content-inner {
-    position: relative;
-  }
-
-  /*
-      Video Header
-    */
-
-  .header-video {
-    display: block;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .header-video iframe,
-  .header-video video {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    opacity: 0.6;
-  }
-
-  .header-video iframe {
-    height: 100%;
-    width: 100%;
-  }
-
-  .header-video video {
-    width: 100%;
-  }
-
-  .header-video__teaser-video {
-    width: 100%;
-    height: auto;
-  }
-
-  .header-video__media {
-    width: 100%;
-    height: auto;
-  }
-
-  /*
-      DJA
-    */
-
-  .mobile {
-    display: none;
-  }
-}
-
 .section-heading {
   margin-top: 0;
 }
@@ -664,7 +584,7 @@ h1 {
   font-family: "Oswald";
   color: #c80813;
   font-weight: bold;
-  font-size: 65px;
+  font-size: 30px;
 }
 
 h2 {
@@ -673,7 +593,7 @@ h2 {
   color: white;
   padding-top: 10px;
   font-style: italic;
-  font-size: 27px;
+  font-size: 20px;
 }
 
 @-webkit-keyframes upDownMain {
@@ -875,10 +795,6 @@ body .panel-arrow-up {
   height: 40px;
 }
 
-.video-pane__video-close.first {
-  top: 110px;
-}
-
 .coverVideo {
   position: absolute;
   right: 0;
@@ -971,7 +887,7 @@ a {
 
 .video-pane__intro-text-holder {
   position: absolute;
-  top: 50%;
+  top: 46%;
   left: 50%;
   width: 100%;
   -webkit-transform: translate(-50%, -40%);
@@ -1095,7 +1011,7 @@ a {
 .bayou-timeline {
   position: fixed;
   top: 0;
-  width: 6%;
+  width: 0%;
   height: 100vh;
   z-index: 1000;
   pointer-events: none;
@@ -1287,7 +1203,43 @@ timeline__textContainer .text-wrapper {
 .hotspot-container {
   display: none;
 }
+@media all and (orientation: landscape) and (max-width: 768px) {
+  h1 {
+    font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  .title-wrapper {
+    margin-top: -10%;
+  }
+
+  .video-caption {
+    margin-top: 25px;
+  }
+
+  .video-pane__play-wrap {
+    position: absolute;
+    top: -14%;
+    right: 5%;
+  }
+}
+
 @media only screen and (min-width: 768px) {
+  h1 {
+    font-size: 65px;
+  }
+
+  h2 {
+    font-size: 27px;
+  }
+
+  .mobile {
+    display: none;
+  }
+
   .desktop {
     visibility: visible;
   }
@@ -1335,5 +1287,9 @@ timeline__textContainer .text-wrapper {
   .video-caption p {
     font-family: "Droid Serif";
     font-size: 15px;
+  }
+
+  .bayou-timeline {
+    width: 6%;
   }
 }

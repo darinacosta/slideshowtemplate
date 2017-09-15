@@ -46,7 +46,7 @@ module.exports = {
   entry: {
     app: "./app.js",
     style: "./style.js",
-    vendor: ["jquery", "bootstrap", "fullpage.js", "parallax-js"]
+    vendor: ["jquery", "bootstrap", "fullpage.js"]
   },
   output: {
     path: __dirname + "/app/assets/builds",
