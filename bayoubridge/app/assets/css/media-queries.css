@@ -43,6 +43,11 @@
     display: block;
   }
 
+  .hotspot {
+    width: 45px;
+    height: 45px;
+  }
+
   .gallery-display-wrapper {
     width: 70%;
   }

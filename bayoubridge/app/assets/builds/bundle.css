@@ -1130,8 +1130,8 @@ timeline__textContainer .text-wrapper {
 }
 
 .hotspot {
-  width: 45px;
-  height: 45px;
+  width: 25px;
+  height: 25px;
   z-index: 9999;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, .5);
@@ -1177,12 +1177,10 @@ timeline__textContainer .text-wrapper {
 
 .video-gallery-caption {
   height: 20px;
-}
-
-.video-gallery-caption {
   z-index: 9999;
   position: absolute;
-  top: 82%;
+  color: white;
+  top: 70%;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -1201,7 +1199,6 @@ timeline__textContainer .text-wrapper {
 }
 
 .hotspot-container {
-  display: none;
 }
 @media all and (orientation: landscape) and (max-width: 768px) {
   h1 {
@@ -1246,6 +1243,11 @@ timeline__textContainer .text-wrapper {
 
   .hotspot-container {
     display: block;
+  }
+
+  .hotspot {
+    width: 45px;
+    height: 45px;
   }
 
   .gallery-display-wrapper {

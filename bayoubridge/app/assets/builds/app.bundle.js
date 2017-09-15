@@ -1341,8 +1341,8 @@ svc.videoUrls = [
     title: "Title One",
     default: true,
     coords: {
-      x: 120,
-      y: 200
+      x: 6,
+      y: 20
     }
   },
   {
@@ -1351,8 +1351,8 @@ svc.videoUrls = [
     mapId: "pipeline",
     title: "Title Two",
     coords: {
-      x: 120,
-      y: 300
+      x: 6,
+      y: 40
     }
   },
   {
@@ -1361,8 +1361,8 @@ svc.videoUrls = [
     mapId: "pipeline",
     title: "Title Three",
     coords: {
-      x: 120,
-      y: 400
+      x: 6,
+      y: 60
     }
   },
   {
@@ -1371,8 +1371,8 @@ svc.videoUrls = [
     title: "Title Four",
     mapId: "pipeline",
     coords: {
-      x: 120,
-      y: 500
+      x: 6,
+      y: 80
     }
   },
   {
@@ -1383,8 +1383,8 @@ svc.videoUrls = [
     title: "Title One",
     default: true,
     coords: {
-      x: 120,
-      y: 200
+      x: 6,
+      y: 20
     }
   },
   {
@@ -1394,8 +1394,8 @@ svc.videoUrls = [
     caption: "Caption Two",
     title: "Title Two",
     coords: {
-      x: 120,
-      y: 300
+      x: 6,
+      y: 40
     }
   },
   {
@@ -1405,8 +1405,8 @@ svc.videoUrls = [
     caption: "Caption Three",
     title: "Title Three",
     coords: {
-      x: 120,
-      y: 400
+      x: 6,
+      y: 60
     }
   },
   {
@@ -1416,8 +1416,8 @@ svc.videoUrls = [
     caption: "Caption Four",
     title: "Title Four",
     coords: {
-      x: 120,
-      y: 500
+      x: 6,
+      y: 80
     }
   }
 ];
@@ -1492,8 +1492,9 @@ svc.switchVideo = function(targetId, videoId) {
   var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, url);
-  $("#toggle-" + targetId + "-title").text(title);
-  $("#toggle-" + targetId + "-caption").text(caption);
+  console.log($(".toggle-" + targetId + "-title"));
+  $(".toggle-" + targetId + "-title").text(title);
+  $(".toggle-" + targetId + "-caption").text(caption);
 };
 
 svc.buildHotspots = function(mapId) {
@@ -1511,9 +1512,9 @@ svc.buildHotspots = function(mapId) {
         videoObject.url +
         '" style="top:' +
         videoObject.coords.y +
-        "px;right:" +
+        "%;right:" +
         videoObject.coords.x +
-        'px" />';
+        '%" />';
     }
   }
   $(".hotspot-container#" + mapId).html(htmlString);

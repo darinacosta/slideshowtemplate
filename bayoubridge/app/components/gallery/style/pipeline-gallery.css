@@ -21,12 +21,10 @@
 
 .video-gallery-caption {
   height: 20px;
-}
-
-.video-gallery-caption {
   z-index: 9999;
   position: absolute;
-  top: 82%;
+  color: white;
+  top: 70%;
   width: 100%;
   margin: 0 auto;
   text-align: center;
@@ -45,5 +43,4 @@
 }
 
 .hotspot-container {
-  display: none;
 }
