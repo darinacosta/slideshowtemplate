@@ -36,6 +36,7 @@ h1 {
   color: #c80813;
   font-weight: bold;
   font-size: 30px;
+  text-shadow: 2px 2px #ffffff;
 }
 
 h2 {
@@ -45,6 +46,7 @@ h2 {
   padding-top: 10px;
   font-style: italic;
   font-size: 20px;
+  text-shadow: 2px 2px #c80813;
 }
 
 @-webkit-keyframes upDownMain {
