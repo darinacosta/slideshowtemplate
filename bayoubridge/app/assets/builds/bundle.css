@@ -91,7 +91,7 @@ p {
 }
 
 .desktop {
-  visibility: hidden;
+  display: none;
 }
 
 .bg-primary {
@@ -805,7 +805,6 @@ body .panel-arrow-up {
   height: 100%;
   background-size: 100% 100%;
   background-color: black;
-  background-image: ;
   background-position: center center;
   background-size: contain;
   object-fit: cover;
@@ -850,6 +849,39 @@ a {
   font-size: 20px;
   max-width: 480px;
   line-height: 30px;
+}
+
+html,
+body,
+.container {
+  height: 110%;
+}
+.container {
+  display: table;
+  width: 100%;
+  margin-top: -50px;
+  padding: 50px 0 0 0; /*set left/right padding according to needs*/
+  box-sizing: border-box;
+}
+
+.row {
+  height: 100%;
+  display: table-row;
+}
+
+.row .no-float {
+  display: table-cell;
+  float: none;
+}
+
+.character-container {
+  height: 100%;
+  background-size: 100% 100%;
+  background-color: black;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  z-index: 3;
 }
 
 .title-wrapper {
@@ -1238,7 +1270,7 @@ timeline__textContainer .text-wrapper {
   }
 
   .desktop {
-    visibility: visible;
+    display: block;
   }
 
   .hotspot-container {

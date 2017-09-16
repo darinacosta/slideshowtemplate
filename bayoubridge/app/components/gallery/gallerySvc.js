@@ -154,6 +154,13 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 };
 
 svc.switchVideo = function(targetId, videoId) {
+  var hidden = $(".gallery-player:visible").length === 0;
+  if (hidden) {
+    $(".gallery-display-wrapper." + targetId).css(
+      "background-image",
+      "url('app/assets/img/maps/map-" + videoId + ".png')"
+    );
+  }
   var videoObject = svc.getVideoObject(videoId);
   var url = svc.videoHost + videoObject.url;
   var caption = videoObject.caption;
