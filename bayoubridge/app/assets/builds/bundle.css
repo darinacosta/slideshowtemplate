@@ -784,7 +784,7 @@ body .panel-arrow-up {
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.53);
-  z-index: 88888;
+  z-index: 999;
   top: 0;
   height: 35px;
 }

@@ -1409,6 +1409,17 @@ var svc = {};
 svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = [
   {
+    url: "us_etp_pipelines",
+    caption: "Caption Two",
+    mapId: "pipeline",
+    loop: false,
+    title: "Title Two",
+    coords: {
+      x: 6,
+      y: 40
+    }
+  },
+  {
     url: "us_all_pipelines",
     caption: "Caption one",
     mapId: "pipeline",
@@ -1418,17 +1429,6 @@ svc.videoUrls = [
     coords: {
       x: 6,
       y: 20
-    }
-  },
-  {
-    url: "us_etp_pipelines",
-    caption: "Caption Two",
-    mapId: "pipeline",
-    loop: false,
-    title: "Title Two",
-    coords: {
-      x: 6,
-      y: 40
     }
   },
   {
