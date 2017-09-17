@@ -1,9 +1,19 @@
 var svc = {};
 var sliderSvc = require("./sliderSvc.js");
-
+svc.timeLineLength = $(".bayou-timeline__textContainer").length;
+svc.timeLineTextContainerHeight = 100 / svc.timeLineLength;
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
-svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
+svc.navBlockPosition = [5];
 svc.$timeline = $(".bayou-timeline");
+
+(function calculateTimelineNavPosition() {
+  var navBlockTotal = svc.navBlockPosition[0];
+  var navBlockStart = svc.navBlockPosition[0] / 100;
+  for (var i = 0; i < svc.timeLineLength; i += 1) {
+    navBlockTotal += svc.timeLineTextContainerHeight;
+    svc.navBlockPosition.push(navBlockTotal + navBlockStart);
+  }
+})();
 
 svc.setNavBlockTop = function(index) {
   svc.navBlock.css("top", svc.navBlockPosition[index] + "%");
@@ -27,5 +37,14 @@ svc.iterateTimelineText = function(index) {
     "active"
   );
 };
+
+svc.initTimeline = function() {
+  $(".bayou-timeline__textContainer").css(
+    "height",
+    svc.timeLineTextContainerHeight + "%"
+  );
+};
+
+svc.initTimeline();
 
 module.exports = svc;

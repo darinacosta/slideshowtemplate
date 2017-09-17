@@ -4,8 +4,8 @@ var sliderSvc = require("./sliderSvc.js");
 var timelineSvc = require("./timelineSvc.js");
 var videoSvc = require("./videoSvc.js");
 var gallerySvc = require("./../gallery/gallerySvc.js");
-
 var ctrl = {};
+
 if (typeof $.fn.fullpage.destroy === "function") {
   $.fn.fullpage.destroy("all");
 }
@@ -29,6 +29,9 @@ ctrl.init = function() {
     navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
+      if (index > 1) {
+        sliderSvc.downArrow.removeClass("bounce-down");
+      }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
       if (index === 2) {
@@ -45,25 +48,30 @@ ctrl.init = function() {
     },
     onLeave: function(index, nextIndex, direction) {
       timelineSvc.activateTimeLineComponent(nextIndex);
-      if (index === 1) {
+      var introVidHidden = $("#introVid:visible").length === 0;
+      console.log("INTRO VIDE HIDDEN", introVidHidden);
+      if (index === 1 && !introVidHidden) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
-        $introVid.fadeTo("slow", 1);
+        if (!introVidHidden) {
+          $introVid.fadeTo("slow", 1);
+        }
         timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
   });
 
-  $("#click-down").on("click", function() {
+  sliderSvc.downArrow.on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
 
-  $("#click-up").on("click", function() {
+  sliderSvc.upArrow.on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 
+  sliderSvc.registerCharacterContainerClick();
   gallerySvc.init();
 };
 

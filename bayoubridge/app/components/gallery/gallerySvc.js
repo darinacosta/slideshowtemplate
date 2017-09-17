@@ -6,6 +6,7 @@ svc.videoUrls = [
     url: "us_all_pipelines",
     caption: "Caption one",
     mapId: "pipeline",
+    loop: false,
     title: "Title One",
     default: true,
     coords: {
@@ -17,6 +18,7 @@ svc.videoUrls = [
     url: "us_etp_pipelines",
     caption: "Caption Two",
     mapId: "pipeline",
+    loop: false,
     title: "Title Two",
     coords: {
       x: 6,
@@ -27,6 +29,7 @@ svc.videoUrls = [
     url: "us_etp_spills",
     caption: "Caption Three",
     mapId: "pipeline",
+    loop: true,
     title: "Title Three",
     coords: {
       x: 6,
@@ -37,6 +40,7 @@ svc.videoUrls = [
     url: "us_spills_2010",
     caption: "Caption Four",
     title: "Title Four",
+    loop: false,
     mapId: "pipeline",
     coords: {
       x: 6,
@@ -48,6 +52,7 @@ svc.videoUrls = [
     caption: "Erosion",
     mapId: "louisiana",
     caption: "Caption One",
+    loop: false,
     title: "Title One",
     default: true,
     coords: {
@@ -59,6 +64,7 @@ svc.videoUrls = [
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
     mapId: "louisiana",
+    loop: false,
     caption: "Caption Two",
     title: "Title Two",
     coords: {
@@ -70,6 +76,7 @@ svc.videoUrls = [
     url: "la_pipeline_path_tb",
     caption: "Path",
     mapId: "louisiana",
+    loop: false,
     caption: "Caption Three",
     title: "Title Three",
     coords: {
@@ -81,6 +88,7 @@ svc.videoUrls = [
     url: "la_pipeline_spills_tb",
     caption: "Spills",
     mapId: "louisiana",
+    loop: true,
     caption: "Caption Four",
     title: "Title Four",
     coords: {
@@ -132,8 +140,10 @@ svc.initGalleryKeyControls = function() {
   });
 };
 
-svc.handleVideoReplace = function(targetId, videoUrl) {
+svc.handleVideoReplace = function(targetId, videoObject) {
+  var videoUrl = svc.videoHost + videoObject.url;
   var targetVideo = $("video#" + targetId);
+  targetVideo.prop("loop", videoObject.loop);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
     src = videoUrl + ".webm";
@@ -142,7 +152,6 @@ svc.handleVideoReplace = function(targetId, videoUrl) {
   } else {
     src = videoUrl + ".mp4";
   }
-  console.log("SRC", src);
   targetVideo.attr("src", src);
 };
 
@@ -154,19 +163,24 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 };
 
 svc.switchVideo = function(targetId, videoId) {
+  var $target = $(".gallery-display-wrapper." + targetId);
   var hidden = $(".gallery-player:visible").length === 0;
+  var backgroundImg =
+    "url('app/assets/img/maps/" + targetId + "_background.png')";
   if (hidden) {
     $(".gallery-display-wrapper." + targetId).css(
       "background-image",
       "url('app/assets/img/maps/map-" + videoId + ".png')"
     );
+  } else if ($target.css("background-image") !== backgroundImg) {
+    $target.css("background-image", backgroundImg);
   }
   var videoObject = svc.getVideoObject(videoId);
   var url = svc.videoHost + videoObject.url;
   var caption = videoObject.caption;
   var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
-  svc.handleVideoReplace(targetId, url);
+  svc.handleVideoReplace(targetId, videoObject);
   console.log($(".toggle-" + targetId + "-title"));
   $(".toggle-" + targetId + "-title").text(title);
   $(".toggle-" + targetId + "-caption").text(caption);

@@ -13,7 +13,7 @@
 </head>
 <body>
   <div id="fullpage">
-  	<div class="section fp-table" id="section0">
+  	<div class="section fp-table" id="section0" style="overflow:hidden">
       <div class="fp-tableCell">
       <div style="background-image: url(app/assets/img/titlecover.png);" data-src="app/assets/img/titlecover.png" class="video-pane__background-still mobile"></div>
       <video id="introVid" class="coverVideo desktop" loop muted data-autoplay style="top=-20">
@@ -34,11 +34,18 @@
       </div>
   	</div>
     <div class="section fp-table" id="section1" style="overflow:hidden">
-      <div class="container">
+      <div class="container" id="character-gallery">
           <div class="row">
-              <div class="col-sm-4 no-float character-container" style="background-image: url(app/assets/img/character_freetown_character_page.jpg);"></div>
-              <div class="col-sm-4 no-float character-container" style="background-image: url(app/assets/img/character_general_character_page.jpg);"></div>
-              <div class="col-sm-4 no-float character-container" style="background-image: url(app/assets/img/character_archivist_character_page.jpg);"></div>
+              <div class="col-xs-4 no-float character-container" id="character-freetown" style="background-image: url(app/assets/img/character_freetown_character_page.jpg);"></div>
+              <div class="col-xs-4 no-float character-container" id="character-general" style="background-image: url(app/assets/img/character_general_character_page.jpg);">
+                <h3>The General</h3>
+                <div class="character-caption">
+                  <h4>The General</h4>
+                  <hr>
+                  <p>TEST</p>
+                </div>
+              </div>
+              <div class="col-xs-4 no-float character-container" id="character-archivist" style="background-image: url(app/assets/img/character_archivist_character_page.jpg);"></div>
           </div>
       </div>
     </div>
@@ -131,7 +138,16 @@
   </div>
 </div>
   <div class="panel-arrow-up" id="click-up"></div>
-  <div class="panel-arrow-down" id="click-down"></div>
+  <div class="panel-arrow-down bounce-down" id="click-down"></div>
+  <div class="top-header">
+    <div class="take-action-wrapper" style="width:100%;position:relative;">
+      <div class="take-action-button">
+        <div class="take-action-text">
+          TAKE ACTION
+        </div>
+      </div>
+    </div>
+  </div>
   <div data-module="bayou-timeline" class="bayou-timeline" style="display: block;">
         <div class="bayou-timeline__navBlock travel extra">
         </div>
@@ -189,18 +205,6 @@
                     05</h4>
                 <h4 class="title">
                     Map Two</h4>
-            </div>
-            <div class="line-wrapper">
-                <div class="bayou-timeline__separationLine">
-                </div>
-            </div>
-        </div>
-        <div class="bayou-timeline__textContainer">
-            <div class="text-wrapper">
-                <h4 class="num">
-                    06</h4>
-                <h4 class="title">
-                    Video Three</h4>
             </div>
             <div class="line-wrapper">
                 <div class="bayou-timeline__separationLine">

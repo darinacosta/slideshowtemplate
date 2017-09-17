@@ -22,11 +22,11 @@ body {
   background-color: black;
   overflow: hidden;
   height: 100%;
+  font-family: "Droid Serif";
 }
 
 body {
   display: none;
-  font-family: 'Big Caslon', 'Book Antiqua', 'Palatino Linotype', Georgia, serif;
 }
 
 body[class*="fp-viewing-"] {
@@ -585,6 +585,7 @@ h1 {
   color: #c80813;
   font-weight: bold;
   font-size: 30px;
+  text-transform: uppercase;
   text-shadow: 2px 2px #ffffff;
 }
 
@@ -598,33 +599,46 @@ h2 {
   text-shadow: 2px 2px #c80813;
 }
 
+h3 {
+  font-family: "Oswald";
+  color: #ffffff;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin: 0;
+}
+
 @-webkit-keyframes upDownMain {
   0% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 
-  80% {
+  20% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 
-  85% {
+  30% {
     -webkit-transform: translate(-50%, 10px);
     transform: translate(-50%, 10px);
   }
 
-  90% {
+  40% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 
-  95% {
+  50% {
     -webkit-transform: translate(-50%, 10px);
     transform: translate(-50%, 10px);
   }
 
-  100% {
+  60% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  70% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
@@ -636,27 +650,32 @@ h2 {
     transform: translate(-50%, 0);
   }
 
-  80% {
+  20% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 
-  85% {
+  30% {
     -webkit-transform: translate(-50%, 10px);
     transform: translate(-50%, 10px);
   }
 
-  90% {
+  40% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
 
-  95% {
+  50% {
     -webkit-transform: translate(-50%, 10px);
     transform: translate(-50%, 10px);
   }
 
-  100% {
+  60% {
+    -webkit-transform: translate(-50%, 0);
+    transform: translate(-50%, 0);
+  }
+
+  70% {
     -webkit-transform: translate(-50%, 0);
     transform: translate(-50%, 0);
   }
@@ -739,8 +758,6 @@ body .panel-arrow-down {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 99999;
-  -webkit-animation: upDownMain 6s ease 3s infinite;
-  animation: upDownMain 6s ease 3s infinite;
   cursor: pointer;
 }
 
@@ -758,9 +775,34 @@ body .panel-arrow-up {
   background-repeat: no-repeat;
   background-size: contain;
   z-index: 99999;
-  -webkit-animation: upDownUp 6s ease 3s infinite;
-  animation: upDownUp 6s ease 3s infinite;
+  /*-webkit-animation: upDownUp 6s ease 3s infinite;
+  animation: upDownUp 6s ease 3s infinite;*/
   cursor: pointer;
+}
+
+.top-header {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.53);
+  z-index: 88888;
+  top: 0;
+  height: 35px;
+}
+
+.take-action-button {
+  position: absolute;
+  font-family: Oswald;
+  right: 6%;
+  height: 35px;
+  font-size: 20px;
+  top: 0;
+  background-color: red;
+  color: white;
+}
+
+.take-action-text {
+  height: 35px;
+  padding: 3px;
 }
 
 /*
@@ -886,6 +928,22 @@ body,
   z-index: 3;
 }
 
+.character-container h3 {
+  color: rgba(255, 255, 255);
+  top: 10%;
+  position: absolute;
+  left: 10%;
+  font-size: 25px;
+}
+
+.character-container h4 {
+  color: white;
+}
+
+.character-container.active h3 {
+  color: rgba(204, 0, 0, 0.7);
+}
+
 .title-wrapper {
   z-index: 100;
   color: white;
@@ -1003,7 +1061,8 @@ body,
   backface-visibility: hidden;
 }
 
-.video-caption {
+.video-caption,
+.character-caption {
   color: white;
   background-color: rgba(0, 0, 0, 0.48);
   border: 1px solid white;
@@ -1014,8 +1073,20 @@ body,
   text-align: left;
 }
 
+.character-caption {
+  top: 46%;
+  position: absolute;
+  right: 10%;
+}
+
+.character-caption {
+  display: none;
+}
+
 .video-caption h3,
-.map-caption h3 {
+.map-caption h3,
+.character-caption h3,
+.character-caption h4 {
   letter-spacing: 2px;
   font-family: "Oswald";
   font-weight: bold;
@@ -1032,7 +1103,8 @@ body,
 }
 
 .video-caption hr,
-.map-caption hr {
+.map-caption hr,
+.character-caption hr {
   max-width: 100%;
   width: 100%;
   display: block;
@@ -1195,14 +1267,14 @@ timeline__textContainer .text-wrapper {
   width: 100%;
   background-color: black;
   background-size: contain;
-  background-image: url('./../img/usa_line.png');
+  background-image: url('./../img/maps/pipeline_background.png');
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: center;
 }
 
 #louisiana-gallery {
-  background-image: url('./../img/louisianabackground.png');
+  background-image: url('./../img/maps/louisiana_background.png');
 }
 
 .gallery-slide {
@@ -1267,6 +1339,10 @@ timeline__textContainer .text-wrapper {
     font-size: 27px;
   }
 
+  .character-container h3 {
+    font-size: 35px;
+  }
+
   .mobile {
     display: none;
   }
@@ -1286,6 +1362,11 @@ timeline__textContainer .text-wrapper {
 
   .gallery-display-wrapper {
     width: 70%;
+  }
+
+  .bounce-down {
+    -webkit-animation: upDownMain 4s ease 1s infinite;
+    animation: upDownMain 4s ease 1s infinite;
   }
 
   .btn-collection {

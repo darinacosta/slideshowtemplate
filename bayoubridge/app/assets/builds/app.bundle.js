@@ -12,6 +12,25 @@ var svc = {};
 svc.numberOfSections = $(".section").length;
 svc.upArrow = $(".panel-arrow-up");
 svc.downArrow = $(".panel-arrow-down");
+svc.$characterContainers = $("#character-gallery .character-container");
+
+svc.characterDetails = [
+  {
+    id: "general",
+    title: "The General",
+    description: "lorem ipsum"
+  },
+  {
+    id: "archivist",
+    title: "The Archivist",
+    description: "lorem ipsum"
+  },
+  {
+    id: "freetown",
+    title: "Freetown",
+    description: "lorem ipsum"
+  }
+];
 
 svc.getActiveSection = function() {
   var sectionIndex = $(".fp-section.active").index();
@@ -29,6 +48,34 @@ svc.togglePanelArrows = function(index) {
   }
 };
 
+svc.expandCharacterContainer = function(e) {
+  if (!e.target.id || $("#character-gallery #" + e.target.id).length === 0) {
+    return;
+  }
+  var characterId = e.target.id.split("character-")[1];
+  var $otherContainers = $(
+    "#character-gallery .character-container:not(#" + e.target.id + ")"
+  );
+  var $activeContainer = $(
+    "#character-gallery .character-container#" + e.target.id
+  );
+  console.log("ACTIVE CONTAINER", $activeContainer);
+  $(".character-caption").css("display", "none");
+  svc.$characterContainers.removeClass("active");
+  svc.$characterContainers.removeClass("col-xs-4");
+  svc.$characterContainers.removeClass("col-xs-6");
+  svc.$characterContainers.removeClass("col-xs-3");
+  $("#character-gallery #" + e.target.id).addClass("col-xs-6");
+  $activeContainer.addClass("active");
+  $otherContainers.addClass("col-xs-3");
+  $("#" + e.target.id + " .character-caption").css("display", "block");
+};
+
+svc.registerCharacterContainerClick = function() {
+  $("#character-gallery").on("click", svc.expandCharacterContainer);
+  svc.$characterContainers.hover(svc.expandCharacterContainer);
+};
+
 module.exports = svc;
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -39,10 +86,20 @@ module.exports = svc;
 
 /* WEBPACK VAR INJECTION */(function($) {var svc = {};
 var sliderSvc = __webpack_require__(1);
-
+svc.timeLineLength = $(".bayou-timeline__textContainer").length;
+svc.timeLineTextContainerHeight = 100 / svc.timeLineLength;
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
-svc.navBlockPosition = [3, 19.66, 36.32, 52.98, 69.64, 86.3];
+svc.navBlockPosition = [5];
 svc.$timeline = $(".bayou-timeline");
+
+(function calculateTimelineNavPosition() {
+  var navBlockTotal = svc.navBlockPosition[0];
+  var navBlockStart = svc.navBlockPosition[0] / 100;
+  for (var i = 0; i < svc.timeLineLength; i += 1) {
+    navBlockTotal += svc.timeLineTextContainerHeight;
+    svc.navBlockPosition.push(navBlockTotal + navBlockStart);
+  }
+})();
 
 svc.setNavBlockTop = function(index) {
   svc.navBlock.css("top", svc.navBlockPosition[index] + "%");
@@ -66,6 +123,15 @@ svc.iterateTimelineText = function(index) {
     "active"
   );
 };
+
+svc.initTimeline = function() {
+  $(".bayou-timeline__textContainer").css(
+    "height",
+    svc.timeLineTextContainerHeight + "%"
+  );
+};
+
+svc.initTimeline();
 
 module.exports = svc;
 
@@ -100,8 +166,8 @@ var sliderSvc = __webpack_require__(1);
 var timelineSvc = __webpack_require__(2);
 var videoSvc = __webpack_require__(7);
 var gallerySvc = __webpack_require__(8);
-
 var ctrl = {};
+
 if (typeof $.fn.fullpage.destroy === "function") {
   $.fn.fullpage.destroy("all");
 }
@@ -125,6 +191,9 @@ ctrl.init = function() {
     navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
+      if (index > 1) {
+        sliderSvc.downArrow.removeClass("bounce-down");
+      }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
       if (index === 2) {
@@ -141,25 +210,30 @@ ctrl.init = function() {
     },
     onLeave: function(index, nextIndex, direction) {
       timelineSvc.activateTimeLineComponent(nextIndex);
-      if (index === 1) {
+      var introVidHidden = $("#introVid:visible").length === 0;
+      console.log("INTRO VIDE HIDDEN", introVidHidden);
+      if (index === 1 && !introVidHidden) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
-        $introVid.fadeTo("slow", 1);
+        if (!introVidHidden) {
+          $introVid.fadeTo("slow", 1);
+        }
         timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
   });
 
-  $("#click-down").on("click", function() {
+  sliderSvc.downArrow.on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection + 1, 0);
   });
 
-  $("#click-up").on("click", function() {
+  sliderSvc.upArrow.on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 
+  sliderSvc.registerCharacterContainerClick();
   gallerySvc.init();
 };
 
@@ -1338,6 +1412,7 @@ svc.videoUrls = [
     url: "us_all_pipelines",
     caption: "Caption one",
     mapId: "pipeline",
+    loop: false,
     title: "Title One",
     default: true,
     coords: {
@@ -1349,6 +1424,7 @@ svc.videoUrls = [
     url: "us_etp_pipelines",
     caption: "Caption Two",
     mapId: "pipeline",
+    loop: false,
     title: "Title Two",
     coords: {
       x: 6,
@@ -1359,6 +1435,7 @@ svc.videoUrls = [
     url: "us_etp_spills",
     caption: "Caption Three",
     mapId: "pipeline",
+    loop: true,
     title: "Title Three",
     coords: {
       x: 6,
@@ -1369,6 +1446,7 @@ svc.videoUrls = [
     url: "us_spills_2010",
     caption: "Caption Four",
     title: "Title Four",
+    loop: false,
     mapId: "pipeline",
     coords: {
       x: 6,
@@ -1380,6 +1458,7 @@ svc.videoUrls = [
     caption: "Erosion",
     mapId: "louisiana",
     caption: "Caption One",
+    loop: false,
     title: "Title One",
     default: true,
     coords: {
@@ -1391,6 +1470,7 @@ svc.videoUrls = [
     url: "la_current_pipelines_tb",
     caption: "Pipelines",
     mapId: "louisiana",
+    loop: false,
     caption: "Caption Two",
     title: "Title Two",
     coords: {
@@ -1402,6 +1482,7 @@ svc.videoUrls = [
     url: "la_pipeline_path_tb",
     caption: "Path",
     mapId: "louisiana",
+    loop: false,
     caption: "Caption Three",
     title: "Title Three",
     coords: {
@@ -1413,6 +1494,7 @@ svc.videoUrls = [
     url: "la_pipeline_spills_tb",
     caption: "Spills",
     mapId: "louisiana",
+    loop: true,
     caption: "Caption Four",
     title: "Title Four",
     coords: {
@@ -1464,8 +1546,10 @@ svc.initGalleryKeyControls = function() {
   });
 };
 
-svc.handleVideoReplace = function(targetId, videoUrl) {
+svc.handleVideoReplace = function(targetId, videoObject) {
+  var videoUrl = svc.videoHost + videoObject.url;
   var targetVideo = $("video#" + targetId);
+  targetVideo.prop("loop", videoObject.loop);
   var src = videoUrl;
   if (Modernizr.video && Modernizr.video.webm) {
     src = videoUrl + ".webm";
@@ -1474,7 +1558,6 @@ svc.handleVideoReplace = function(targetId, videoUrl) {
   } else {
     src = videoUrl + ".mp4";
   }
-  console.log("SRC", src);
   targetVideo.attr("src", src);
 };
 
@@ -1486,19 +1569,24 @@ svc.setActiveButton = function setActiveButton(targetId, videoId) {
 };
 
 svc.switchVideo = function(targetId, videoId) {
+  var $target = $(".gallery-display-wrapper." + targetId);
   var hidden = $(".gallery-player:visible").length === 0;
+  var backgroundImg =
+    "url('app/assets/img/maps/" + targetId + "_background.png')";
   if (hidden) {
     $(".gallery-display-wrapper." + targetId).css(
       "background-image",
       "url('app/assets/img/maps/map-" + videoId + ".png')"
     );
+  } else if ($target.css("background-image") !== backgroundImg) {
+    $target.css("background-image", backgroundImg);
   }
   var videoObject = svc.getVideoObject(videoId);
   var url = svc.videoHost + videoObject.url;
   var caption = videoObject.caption;
   var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
-  svc.handleVideoReplace(targetId, url);
+  svc.handleVideoReplace(targetId, videoObject);
   console.log($(".toggle-" + targetId + "-title"));
   $(".toggle-" + targetId + "-title").text(title);
   $(".toggle-" + targetId + "-caption").text(caption);

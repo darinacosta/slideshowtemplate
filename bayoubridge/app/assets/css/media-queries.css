@@ -31,6 +31,10 @@
     font-size: 27px;
   }
 
+  .character-container h3 {
+    font-size: 35px;
+  }
+
   .mobile {
     display: none;
   }
@@ -50,6 +54,11 @@
 
   .gallery-display-wrapper {
     width: 70%;
+  }
+
+  .bounce-down {
+    -webkit-animation: upDownMain 4s ease 1s infinite;
+    animation: upDownMain 4s ease 1s infinite;
   }
 
   .btn-collection {
