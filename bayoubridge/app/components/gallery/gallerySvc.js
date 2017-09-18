@@ -48,24 +48,24 @@ svc.videoUrls = [
     }
   },
   {
-    url: "la_coastal_erosion_tb",
-    caption: "Erosion",
+    url: "la_pipeline_path_tb",
+    caption: "Path",
     mapId: "louisiana",
-    caption: "Caption One",
     loop: false,
-    title: "Title One",
     default: true,
+    caption: "Caption One",
+    title: "Title One",
     coords: {
       x: 6,
       y: 20
     }
   },
   {
-    url: "la_current_pipelines_tb",
-    caption: "Pipelines",
+    url: "la_coastal_erosion_tb",
+    caption: "Erosion",
     mapId: "louisiana",
-    loop: false,
     caption: "Caption Two",
+    loop: false,
     title: "Title Two",
     coords: {
       x: 6,
@@ -73,8 +73,8 @@ svc.videoUrls = [
     }
   },
   {
-    url: "la_pipeline_path_tb",
-    caption: "Path",
+    url: "la_current_pipelines_tb",
+    caption: "Pipelines",
     mapId: "louisiana",
     loop: false,
     caption: "Caption Three",

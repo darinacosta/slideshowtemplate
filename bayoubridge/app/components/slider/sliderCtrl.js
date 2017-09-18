@@ -41,7 +41,7 @@ ctrl.init = function() {
         gallerySvc.switchVideo("pipeline", "us_etp_pipelines");
         gallerySvc.buildHotspots("pipeline");
       } else if (gallerySvc.currentGallerySlide() === "louisiana") {
-        gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
+        gallerySvc.switchVideo("louisiana", "la_pipeline_path_tb");
         gallerySvc.buildHotspots("louisiana");
       }
       videoSvc.handleVideoSlide(index);
