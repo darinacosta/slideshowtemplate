@@ -93,6 +93,11 @@
     width: 20%;
   }
 
+  .louisiana-map-caption.map-caption {
+    right: 21%;
+    width: 24%;
+  }
+
   .video-caption p {
     font-family: "Droid Serif";
     font-size: 15px;

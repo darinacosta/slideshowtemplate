@@ -235,7 +235,7 @@ body .panel-arrow-up {
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.53);
-  z-index: 999;
+  z-index: 8;
   top: 0;
   height: 35px;
 }
@@ -268,8 +268,8 @@ body .panel-arrow-up {
   position: absolute;
   color: #fff;
   fill: #fff;
-  top: 1em;
-  right: 1em;
+  top: 5em;
+  right: 3em;
   z-index: 11;
   -webkit-transition: .2s;
   transition: .2s;

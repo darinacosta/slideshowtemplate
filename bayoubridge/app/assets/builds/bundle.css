@@ -784,7 +784,7 @@ body .panel-arrow-up {
   position: absolute;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.53);
-  z-index: 999;
+  z-index: 8;
   top: 0;
   height: 35px;
 }
@@ -817,8 +817,8 @@ body .panel-arrow-up {
   position: absolute;
   color: #fff;
   fill: #fff;
-  top: 1em;
-  right: 1em;
+  top: 5em;
+  right: 3em;
   z-index: 11;
   -webkit-transition: .2s;
   transition: .2s;
@@ -1119,7 +1119,7 @@ body,
   top: 0;
   width: 0%;
   height: 100vh;
-  z-index: 1000;
+  z-index: 9;
   pointer-events: none;
   display: none;
   visibility: hidden;
@@ -1135,7 +1135,7 @@ body,
   right: -2px;
   height: 10%;
   width: 4px;
-  z-index: 1001;
+  z-index: 9;
   background-color: #c80813;
   -webkit-transition: top .5s ease;
   transition: top .5s ease;
@@ -1399,6 +1399,11 @@ timeline__textContainer .text-wrapper {
     top: 17%;
     z-index: 100;
     width: 20%;
+  }
+
+  .louisiana-map-caption.map-caption {
+    right: 21%;
+    width: 24%;
   }
 
   .video-caption p {

@@ -8,9 +8,10 @@ svc.videoUrls = [
     mapId: "pipeline",
     loop: false,
     title: "Title Two",
+    default: true,
     coords: {
       x: 6,
-      y: 40
+      y: 20
     }
   },
   {
@@ -19,10 +20,9 @@ svc.videoUrls = [
     mapId: "pipeline",
     loop: false,
     title: "Title One",
-    default: true,
     coords: {
       x: 6,
-      y: 20
+      y: 40
     }
   },
   {

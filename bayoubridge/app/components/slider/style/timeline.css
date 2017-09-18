@@ -3,7 +3,7 @@
   top: 0;
   width: 0%;
   height: 100vh;
-  z-index: 1000;
+  z-index: 9;
   pointer-events: none;
   display: none;
   visibility: hidden;
@@ -19,7 +19,7 @@
   right: -2px;
   height: 10%;
   width: 4px;
-  z-index: 1001;
+  z-index: 9;
   background-color: #c80813;
   -webkit-transition: top .5s ease;
   transition: top .5s ease;

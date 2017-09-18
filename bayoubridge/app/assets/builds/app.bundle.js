@@ -146,12 +146,8 @@ module.exports = svc;
 
 var sliderCtrl = __webpack_require__(4);
 
-function init() {
-  sliderCtrl.init();
-}
-
 $(document).ready(function() {
-  init();
+  sliderCtrl.init();
 });
 
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
@@ -200,7 +196,7 @@ ctrl.init = function() {
         timelineSvc.$timeline.css("visibility", "visible");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
-        gallerySvc.switchVideo("pipeline", "us_all_pipelines");
+        gallerySvc.switchVideo("pipeline", "us_etp_pipelines");
         gallerySvc.buildHotspots("pipeline");
       } else if (gallerySvc.currentGallerySlide() === "louisiana") {
         gallerySvc.switchVideo("louisiana", "la_coastal_erosion_tb");
@@ -1414,9 +1410,10 @@ svc.videoUrls = [
     mapId: "pipeline",
     loop: false,
     title: "Title Two",
+    default: true,
     coords: {
       x: 6,
-      y: 40
+      y: 20
     }
   },
   {
@@ -1425,10 +1422,9 @@ svc.videoUrls = [
     mapId: "pipeline",
     loop: false,
     title: "Title One",
-    default: true,
     coords: {
       x: 6,
-      y: 20
+      y: 40
     }
   },
   {
