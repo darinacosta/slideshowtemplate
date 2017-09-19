@@ -231,6 +231,11 @@ body .panel-arrow-up {
   cursor: pointer;
 }
 
+a,
+a:hover {
+  color: #dc5f66;
+}
+
 .top-header {
   position: absolute;
   width: 100%;
@@ -330,10 +335,6 @@ body .video-pane__container {
   z-index: 10;
   visibility: hidden;
   /*opacity: 0;*/
-}
-
-a {
-  color: #e48904;
 }
 
 .blurb {

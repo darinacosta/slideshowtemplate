@@ -4,10 +4,11 @@ svc.videoHost = "https://s3.amazonaws.com/fireriver/trueblack/";
 svc.videoUrls = [
   {
     url: "us_etp_pipelines",
-    caption: "Caption Two",
+    caption:
+      "The Bayou Bridge Pipeline would carry oil transported via the Dakota Access pipeline to refineries and international export terminals in Louisiana.",
     mapId: "pipeline",
     loop: false,
-    title: "Title Two",
+    title: "Connection of Dakota Access Pipeline and Bayou Bridge Pipeline",
     default: true,
     coords: {
       x: 6,
@@ -16,32 +17,35 @@ svc.videoUrls = [
   },
   {
     url: "us_all_pipelines",
-    caption: "Caption one",
+    caption:
+      "There are <a href='https://hip.phmsa.dot.gov/analyticsSOAP/saw.dll?Portalpages'>73,000 miles</a> of <a href='http://www.pipeline101.org/where-are-pipelines-located'>pipelines crisscrossing the US</a> transporting crude oil.",
     mapId: "pipeline",
     loop: false,
-    title: "Title One",
+    title: "Map of US Pipelines",
     coords: {
       x: 6,
       y: 40
     }
   },
   {
-    url: "us_etp_spills",
-    caption: "Caption Three",
+    url: "us_spills_2010",
+    caption:
+      "Nearly 9 million gallons of crude oil have spilled from pipelines in the United States since 2010. <i>[Source: Pipeline and Hazardous Materials Safety Administration]</i>",
+    title: "Pipeline Spills Since 2010",
+    loop: false,
     mapId: "pipeline",
-    loop: true,
-    title: "Title Three",
     coords: {
       x: 6,
       y: 60
     }
   },
   {
-    url: "us_spills_2010",
-    caption: "Caption Four",
-    title: "Title Four",
-    loop: false,
+    url: "us_etp_spills",
+    caption:
+      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. <i>[Source: National Response Center]</i>",
     mapId: "pipeline",
+    loop: true,
+    title: "Energy Transfer Partners Spills in 2015-2016",
     coords: {
       x: 6,
       y: 80
@@ -49,27 +53,15 @@ svc.videoUrls = [
   },
   {
     url: "la_pipeline_path_tb",
-    caption: "Path",
+    caption:
+      "The Bayou Bridge pipeline would cross 11 parishes, 700 bodies of water, and impact over 600 acres of wetlands. The pipeline route runs through Bayou Lafourche, the drinking water supply for at least 300,000 people.",
     mapId: "louisiana",
     loop: false,
     default: true,
-    caption: "Caption One",
-    title: "Title One",
+    title: "The Path Of The Bayou Bridge Pipeline",
     coords: {
       x: 6,
       y: 20
-    }
-  },
-  {
-    url: "la_coastal_erosion_tb",
-    caption: "Erosion",
-    mapId: "louisiana",
-    caption: "Caption Two",
-    loop: false,
-    title: "Title Two",
-    coords: {
-      x: 6,
-      y: 40
     }
   },
   {
@@ -77,8 +69,21 @@ svc.videoUrls = [
     caption: "Pipelines",
     mapId: "louisiana",
     loop: false,
-    caption: "Caption Three",
-    title: "Title Three",
+    caption:
+      "Louisiana currently has more than 50,000 miles of pipelines. <i>[Source: Department of Natural Resources]</i>",
+    title: "Louisiana Pipelines",
+    coords: {
+      x: 6,
+      y: 40
+    }
+  },
+  {
+    url: "la_coastal_erosion_tb",
+    caption:
+      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). <i>[Source: US Geological Survey]</i>",
+    mapId: "louisiana",
+    title: "Louisiana's Current Inhabitable Land",
+    loop: false,
     coords: {
       x: 6,
       y: 60
@@ -86,11 +91,11 @@ svc.videoUrls = [
   },
   {
     url: "la_pipeline_spills_tb",
-    caption: "Spills",
+    caption:
+      "There were 144 reported pipeline accidents in 2016. An average of 2.7 per week and doesn’t include the accidents that are not reported.",
     mapId: "louisiana",
     loop: true,
-    caption: "Caption Four",
-    title: "Title Four",
+    title: "Louisiana Pipeline Accidents",
     coords: {
       x: 6,
       y: 80
@@ -183,7 +188,7 @@ svc.switchVideo = function(targetId, videoId) {
   svc.handleVideoReplace(targetId, videoObject);
   console.log($(".toggle-" + targetId + "-title"));
   $(".toggle-" + targetId + "-title").text(title);
-  $(".toggle-" + targetId + "-caption").text(caption);
+  $(".toggle-" + targetId + "-caption").html(caption);
 };
 
 svc.buildHotspots = function(mapId) {
