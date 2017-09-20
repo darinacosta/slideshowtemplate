@@ -40,6 +40,22 @@
   animation: pulse 1s ease-in-out alternate infinite;
 }
 
+.hotspot:after {
+  content: '';
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-49%, -50%);
+  -ms-transform: translate(-49%, -50%);
+  transform: translate(-49%, -50%);
+  border-radius: 50%;
+  background-color: #fff;
+  -webkit-transition: background-color .3s ease;
+  transition: background-color .3s ease;
+}
+
 .hotspot.btn-warning {
   background-color: #c80813;
   -webkit-animation: none;
