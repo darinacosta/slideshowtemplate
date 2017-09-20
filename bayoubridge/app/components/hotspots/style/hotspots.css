@@ -42,6 +42,8 @@
 
 .hotspot.btn-warning {
   background-color: #c80813;
+  -webkit-animation: none;
+  animation: none;
 }
 
 .hotspot.btn-primary {
