@@ -56,6 +56,11 @@
     width: 70%;
   }
 
+  .video-gallery-caption {
+    top: 70%;
+    width: 100%;
+  }
+
   .bounce-down {
     -webkit-animation: upDownMain 4s ease 1s infinite;
     animation: upDownMain 4s ease 1s infinite;
