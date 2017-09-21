@@ -94,6 +94,10 @@
     width: 30%;
   }
 
+  .addthis_inline_share_toolbox {
+    left: 6%;
+  }
+
   .video-caption-left {
     color: white;
     background-color: rgba(0, 0, 0, 0.48);

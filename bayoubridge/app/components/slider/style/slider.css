@@ -415,13 +415,13 @@ body,
 .addthis_inline_share_toolbox {
   position: absolute;
   top: 8px;
-  left: 1%;
+  left: 15%;
 }
 
 .fireriver_logo {
   position: absolute;
   top: 2px;
-  right: 1%;
+  left: 1%;
   max-height: 90%;
 }
 
@@ -580,7 +580,8 @@ body,
 .video-caption-left hr,
 .map-caption hr,
 .video-gallery-caption hr,
-.character-caption hr {
+.character-caption hr,
+hr.white {
   max-width: 100%;
   width: 100%;
   display: block;
