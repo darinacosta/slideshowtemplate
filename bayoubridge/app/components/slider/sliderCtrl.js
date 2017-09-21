@@ -37,9 +37,9 @@ ctrl.init = function() {
       }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
-      if (index === 2 || index === 7) {
+      if (index === 3 || index === sliderSvc.numberOfSections - 1) {
         timelineSvc.$timeline.css("visibility", "visible");
-      } else if (index === 8) {
+      } else if (index === sliderSvc.numberOfSections) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
@@ -60,6 +60,7 @@ ctrl.init = function() {
         if (!introVidHidden) {
           $introVid.fadeTo("slow", 1);
         }
+      } else if (index === 3 && nextIndex === 2) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
@@ -76,7 +77,7 @@ ctrl.init = function() {
   });
 
   $(".take-action-button").on("click", function() {
-    $.fn.fullpage.moveTo(8);
+    $.fn.fullpage.moveTo(sliderSvc.numberOfSections);
   });
 
   sliderSvc.registerCharacterContainerClick();

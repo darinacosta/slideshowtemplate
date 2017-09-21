@@ -387,6 +387,7 @@ body,
   position: absolute;
   right: 10%;
   font-size: 25px;
+  display: none;
 }
 
 .character-container h4 {
@@ -395,6 +396,7 @@ body,
 
 .character-container.active h3 {
   color: rgba(204, 0, 0, 0.7);
+  display: block;
 }
 
 .title-wrapper {

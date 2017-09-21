@@ -56,12 +56,12 @@ svc.expandCharacterContainer = function(e) {
   );
   $(".character-caption").css("display", "none");
   svc.$characterContainers.removeClass("active");
-  svc.$characterContainers.removeClass("col-xs-4");
-  svc.$characterContainers.removeClass("col-xs-6");
   svc.$characterContainers.removeClass("col-xs-3");
+  svc.$characterContainers.removeClass("col-xs-6");
+  svc.$characterContainers.removeClass("col-xs-2");
   $("#character-gallery #" + e.target.id).addClass("col-xs-6");
   $activeContainer.addClass("active");
-  $otherContainers.addClass("col-xs-3");
+  $otherContainers.addClass("col-xs-2");
   $("#" + e.target.id + " .character-caption").css("display", "block");
 };
 
