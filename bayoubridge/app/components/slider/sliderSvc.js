@@ -35,6 +35,7 @@ svc.togglePanelArrows = function(index) {
   if (index === 1) {
     svc.upArrow.css("visibility", "hidden");
   } else if (index === svc.numberOfSections) {
+    svc.upArrow.css("visibility", "visible");
     svc.downArrow.css("visibility", "hidden");
   } else {
     svc.downArrow.css("visibility", "visible");
@@ -53,7 +54,6 @@ svc.expandCharacterContainer = function(e) {
   var $activeContainer = $(
     "#character-gallery .character-container#" + e.target.id
   );
-  console.log("ACTIVE CONTAINER", $activeContainer);
   $(".character-caption").css("display", "none");
   svc.$characterContainers.removeClass("active");
   svc.$characterContainers.removeClass("col-xs-4");

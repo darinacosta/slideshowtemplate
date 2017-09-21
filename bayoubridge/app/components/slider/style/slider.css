@@ -246,6 +246,7 @@ a:hover {
 }
 
 .take-action-button {
+  cursor: pointer;
   position: absolute;
   font-family: Oswald;
   right: 6%;

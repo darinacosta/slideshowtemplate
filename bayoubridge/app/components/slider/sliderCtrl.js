@@ -25,17 +25,22 @@ ctrl.init = function() {
       "rgb(0, 0, 0)",
       "rgb(0, 0, 0)"
     ],
+    anchors: [],
+    animateAnchor: true,
     navigation: true,
     navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
+      console.log("INDEX", index);
       if (index > 1) {
         sliderSvc.downArrow.removeClass("bounce-down");
       }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
-      if (index === 2) {
+      if (index === 2 || index === 7) {
         timelineSvc.$timeline.css("visibility", "visible");
+      } else if (index === 8) {
+        timelineSvc.$timeline.css("visibility", "hidden");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
         gallerySvc.switchVideo("pipeline", "us_etp_pipelines");
@@ -49,7 +54,6 @@ ctrl.init = function() {
     onLeave: function(index, nextIndex, direction) {
       timelineSvc.activateTimeLineComponent(nextIndex);
       var introVidHidden = $("#introVid:visible").length === 0;
-      console.log("INTRO VIDE HIDDEN", introVidHidden);
       if (index === 1 && !introVidHidden) {
         $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
@@ -69,6 +73,10 @@ ctrl.init = function() {
   sliderSvc.upArrow.on("click", function() {
     activeSection = sliderSvc.getActiveSection();
     $.fn.fullpage.moveTo(activeSection - 1, 0);
+  });
+
+  $(".take-action-button").on("click", function() {
+    $.fn.fullpage.moveTo(8);
   });
 
   sliderSvc.registerCharacterContainerClick();
