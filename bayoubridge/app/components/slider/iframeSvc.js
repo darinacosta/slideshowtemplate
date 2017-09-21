@@ -2,14 +2,20 @@ var iframeSvc = {};
 iframeSvc.players = [];
 iframeSvc.videos = [
   {
-    id: "freetown",
+    id: "dallas",
+    url: "mrPUw73iyJk",
     index: 0,
+    slide: 1
+  },
+  {
+    id: "freetown",
+    index: 1,
     slide: 2,
     url: "RjmISDs365Q"
   },
   {
     id: "archivist",
-    index: 1,
+    index: 2,
     slide: 4,
     url: "QUqnCnTMVL0"
   }

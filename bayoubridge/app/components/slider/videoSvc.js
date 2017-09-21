@@ -34,12 +34,14 @@ svc.hideIframeEmbeds = function() {
 };
 
 svc.currentVideoSlide = function() {
-  if ($(".fp-section.active #video_1").length > 0) {
+  if ($(".fp-section.active #video_0").length > 0) {
     return 0;
-  } else if ($(".fp-section.active #video_2").length > 0) {
+  } else if ($(".fp-section.active #video_1").length > 0) {
     return 1;
-  } else if ($(".fp-section.active #video_3").length > 0) {
+  } else if ($(".fp-section.active #video_2").length > 0) {
     return 2;
+  } else if ($(".fp-section.active #video_3").length > 0) {
+    return 3;
   }
 
   return false;
@@ -51,6 +53,7 @@ svc.handleVideoSlide = function(index) {
   }
   // @TODO: clean up hide/show class handling
   var currentIframe = iframeSvc.players[svc.currentVideoSlide()];
+  console.log("IFRAME PLAYERS", iframeSvc.players);
   var $cover = $(".hide-on-play");
   var $iframe = $(".video-pane__youtube");
   $cover.removeClass("hide");

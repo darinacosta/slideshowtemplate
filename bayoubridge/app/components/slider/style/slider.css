@@ -249,7 +249,7 @@ a:hover {
   cursor: pointer;
   position: absolute;
   font-family: Oswald;
-  right: 6%;
+  right: 10%;
   height: 35px;
   font-size: 20px;
   top: 0;
@@ -412,6 +412,19 @@ body,
   border-bottom: 1px solid white;*/
 }
 
+.addthis_inline_share_toolbox {
+  position: absolute;
+  top: 8px;
+  left: 1%;
+}
+
+.fireriver_logo {
+  position: absolute;
+  top: 2px;
+  right: 1%;
+  max-height: 90%;
+}
+
 .show {
   visibility: visible !important;
 }
@@ -529,9 +542,15 @@ body,
 }
 
 .character-caption {
-  top: 46%;
+  top: 12%;
   position: absolute;
   right: 10%;
+  right: 0%;
+  width: 100%;
+}
+
+.character-caption p {
+  font-size: 12px;
 }
 
 .character-caption {
@@ -558,6 +577,7 @@ body,
 }
 
 .video-caption hr,
+.video-caption-left hr,
 .map-caption hr,
 .video-gallery-caption hr,
 .character-caption hr {

@@ -798,7 +798,7 @@ a:hover {
   cursor: pointer;
   position: absolute;
   font-family: Oswald;
-  right: 6%;
+  right: 10%;
   height: 35px;
   font-size: 20px;
   top: 0;
@@ -961,6 +961,19 @@ body,
   border-bottom: 1px solid white;*/
 }
 
+.addthis_inline_share_toolbox {
+  position: absolute;
+  top: 8px;
+  left: 1%;
+}
+
+.fireriver_logo {
+  position: absolute;
+  top: 2px;
+  right: 1%;
+  max-height: 90%;
+}
+
 .show {
   visibility: visible !important;
 }
@@ -1078,9 +1091,15 @@ body,
 }
 
 .character-caption {
-  top: 46%;
+  top: 12%;
   position: absolute;
   right: 10%;
+  right: 0%;
+  width: 100%;
+}
+
+.character-caption p {
+  font-size: 12px;
 }
 
 .character-caption {
@@ -1107,6 +1126,7 @@ body,
 }
 
 .video-caption hr,
+.video-caption-left hr,
 .map-caption hr,
 .video-gallery-caption hr,
 .character-caption hr {
@@ -1365,7 +1385,7 @@ timeline__textContainer .text-wrapper {
   }
 
   .character-container h3 {
-    font-size: 35px;
+    font-size: 25px;
     display: block;
   }
 
@@ -1379,6 +1399,14 @@ timeline__textContainer .text-wrapper {
 
   .hotspot-container {
     display: block;
+  }
+
+  .take-action-button {
+    right: 6%;
+  }
+
+  .fireriver_logo {
+    right: 2%;
   }
 
   .hotspot {
@@ -1419,6 +1447,21 @@ timeline__textContainer .text-wrapper {
     width: 30%;
   }
 
+  .video-caption-left {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.48);
+    border: 1px solid white;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    z-index: 100;
+    width: 30%;
+  }
+
   .map-caption {
     color: white;
     padding: 10px;
@@ -1430,6 +1473,17 @@ timeline__textContainer .text-wrapper {
     top: 17%;
     z-index: 100;
     width: 20%;
+  }
+
+  .character-caption {
+    top: 46%;
+    font-size: 14px;
+    right: 10%;
+    width: 70%;
+  }
+
+  .character-caption p {
+    font-size: 15px;
   }
 
   .louisiana-map-caption.map-caption {

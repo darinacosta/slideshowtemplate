@@ -91,7 +91,7 @@ svc.timeLineTextContainerHeight = 100 / svc.timeLineLength;
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
 svc.navBlockPosition = [5];
 svc.$timeline = $(".bayou-timeline");
-svc.timelineStartIndex = 3;
+svc.timelineStartIndex = 2;
 
 (function calculateTimelineNavPosition() {
   var navBlockTotal = svc.navBlockPosition[0];
@@ -119,7 +119,7 @@ svc.activateTimeLineComponent = function(index) {
 };
 
 svc.iterateTimelineText = function(index) {
-  var textIndex = index;
+  var textIndex = index + 1;
   $(".bayou-timeline__textContainer").removeClass("active");
   $(".bayou-timeline__textContainer:nth-child(" + textIndex + ")").addClass(
     "active"
@@ -197,7 +197,10 @@ ctrl.init = function() {
       }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
-      if (index === 3 || index === sliderSvc.numberOfSections - 1) {
+      if (
+        index === timelineSvc.timelineStartIndex ||
+        index === sliderSvc.numberOfSections - 1
+      ) {
         timelineSvc.$timeline.css("visibility", "visible");
       } else if (index === sliderSvc.numberOfSections) {
         timelineSvc.$timeline.css("visibility", "hidden");
@@ -220,7 +223,11 @@ ctrl.init = function() {
         if (!introVidHidden) {
           $introVid.fadeTo("slow", 1);
         }
-      } else if (index === 3 && nextIndex === 2) {
+      }
+      if (
+        index === timelineSvc.timelineStartIndex &&
+        nextIndex === timelineSvc.timelineStartIndex - 1
+      ) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
     }
@@ -1348,12 +1355,14 @@ svc.hideIframeEmbeds = function() {
 };
 
 svc.currentVideoSlide = function() {
-  if ($(".fp-section.active #video_1").length > 0) {
+  if ($(".fp-section.active #video_0").length > 0) {
     return 0;
-  } else if ($(".fp-section.active #video_2").length > 0) {
+  } else if ($(".fp-section.active #video_1").length > 0) {
     return 1;
-  } else if ($(".fp-section.active #video_3").length > 0) {
+  } else if ($(".fp-section.active #video_2").length > 0) {
     return 2;
+  } else if ($(".fp-section.active #video_3").length > 0) {
+    return 3;
   }
 
   return false;
@@ -1365,6 +1374,7 @@ svc.handleVideoSlide = function(index) {
   }
   // @TODO: clean up hide/show class handling
   var currentIframe = iframeSvc.players[svc.currentVideoSlide()];
+  console.log("IFRAME PLAYERS", iframeSvc.players);
   var $cover = $(".hide-on-play");
   var $iframe = $(".video-pane__youtube");
   $cover.removeClass("hide");

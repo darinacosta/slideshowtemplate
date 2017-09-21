@@ -37,7 +37,10 @@ ctrl.init = function() {
       }
       sliderSvc.togglePanelArrows(index);
       videoSvc.hideIframeEmbeds();
-      if (index === 3 || index === sliderSvc.numberOfSections - 1) {
+      if (
+        index === timelineSvc.timelineStartIndex ||
+        index === sliderSvc.numberOfSections - 1
+      ) {
         timelineSvc.$timeline.css("visibility", "visible");
       } else if (index === sliderSvc.numberOfSections) {
         timelineSvc.$timeline.css("visibility", "hidden");
@@ -60,7 +63,11 @@ ctrl.init = function() {
         if (!introVidHidden) {
           $introVid.fadeTo("slow", 1);
         }
-      } else if (index === 3 && nextIndex === 2) {
+      }
+      if (
+        index === timelineSvc.timelineStartIndex &&
+        nextIndex === timelineSvc.timelineStartIndex - 1
+      ) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
     }

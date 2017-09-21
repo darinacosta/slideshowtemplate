@@ -32,7 +32,7 @@
   }
 
   .character-container h3 {
-    font-size: 35px;
+    font-size: 25px;
     display: block;
   }
 
@@ -46,6 +46,14 @@
 
   .hotspot-container {
     display: block;
+  }
+
+  .take-action-button {
+    right: 6%;
+  }
+
+  .fireriver_logo {
+    right: 2%;
   }
 
   .hotspot {
@@ -86,6 +94,21 @@
     width: 30%;
   }
 
+  .video-caption-left {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.48);
+    border: 1px solid white;
+    padding: 10px;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: left;
+    position: absolute;
+    left: 10%;
+    top: 20%;
+    z-index: 100;
+    width: 30%;
+  }
+
   .map-caption {
     color: white;
     padding: 10px;
@@ -97,6 +120,17 @@
     top: 17%;
     z-index: 100;
     width: 20%;
+  }
+
+  .character-caption {
+    top: 46%;
+    font-size: 14px;
+    right: 10%;
+    width: 70%;
+  }
+
+  .character-caption p {
+    font-size: 15px;
   }
 
   .louisiana-map-caption.map-caption {
