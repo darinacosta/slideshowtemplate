@@ -5,7 +5,7 @@ svc.videoUrls = [
   {
     url: "us_etp_pipelines",
     caption:
-      "The Bayou Bridge Pipeline would carry oil transported via the Dakota Access pipeline to refineries and international export terminals in Louisiana.",
+      "The Bayou Bridge Pipeline would carry oil transported via the Dakota Access Pipeline to refineries and international export terminals in Louisiana. They are both projects that would be completed by Energy Transfer Partners.",
     mapId: "pipeline",
     loop: false,
     title: "Connection of Dakota Access Pipeline and Bayou Bridge Pipeline",
@@ -18,7 +18,7 @@ svc.videoUrls = [
   {
     url: "us_all_pipelines",
     caption:
-      "There are <a href='https://hip.phmsa.dot.gov/analyticsSOAP/saw.dll?Portalpages'>73,000 miles</a> of <a href='http://www.pipeline101.org/where-are-pipelines-located'>pipelines crisscrossing the US</a> transporting crude oil.",
+      "Approximately 299,000 miles of onshore gas transmission pipelines and 171,000 miles of onshore hazardous liquid pipelines move natural gas, crude oil, and petroleum products throughout the U.S. every day. There are over 2.1 million miles of distribution pipelines in service today. <i>[Graphic source: American Energy Mapping]<hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</i></li></ul>",
     mapId: "pipeline",
     loop: false,
     title: "Map of US Pipelines",
@@ -30,7 +30,7 @@ svc.videoUrls = [
   {
     url: "us_spills_2010",
     caption:
-      "Nearly 9 million gallons of crude oil have spilled from pipelines in the United States since 2010. <i>[Source: Pipeline and Hazardous Materials Safety Administration]</i>",
+      "In a span of 5 years, More than 7 million gallons of crude oil have spilled from pipelines in the United States. There have been more than 3,300 incidents of crude oil and liquefied natural gas leaks or ruptures.  <i>[Source: Pipeline and Hazardous Materials Safety Administration; High Country News with data from Pipeline and Hazardous Materials Safety Administration]</i>",
     title: "Pipeline Spills Since 2010",
     loop: false,
     mapId: "pipeline",
@@ -42,7 +42,7 @@ svc.videoUrls = [
   {
     url: "us_etp_spills",
     caption:
-      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. <i>[Source: National Response Center]</i>",
+      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. They have had more accidents than any other pipeline company this decade. <i>[Source: Pipeline and Hazardous Materials Safety Administration; LA Bucket Brigade with data from The National Response Center]</i>",
     mapId: "pipeline",
     loop: true,
     title: "Energy Transfer Partners Spills in 2015-2016",
@@ -54,7 +54,7 @@ svc.videoUrls = [
   {
     url: "la_pipeline_path_tb",
     caption:
-      "The Bayou Bridge pipeline would cross 11 parishes, 700 bodies of water, and impact over 600 acres of wetlands. The pipeline route runs through Bayou Lafourche, the drinking water supply for at least 300,000 people.",
+      "The 162 mile Bayou Bridge pipeline would cross 11 parishes, 700 bodies of water, and impact over 600 acres of wetlands. The pipeline route runs through Bayou Lafourche, the drinking water supply for at least 300,000 people.",
     mapId: "louisiana",
     loop: false,
     default: true,
@@ -70,7 +70,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     loop: false,
     caption:
-      "Louisiana currently has more than 50,000 miles of pipelines. <i>[Source: Department of Natural Resources]</i>",
+      "Louisiana currently has more than 50,000 miles of pipelines. This integrated system of pipelines criss-cross every major highway, railroad and navigable waterway in Louisiana. <i>[Source: Department of Natural Resources]</i>",
     title: "Louisiana Pipelines",
     coords: {
       x: 6,
@@ -80,7 +80,7 @@ svc.videoUrls = [
   {
     url: "la_coastal_erosion_tb",
     caption:
-      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). <i>[Source: US Geological Survey]</i>",
+      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). <i>[Source: US Geological Survey; Louisiana Mid Continent Oil & Gas Association]</i>",
     mapId: "louisiana",
     title: "Louisiana's Current Inhabitable Land",
     loop: false,
