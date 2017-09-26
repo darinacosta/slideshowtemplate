@@ -37,7 +37,7 @@ h1 {
   font-weight: bold;
   font-size: 30px;
   text-transform: uppercase;
-  text-shadow: 2px 2px #ffffff;
+  text-shadow: 1px 1px white;
 }
 
 h2 {
@@ -47,7 +47,7 @@ h2 {
   padding-top: 10px;
   font-style: italic;
   font-size: 20px;
-  text-shadow: 2px 2px #c80813;
+  text-shadow: 1px 1px black;
 }
 
 h3 {
@@ -56,6 +56,14 @@ h3 {
   font-weight: bold;
   text-transform: uppercase;
   margin: 0;
+}
+
+.title-box {
+  width: 60%;
+  margin: 0 auto;
+  background: rgba(45, 45, 45, 0.63);
+  padding: 15px;
+  outline: 1px solid white;
 }
 
 @-webkit-keyframes upDownMain {

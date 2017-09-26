@@ -14,12 +14,6 @@
   .video-caption {
     margin-top: 25px;
   }
-
-  .video-pane__play-wrap {
-    position: absolute;
-    top: -14%;
-    right: 5%;
-  }
 }
 
 @media only screen and (min-width: 768px) {
