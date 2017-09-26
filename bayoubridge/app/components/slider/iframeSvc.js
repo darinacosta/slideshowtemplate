@@ -8,16 +8,28 @@ iframeSvc.videos = [
     slide: 1
   },
   {
-    id: "freetown",
+    id: "archivist",
     index: 1,
     slide: 2,
+    url: "QUqnCnTMVL0"
+  },
+  {
+    id: "freetown",
+    index: 2,
+    slide: 4,
     url: "RjmISDs365Q"
   },
   {
-    id: "archivist",
+    id: "general",
     index: 2,
     slide: 4,
-    url: "QUqnCnTMVL0"
+    url: "_iKkWBqr67Q"
+  },
+  {
+    id: "fisherman",
+    index: 2,
+    slide: 4,
+    url: "kQ_sAMTXOMg"
   }
 ];
 

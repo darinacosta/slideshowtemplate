@@ -83,10 +83,6 @@ ctrl.init = function() {
     $.fn.fullpage.moveTo(activeSection - 1, 0);
   });
 
-  $(".take-action-button").on("click", function() {
-    $.fn.fullpage.moveTo(sliderSvc.numberOfSections);
-  });
-
   sliderSvc.registerCharacterContainerClick();
   gallerySvc.init();
 };

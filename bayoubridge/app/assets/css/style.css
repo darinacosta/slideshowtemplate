@@ -317,6 +317,12 @@ iframe {
   max-width: 650px;
 }
 
+.logo-img {
+  max-width: 50px;
+  max-height: 50px;
+  margin: 10px;
+}
+
 .portfolio-box .portfolio-box-caption {
   display: block;
   position: absolute;

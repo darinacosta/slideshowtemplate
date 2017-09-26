@@ -3,7 +3,7 @@ var sliderSvc = require("./sliderSvc.js");
 svc.timeLineLength = $(".bayou-timeline__textContainer").length;
 svc.timeLineTextContainerHeight = 100 / svc.timeLineLength;
 svc.navBlock = $(".bayou-timeline__navBlock.travel.extra");
-svc.navBlockPosition = [5];
+svc.navBlockPosition = [3.5];
 svc.$timeline = $(".bayou-timeline");
 svc.timelineStartIndex = 2;
 

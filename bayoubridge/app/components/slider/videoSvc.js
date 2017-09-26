@@ -1,6 +1,10 @@
 var sliderSvc = require("./sliderSvc.js");
 var svc = {};
 var player;
+var $cover = null;
+var $iframe = null;
+var currentiframe = null;
+
 svc.player = null;
 svc.$videoPaneContainers = $(".video-pane__container");
 
@@ -42,9 +46,21 @@ svc.currentVideoSlide = function() {
     return 2;
   } else if ($(".fp-section.active #video_3").length > 0) {
     return 3;
+  } else if ($(".fp-section.active #video_4").length > 0) {
+    return 4;
   }
 
   return false;
+};
+
+svc.playIframeVideo = function() {
+  $iframe.addClass("show");
+  $iframe.removeClass("hide");
+  $cover.removeClass("show");
+  $cover.addClass("hide");
+  svc.$videoPaneContainers.addClass("show");
+  currentIframe.playVideo();
+  //setTimeout(svc.playCurrentYoutubeVideo);
 };
 
 svc.handleVideoSlide = function(index) {
@@ -52,21 +68,13 @@ svc.handleVideoSlide = function(index) {
     svc.player.pause();
   }
   // @TODO: clean up hide/show class handling
-  var currentIframe = iframeSvc.players[svc.currentVideoSlide()];
+  currentIframe = iframeSvc.players[svc.currentVideoSlide()];
   console.log("IFRAME PLAYERS", iframeSvc.players);
-  var $cover = $(".hide-on-play");
-  var $iframe = $(".video-pane__youtube");
+  $cover = $(".hide-on-play");
+  $iframe = $(".video-pane__youtube");
   $cover.removeClass("hide");
   $iframe.removeClass("show");
-  $(".fp-section.active .watch-video").on("click", function() {
-    $iframe.addClass("show");
-    $iframe.removeClass("hide");
-    $cover.removeClass("show");
-    $cover.addClass("hide");
-    svc.$videoPaneContainers.addClass("show");
-    currentIframe.playVideo();
-    //setTimeout(svc.playCurrentYoutubeVideo);
-  });
+  $(".fp-section.active .watch-video").on("click", svc.playIframeVideo);
   $(".fp-section.active .video-pane__video-close").on("click", function() {
     svc.$videoPaneContainers.addClass("hide");
     svc.$videoPaneContainers.removeClass("show");
@@ -76,6 +84,13 @@ svc.handleVideoSlide = function(index) {
     $iframe.addClass("hide");
     currentIframe.pauseVideo();
   });
+};
+
+document.body.onkeyup = function(e) {
+  if (e.keyCode == 32) {
+    console.log("CAPTURED KEYSTROKE");
+    svc.playIframeVideo();
+  }
 };
 
 svc.scaleVideo = function() {
