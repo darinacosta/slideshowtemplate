@@ -40,6 +40,30 @@
   animation: pulse 1s ease-in-out alternate infinite;
 }
 
+.hotspot:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  background-image: url(../img/hotspot-target.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  -webkit-transform: translate(-50%, -50%) scale(.1);
+  -ms-transform: translate(-50%, -50%) scale(.1);
+  transform: translate(-50%, -50%) scale(.1);
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+}
+
+.hotspot.btn-warning:before {
+  -webkit-transform: translate(-50%, -50%) scale(1);
+  -ms-transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
+}
+
 .hotspot:after {
   content: '';
   position: absolute;
