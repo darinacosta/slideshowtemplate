@@ -18,9 +18,10 @@ svc.videoUrls = [
   {
     url: "us_all_pipelines",
     caption:
-      "Approximately 299,000 miles of onshore gas transmission pipelines and 171,000 miles of onshore hazardous liquid pipelines move natural gas, crude oil, and petroleum products throughout the U.S. every day. There are over 2.1 million miles of distribution pipelines in service today. <i>[Graphic source: American Energy Mapping]<hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</i></li></ul>",
+      "Approximately 299,000 miles of onshore gas transmission pipelines and 171,000 miles of onshore hazardous liquid pipelines move natural gas, crude oil, and petroleum products throughout the U.S. every day. There are over 2.1 million miles of distribution pipelines in service today. <hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</li></ul>",
     mapId: "pipeline",
     loop: false,
+    source: "Graphic source: American Energy Mapping",
     title: "Map of US Pipelines",
     coords: {
       x: 6,
@@ -30,7 +31,7 @@ svc.videoUrls = [
   {
     url: "us_spills_2010",
     caption:
-      "In a span of 5 years, More than 7 million gallons of crude oil have spilled from pipelines in the United States. There have been more than 3,300 incidents of crude oil and liquefied natural gas leaks or ruptures.  <i>[Source: Pipeline and Hazardous Materials Safety Administration; High Country News with data from Pipeline and Hazardous Materials Safety Administration]</i>",
+      "In a span of 5 years, More than 7 million gallons of crude oil have spilled from pipelines in the United States. There have been more than 3,300 incidents of crude oil and liquefied natural gas leaks or ruptures.",
     title: "Pipeline Spills Since 2010",
     loop: false,
     mapId: "pipeline",
@@ -42,10 +43,12 @@ svc.videoUrls = [
   {
     url: "us_etp_spills",
     caption:
-      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. They have had more accidents than any other pipeline company this decade. <i>[Source: Pipeline and Hazardous Materials Safety Administration; LA Bucket Brigade with data from The National Response Center]</i>",
+      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. They have had more accidents than any other pipeline company this decade.",
     mapId: "pipeline",
     loop: true,
     title: "Energy Transfer Partners Spills in 2015-2016",
+    source:
+      "Source: Pipeline and Hazardous Materials Safety Administration; LA Bucket Brigade with data from The National Response Center",
     coords: {
       x: 6,
       y: 80
@@ -70,8 +73,10 @@ svc.videoUrls = [
     mapId: "louisiana",
     loop: false,
     caption:
-      "Louisiana currently has more than 50,000 miles of pipelines. This integrated system of pipelines criss-cross every major highway, railroad and navigable waterway in Louisiana. <i>[Source: Department of Natural Resources]</i>",
-    title: "Louisiana Pipelines",
+      "Louisiana currently has more than 50,000 miles of pipelines. This integrated system of pipelines criss-cross every major highway, railroad and navigable waterway in Louisiana.",
+    title: "Map of Louisiana Pipelines",
+    source:
+      "Sources: Louisiana Mid Continent Oil & Gas Association; Department of Natural Resources",
     coords: {
       x: 6,
       y: 40
@@ -80,9 +85,11 @@ svc.videoUrls = [
   {
     url: "la_coastal_erosion_tb",
     caption:
-      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). <i>[Source: US Geological Survey; Louisiana Mid Continent Oil & Gas Association]</i>",
+      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). The three main causes of land loss are reduced sediment flow from the Mississippi River (caused by man-made levees), subsidence (caused in part by oil exploration) and rising sea levels (caused by increased greenhouse gas emissions).",
     mapId: "louisiana",
-    title: "Louisiana's Current Inhabitable Land",
+    title: "Louisiana's Current Walkable Land",
+    source:
+      "Source: US Geological Survey; Tulane University Geology Department",
     loop: false,
     coords: {
       x: 6,
@@ -92,9 +99,10 @@ svc.videoUrls = [
   {
     url: "la_pipeline_spills_tb",
     caption:
-      "There were 144 reported pipeline accidents in 2016. An average of 2.7 per week and doesn’t include the accidents that are not reported.",
+      'There were 144 reported pipeline accidents in 2016. n average of 2.7 per week (not including unreported accidents). 48% of the accidents were caused by corrosion, leaks, holes and ruptures. 33% have "unknown or unexplained causes."',
     mapId: "louisiana",
     loop: true,
+    source: "Sources: LA Bucket Brigade; National Response Center",
     title: "Louisiana Pipeline Accidents",
     coords: {
       x: 6,
@@ -183,12 +191,14 @@ svc.switchVideo = function(targetId, videoId) {
   var videoObject = svc.getVideoObject(videoId);
   var url = svc.videoHost + videoObject.url;
   var caption = videoObject.caption;
+  var source = videoObject.source;
   var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, videoObject);
   console.log($(".toggle-" + targetId + "-title"));
   $(".toggle-" + targetId + "-title").text(title);
   $(".toggle-" + targetId + "-caption").html(caption);
+  $(".toggle-" + targetId + "-source").text(source);
 };
 
 svc.buildHotspots = function(mapId) {

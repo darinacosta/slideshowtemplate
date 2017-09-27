@@ -19,6 +19,12 @@
   background-color: black !important;
 }
 
+.toggle-pipeline-source,
+.toggle-louisiana-source {
+  font-size: smaller;
+  color: grey;
+}
+
 .video-gallery-caption {
   z-index: 9999;
   position: absolute;

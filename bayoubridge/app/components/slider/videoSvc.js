@@ -60,7 +60,21 @@ svc.playIframeVideo = function() {
   $cover.addClass("hide");
   svc.$videoPaneContainers.addClass("show");
   currentIframe.playVideo();
+  sliderSvc.upArrow.css("visibility", "hidden");
+  sliderSvc.downArrow.css("visibility", "hidden");
   //setTimeout(svc.playCurrentYoutubeVideo);
+};
+
+svc.stopIframeVideo = function() {
+  svc.$videoPaneContainers.addClass("hide");
+  svc.$videoPaneContainers.removeClass("show");
+  $cover.addClass("show");
+  $cover.removeClass("hide");
+  $iframe.removeClass("show");
+  $iframe.addClass("hide");
+  currentIframe.pauseVideo();
+  sliderSvc.upArrow.css("visibility", "visible");
+  sliderSvc.downArrow.css("visibility", "visible");
 };
 
 svc.handleVideoSlide = function(index) {
@@ -75,15 +89,10 @@ svc.handleVideoSlide = function(index) {
   $cover.removeClass("hide");
   $iframe.removeClass("show");
   $(".fp-section.active .watch-video").on("click", svc.playIframeVideo);
-  $(".fp-section.active .video-pane__video-close").on("click", function() {
-    svc.$videoPaneContainers.addClass("hide");
-    svc.$videoPaneContainers.removeClass("show");
-    $cover.addClass("show");
-    $cover.removeClass("hide");
-    $iframe.removeClass("show");
-    $iframe.addClass("hide");
-    currentIframe.pauseVideo();
-  });
+  $(".fp-section.active .video-pane__video-close").on(
+    "click",
+    svc.stopIframeVideo
+  );
 };
 
 document.body.onkeyup = function(e) {
