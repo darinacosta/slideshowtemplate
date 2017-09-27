@@ -40,6 +40,10 @@ h1 {
   text-shadow: 1px 1px white;
 }
 
+h1.text-slide {
+  font-size: 25px;
+}
+
 h2 {
   letter-spacing: 3px;
   font-family: "Droid Serif";
