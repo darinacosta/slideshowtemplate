@@ -73,7 +73,7 @@ svc.videoUrls = [
     mapId: "louisiana",
     loop: false,
     caption:
-      "Louisiana currently has more than 50,000 miles of pipelines. This integrated system of pipelines criss-cross every major highway, railroad and navigable waterway in Louisiana.",
+      "Louisiana currently has more than 50,000 miles of pipelines. This integrated system of pipelines criss-cross every major highway, railroad and navigable waterway in Louisiana. <hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</li></ul>",
     title: "Map of Louisiana Pipelines",
     source:
       "Sources: Louisiana Mid Continent Oil & Gas Association; Department of Natural Resources",
