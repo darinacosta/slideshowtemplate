@@ -1,78 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Mossville, Louisiana</title>
-
-    <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="assets/css/bootstrap.min.css" type="text/css">
-
-    <!-- Custom Fonts -->
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css">
-
-    <!-- Plugin CSS -->
-    <link rel="stylesheet" href="assets/css/animate.min.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="assets/css/lightview/lightview.css" />
-
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Stories of defending water and culture.">
+  <meta name="author" content="Fire River Films">
+  <meta property="og:image" content="http://fireriverfilms.com/bayoubridge/app/assets/img/bayoubridge_card_2_1200x645.png" / >
+  <meta property="og:url" content="http://fireriverfilms.com/bayoubridge" />
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <!-- Twitter Card data -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bayou Bridge Pipeline">
+  <meta name="twitter:description" content="Stories of defending water and culture.">
+  <meta name="twitter:image:src" content="http://fireriverfilms.com/bayoubridge/app/assets/img/bayoubridge_card_2_1200x645.png">
+  <!--end Twitter-->
+  <title>Fire River Films</title>
+  <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Droid+Serif' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Didact+Gothic" rel="stylesheet">
+  <link rel="stylesheet" href="bayoubridge/app/assets/builds/bundle.css"></link>
+  <link rel="icon" href="bayoubridge/app/assets/img/homepageicon.png">
+  <style>
+  p {
+    font-family: 'Didact Gothic', sans-serif;
+  }
+  </style>
 </head>
-
-<body id="page-top" ng-app="mossville">
-
-    <navigation></navigation>
-    <div ng-view></div>
-
-
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="lib/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="lib/jquery.easing.min.js"></script>
-    <script src="lib/jquery.fittext.js"></script>
-    <script src="lib/wow.min.js"></script>
-    <script type="text/javascript" src="lib/spinners/spinners.min.js"></script>
-    <script type="text/javascript" src="lib/lightview/lightview.js"></script>
-    <script src="lib/modernizr.js"></script>
-    <script src="lib/videoHeader.js"></script>
-
-
-    <!-- Angular -->
-    <script src="lib/angular.min.js"></script>
-    <script src="lib/angular-route/angular-route.js"></script>
-    <script src="lib/angular-sanitize/angular-sanitize.js"></script>
-
-    <script src="app.js"></script>
-    <script src="components/home/homeCtrl.js"></script>
-    <script src="components/navigation/navigationDirective.js"></script>
-    <script src="services/easingSvc.js"></script>
-    <script>
-    var changeIframeCss = function() {
-  console.log("fired");
-  $(".story-action").css("color", "black");
-};
-setTimeout(changeIframeCss, 10000);
-</script>
+<body>
+  <div id="fullpage">
+  <!-- Take Action -->
+  <div class="section fp-table moveDown" id="takeactionpage" style="" data-src="bayoubridge/app/assets/img/titlecover.png">
+    <div class="fp-tableCell">
+    <div style="background-image: url(app/assets/img/titlecover.png);" data-src="app/assets/img/titlecover.png" class="video-pane__background-still mobile"></div>
+    <video id="introVid" class="coverVideo desktop" loop muted data-autoplay style="top=-20"><!--poster="app/assets/img/titlecover.png"-->
+      <source src="https://s3.amazonaws.com/fireriver/fireriverhome.webm" type="video/webm">
+      <source src="https://s3.amazonaws.com/fireriver/fireriverhome.mp4" type="video/mp4">
+      <source src="https://s3.amazonaws.com/fireriver/fireriverhome.ogv" type="video/ogg">
+    </video>
+      <div class="title-wrapper">
+        <img src="assets/img/fireriverfilmstitle.png" style="width: 30%; margin-top:10%;"/>
+        <div class="blurb"></div>
+      </div>
+    </div>
+  </div>
+  <div class="section fp-table moveDown" style="background-color:white;">
+    <div class="fp-tableCell" style="background-color:white;">
+      <div class="title-wrapper">
+        <div class="blurb" style="color:black">
+          <img src="assets/img/fireriver_logo.png" style="width: 30%; margin: 15% 0 10% 0;"/>
+          <p>
+            In 1969, the Cuyahoga River burst into flames. It had been so saturated with industrial waste, that sparks
+            from a passing train lit up the river. The dramatic photos of a flowing river on fire were published by Time magazine,
+            fueling a public outcry for change. Those images are credited with sparking the environmental revolution and leading to
+            the Clean Water Act.
+          </p>
+          <p>
+            Fire River Films is a collective of storytellers, from filmmakers to coders, from writers to designers, working to
+            create change by telling honest and important stories.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <div class="top-header">
+    <img src="bayoubridge/app/assets/img/fire_river_logo_50x50.png" class="fireriver_logo"/>
+    <div class="addthis_inline_share_toolbox"></div>
+    <!--div class="take-action-wrapper" style="width:100%;position:relative;">
+      <a href="/"><div class="take-action-button">
+        <div class="take-action-text">
+          RETURN TO SITE
+        </div>
+      </div></a>
+    </div-->
+  </div>
 </body>
-
+<script src="bayoubridge/app/components/slider/iframeSvc.js"></script>
+<script src="bayoubridge/app/assets/builds/vendor.bundle.js"></script>
+<script src="bayoubridge/app/assets/builds/app.bundle.js"></script>
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-59c3e146bdfcc04f"></script>
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-54333440-3"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag() {
+  dataLayer.push(arguments);
+}
+gtag("js", new Date());
+gtag("config", "UA-54333440-3");
+</script>
 </html>

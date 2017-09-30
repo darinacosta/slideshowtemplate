@@ -62,6 +62,10 @@ h3 {
   margin: 0;
 }
 
+h3.takeaction {
+  font-size: 15px;
+}
+
 .title-box {
   width: 60%;
   margin: 0 auto;
@@ -264,7 +268,7 @@ a:hover {
   right: 10%;
   height: 35px;
   font-size: 20px;
-  top: 0;
+  top: -26px;
   background-color: red;
   color: white;
 }
@@ -428,6 +432,17 @@ body,
   position: absolute;
   top: 8px;
   left: 15%;
+}
+
+.addthis_inline_share_toolbox {
+  position: relative;
+  display: inline-block;
+}
+
+.logo-img {
+  max-width: 20px;
+  max-height: 20px;
+  margin: 10px;
 }
 
 .fireriver_logo {
