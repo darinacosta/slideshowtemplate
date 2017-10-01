@@ -46,8 +46,12 @@
     Stills
   */
 
-  .pastor-still {
+  .character-pastor-still {
     background-image: url(../img/character_freetown.jpg);
+  }
+
+  .character-general-still {
+    background-image: url(../img/character_general.jpg);
   }
 
   /*
