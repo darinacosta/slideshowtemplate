@@ -25,30 +25,72 @@
   p {
     font-family: 'Didact Gothic', sans-serif;
   }
+
+  .title-logo {
+    width: 70%;
+    margin-top:10%;
+  }
+
+  .latest-project-button {
+    background-color: black;
+    color:white;
+    -webkit-transition: background-color 1s ease-out, color 1s ease;
+    -moz-transition: background-color 1s ease-out, color 1s ease;
+    -o-transition: background-color 1s ease-out, color 1s ease;
+    transition: background-color 1s ease-out, color 1s ease;
+  }
+
+  .blurb {
+    width:90%;
+  }
+
+  .latest-project-button:hover {
+    background-color: white;
+    color:black;
+  }
+
+  .btn {
+    font-size: 10px;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .btn {
+      font-size: 15px;
+    }
+
+    .title-logo {
+      width: 30%;
+    }
+
+    .blurb {
+      width:50%;
+    }
+  }
+
   </style>
 </head>
 <body>
   <div id="fullpage">
   <!-- Take Action -->
-  <div class="section fp-table moveDown" id="takeactionpage" style="" data-src="bayoubridge/app/assets/img/titlecover.png">
+  <div class="section fp-table moveDown" id="takeactionpage" style="" data-src="assets/img/fireriver_home_still.png">
     <div class="fp-tableCell">
-    <div style="background-image: url(app/assets/img/titlecover.png);" data-src="app/assets/img/titlecover.png" class="video-pane__background-still mobile"></div>
+    <div style="background-image: url(assets/img/fireriver_home_still.png);" data-src="assets/img/fireriver_home_still.png" class="video-pane__background-still mobile"></div>
     <video id="introVid" class="coverVideo desktop" loop muted data-autoplay style="top=-20"><!--poster="app/assets/img/titlecover.png"-->
       <source src="https://s3.amazonaws.com/fireriver/fireriverhome.webm" type="video/webm">
       <source src="https://s3.amazonaws.com/fireriver/fireriverhome.mp4" type="video/mp4">
       <source src="https://s3.amazonaws.com/fireriver/fireriverhome.ogv" type="video/ogg">
     </video>
       <div class="title-wrapper">
-        <img src="assets/img/fireriverfilmstitle.png" style="width: 30%; margin-top:10%;"/>
+        <img src="assets/img/fireriverfilmstitle.png" class="title-logo"/>
         <div class="blurb"></div>
       </div>
     </div>
   </div>
   <div class="section fp-table moveDown" style="background-color:white;">
     <div class="fp-tableCell" style="background-color:white;">
-      <div class="title-wrapper">
+      <div class="title-wrapper" style="margin-top: -12%;">
         <div class="blurb" style="color:black">
-          <img src="assets/img/fireriver_logo.png" style="width: 30%; margin: 15% 0 10% 0;"/>
+          <img src="assets/img/fireriver_logo.png" style="width: 20%; margin: 10% 0 5% 0;"/>
           <p>
             In 1969, the Cuyahoga River burst into flames. It had been so saturated with industrial waste, that sparks
             from a passing train lit up the river. The dramatic photos of a flowing river on fire were published by Time magazine,
@@ -59,12 +101,28 @@
             Fire River Films is a collective of storytellers, from filmmakers to coders, from writers to designers, working to
             create change by telling honest and important stories.
           </p>
+          <p>
+            <a href="https://www.facebook.com/FIRERIVERFILMS/" target="_blank">
+              <img width="35" style="padding:5px" src="assets/img/facebooklogoblack.jpg"/>
+            </a>
+            <a href="https://www.facebook.com/FIRERIVERFILMS/" target="_blank">
+              <img width="35" style="padding:5px" src="assets/img/emaillogoblack.jpg"/>
+            </a>
+          </p>
+          <p>
+            <a href="bayoubridge">
+              <button type="button" class="btn btn-secondary latest-project-button">
+                Check out our latest project: <br>The Bayou Bridge Pipeline
+              </button>
+            </a>
+          </p>
         </div>
       </div>
     </div>
   </div>
 </div>
-  <div class="top-header">
+<div class="panel-arrow-down bounce-down" id="click-down"></div>
+  <!--div class="top-header">
     <img src="bayoubridge/app/assets/img/fire_river_logo_50x50.png" class="fireriver_logo"/>
     <div class="addthis_inline_share_toolbox"></div>
     <!--div class="take-action-wrapper" style="width:100%;position:relative;">
@@ -73,8 +131,8 @@
           RETURN TO SITE
         </div>
       </div></a>
-    </div-->
-  </div>
+    </div>
+  </div-->
 </body>
 <script src="bayoubridge/app/components/slider/iframeSvc.js"></script>
 <script src="bayoubridge/app/assets/builds/vendor.bundle.js"></script>

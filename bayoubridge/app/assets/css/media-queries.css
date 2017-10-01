@@ -42,6 +42,18 @@
     display: block;
   }
 
+  /*
+    Stills
+  */
+
+  .pastor-still {
+    background-image: url(../img/character_freetown.jpg);
+  }
+
+  /*
+    /Stills
+  */
+
   .hotspot-container {
     display: block;
   }

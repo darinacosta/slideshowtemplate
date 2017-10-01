@@ -279,8 +279,24 @@ a:hover {
 }
 
 /*
+  Stills
+*/
+
+.pastor-still {
+  background-image: url("../img/character_freetown_mobile.jpg");
+}
+
+/*
+  /Stills
+*/
+
+/*
   Video
 */
+
+.mobile-title {
+  margin-bottom: 75px;
+}
 
 .watch-video {
   cursor: pointer;
