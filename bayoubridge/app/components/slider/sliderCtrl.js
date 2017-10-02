@@ -20,10 +20,17 @@ ctrl.init = function() {
     verticalCentered: false,
     css3: true,
     sectionsColor: [
+      "white",
       "rgb(0, 0, 0)",
       "rgb(0, 0, 0)",
       "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)"
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "white"
     ],
     anchors: [],
     animateAnchor: true,

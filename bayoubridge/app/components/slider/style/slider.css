@@ -63,7 +63,28 @@ h3 {
 }
 
 h3.takeaction {
-  font-size: 15px;
+  color: black;
+  font-size: 13px;
+  padding-bottom: 5px;
+}
+
+#takeactionpage .title-wrapper {
+  width: 100%;
+}
+
+h3.small-header {
+  font-size: 14px;
+  color: black;
+  margin-bottom: 10px;
+}
+
+.latest-project-button {
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+
+.take-action-section p {
+  font-size: 13px;
 }
 
 .title-box {
