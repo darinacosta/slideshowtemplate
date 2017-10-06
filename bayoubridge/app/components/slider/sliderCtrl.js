@@ -6,6 +6,11 @@ var videoSvc = require("./videoSvc.js");
 var gallerySvc = require("./../gallery/gallerySvc.js");
 var ctrl = {};
 
+var takeActionPageIndex = sliderSvc.numberOfSections - 1;
+var $takeActionButton = $("#takeactionbutton");
+var currentIndex = 0;
+var previousIndex = 0;
+
 if (typeof $.fn.fullpage.destroy === "function") {
   $.fn.fullpage.destroy("all");
 }
@@ -20,16 +25,17 @@ ctrl.init = function() {
     verticalCentered: false,
     css3: true,
     sectionsColor: [
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
       "white",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
-      "rgb(0, 0, 0)",
       "white"
     ],
     anchors: [],
@@ -38,7 +44,7 @@ ctrl.init = function() {
     navigationPosition: "hide",
     navigationTooltips: ["Home", "Pipeline Gallery", "Vieo 1"],
     afterLoad: function(anchorLink, index) {
-      console.log("INDEX", index);
+      currentIndex = index;
       if (index > 1) {
         sliderSvc.downArrow.removeClass("bounce-down");
       }
@@ -62,14 +68,19 @@ ctrl.init = function() {
       videoSvc.handleVideoSlide(index);
     },
     onLeave: function(index, nextIndex, direction) {
+      previousIndex =
+        index === sliderSvc.numberOfSections - 1 ? previousIndex : index;
       timelineSvc.activateTimeLineComponent(nextIndex);
       var introVidHidden = $("#introVid:visible").length === 0;
       if (index === 1 && !introVidHidden) {
-        $introVid.fadeTo("slow", 0);
+        // $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
         if (!introVidHidden) {
-          $introVid.fadeTo("slow", 1);
+          // $introVid.fadeTo("slow", 1);
         }
+      }
+      if (nextIndex < takeActionPageIndex) {
+        $takeActionButton.text("TAKE ACTION");
       }
       if (
         index === timelineSvc.timelineStartIndex &&
@@ -77,6 +88,15 @@ ctrl.init = function() {
       ) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
+    }
+  });
+
+  $takeActionButton.on("click", function() {
+    if (currentIndex < takeActionPageIndex) {
+      $.fn.fullpage.moveTo(takeActionPageIndex);
+      $takeActionButton.text("BACK TO STORY");
+    } else {
+      $.fn.fullpage.moveTo(previousIndex);
     }
   });
 

@@ -25,6 +25,11 @@
     font-size: 36px;
   }
 
+  h1.text-slide.eis-slide {
+    text-transform: none;
+    font-size: 45px;
+  }
+
   h2 {
     font-size: 40px;
   }
@@ -76,8 +81,8 @@
   }
 
   .logo-img {
-    max-width: 50px;
-    max-height: 50px;
+    max-width: 100px;
+    max-height: 100px;
     margin: 20px;
   }
 

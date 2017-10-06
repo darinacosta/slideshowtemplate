@@ -64,7 +64,7 @@ h3 {
 
 h3.takeaction {
   color: black;
-  font-size: 13px;
+  font-size: 20px;
   padding-bottom: 5px;
 }
 
@@ -481,8 +481,8 @@ body,
 }
 
 .logo-img {
-  max-width: 20px;
-  max-height: 20px;
+  max-width: 40px;
+  max-height: 40px;
   margin: 10px;
 }
 
@@ -538,6 +538,25 @@ body,
   -ms-transform: translateX(0) !important;
   transform: translateX(0) !important;
   left: auto !important;
+}
+
+.hr-red {
+  max-width: 198px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 0;
+  border-top: 4px solid #ff0000;
+}
+
+.hr-black {
+  max-width: 100%;
+  width: 100%;
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid black;
+  margin: 1em 0;
+  padding: 0;
 }
 
 /*
