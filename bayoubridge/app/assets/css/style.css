@@ -80,7 +80,7 @@ p {
 }
 
 .desktop {
-  display: none;
+  display: none !important;
 }
 
 .bg-primary {

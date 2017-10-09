@@ -54,7 +54,8 @@ svc.expandCharacterContainer = function(e) {
   var $activeContainer = $(
     "#character-gallery .character-container#" + e.target.id
   );
-  $(".character-caption").css("display", "none");
+  $(".character-caption").removeClass("show");
+  $(".character-caption").addClass("hide");
   svc.$characterContainers.removeClass("active");
   svc.$characterContainers.removeClass("col-xs-3");
   svc.$characterContainers.removeClass("col-xs-6");
@@ -62,7 +63,8 @@ svc.expandCharacterContainer = function(e) {
   $("#character-gallery #" + e.target.id).addClass("col-xs-6");
   $activeContainer.addClass("active");
   $otherContainers.addClass("col-xs-2");
-  $("#" + e.target.id + " .character-caption").css("display", "block");
+  $("#" + e.target.id + " .character-caption").removeClass("hide");
+  $("#" + e.target.id + " .character-caption").addClass("show");
 };
 
 svc.registerCharacterContainerClick = function() {

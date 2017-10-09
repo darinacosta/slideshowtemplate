@@ -34,16 +34,16 @@
     font-size: 40px;
   }
 
+  .eis-slide-text-container {
+    width: 70%;
+  }
+
+  .eis-slide-text-container p {
+    font-size: 20px;
+  }
+
   .character-container h3 {
     font-size: 25px;
-    display: block;
-  }
-
-  .mobile {
-    display: none;
-  }
-
-  .desktop {
     display: block;
   }
 
@@ -167,6 +167,7 @@
     font-size: 14px;
     right: 10%;
     width: 70%;
+    visibility: hidden;
   }
 
   .character-caption p {
@@ -185,5 +186,13 @@
 
   .bayou-timeline {
     width: 6%;
+  }
+
+  .mobile {
+    display: none !important;
+  }
+
+  .desktop {
+    display: block !important;
   }
 }
