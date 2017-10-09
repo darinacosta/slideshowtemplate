@@ -472,6 +472,7 @@ body,
 .character-container.active h3 {
   color: rgba(204, 0, 0, 0.7);
   display: block;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.88);
 }
 
 .title-wrapper {
@@ -644,6 +645,11 @@ body,
   margin: 0 auto;
   text-align: left;
   width: 70%;
+}
+
+.eis-slide-text-container {
+  top: 40%;
+  border: none;
 }
 
 .video-caption,

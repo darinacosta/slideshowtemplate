@@ -35,6 +35,7 @@ ctrl.init = function() {
       "rgb(0, 0, 0)",
       "rgb(0, 0, 0)",
       "rgb(0, 0, 0)",
+      "rgb(0, 0, 0)",
       "white",
       "white"
     ],
@@ -52,10 +53,10 @@ ctrl.init = function() {
       videoSvc.hideIframeEmbeds();
       if (
         index === timelineSvc.timelineStartIndex ||
-        index === sliderSvc.numberOfSections - 1
+        index === sliderSvc.numberOfSections - 2
       ) {
         timelineSvc.$timeline.css("visibility", "visible");
-      } else if (index === sliderSvc.numberOfSections) {
+      } else if (index === sliderSvc.numberOfSections - 1) {
         timelineSvc.$timeline.css("visibility", "hidden");
       }
       if (gallerySvc.currentGallerySlide() === "pipeline") {
@@ -73,14 +74,28 @@ ctrl.init = function() {
       timelineSvc.activateTimeLineComponent(nextIndex);
       var introVidHidden = $("#introVid:visible").length === 0;
       if (index === 1 && !introVidHidden) {
-        // $introVid.fadeTo("slow", 0);
       } else if (index === 2 && nextIndex === 1) {
-        if (!introVidHidden) {
-          // $introVid.fadeTo("slow", 1);
-        }
       }
       if (nextIndex < takeActionPageIndex) {
         $takeActionButton.text("TAKE ACTION");
+        sliderSvc.upArrow.css(
+          "background-image",
+          "url(app/assets/img/slide-arrow-up.png)"
+        );
+        sliderSvc.downArrow.css(
+          "background-image",
+          "url(app/assets/img/slide-arrow.png)"
+        );
+      } else {
+        $takeActionButton.text("BACK TO STORY");
+        sliderSvc.upArrow.css(
+          "background-image",
+          "url(app/assets/img/slide-arrow-up-black.png)"
+        );
+        sliderSvc.downArrow.css(
+          "background-image",
+          "url(app/assets/img/slide-arrow-down-black.png)"
+        );
       }
       if (
         index === timelineSvc.timelineStartIndex &&

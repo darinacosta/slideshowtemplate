@@ -60,7 +60,7 @@ svc.videoUrls = [
       "The 162 mile Bayou Bridge pipeline would cross 11 parishes,  700 bodies of water and would impact over 600 acres of wetlands. The pipeline route cuts across Bayou Lafourche, the drinking water supply for at least 300,000 people.",
     mapId: "louisiana",
     loop: false,
-    default: false,
+    default: true,
     title: "The Path Of The Bayou Bridge Pipeline",
     coords: {
       x: 6,
@@ -168,6 +168,7 @@ svc.handleVideoReplace = function(targetId, videoObject) {
 };
 
 svc.setActiveButton = function setActiveButton(targetId, videoId) {
+  console.log("   > SET ACTIVE BUTTON: ", videoId);
   $(".toggle-" + targetId).removeClass("btn-warning");
   $(".toggle-" + targetId).addClass("btn-primary");
   $(".toggle-" + targetId + "#" + videoId).removeClass("btn-primary");
@@ -192,11 +193,14 @@ svc.switchVideo = function(targetId, videoId) {
   var caption = videoObject.caption;
   var source = videoObject.source;
   var title = videoObject.title;
-  svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, videoObject);
+  $(".toggle-" + targetId).removeClass("btn-warning");
   $(".toggle-" + targetId + "-title").text(title);
   $(".toggle-" + targetId + "-caption").html(caption);
   $(".toggle-" + targetId + "-source").text(source);
+  setTimeout(function() {
+    svc.setActiveButton(targetId, videoId);
+  }, 200);
 };
 
 svc.buildHotspots = function(mapId) {
