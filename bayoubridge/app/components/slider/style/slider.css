@@ -320,7 +320,18 @@ a:hover {
 */
 
 .mobile-title {
-  margin-bottom: 75px;
+  position: absolute;
+  top: 19%;
+  left: 50%;
+  width: 100%;
+  -webkit-transform: translate(-50%, -40%);
+  -ms-transform: translate(-50%, -40%);
+  transform: translate(-50%, -40%);
+  text-align: center;
+  z-index: 4;
+  color: #a70404;
+  letter-spacing: 0.5em;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.88);
 }
 
 .watch-video {

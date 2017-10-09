@@ -21,7 +21,6 @@ svc.setNavBlockTop = function(index) {
 };
 
 svc.activateTimeLineComponent = function(index) {
-  console.log("INDEX", index);
   if (index < svc.timelineStartIndex) {
     return;
   }

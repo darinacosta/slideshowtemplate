@@ -20,9 +20,7 @@ svc.playCurrentVimeoVideo = function() {
   var iframe = document.querySelector("#slide0" + activeSection);
   svc.player = new Vimeo.Player(iframe);
   svc.player.play();
-  svc.player.on("play", function() {
-    console.log("played the video!");
-  });
+  svc.player.on("play", function() {});
 };
 
 // Used for Youtube videos not loaded by Iframe API
@@ -83,7 +81,6 @@ svc.handleVideoSlide = function(index) {
   }
   // @TODO: clean up hide/show class handling
   currentIframe = iframeSvc.players[svc.currentVideoSlide()];
-  console.log("IFRAME PLAYERS", iframeSvc.players);
   $cover = $(".hide-on-play");
   $iframe = $(".video-pane__youtube");
   $cover.removeClass("hide");
@@ -97,7 +94,6 @@ svc.handleVideoSlide = function(index) {
 
 document.body.onkeyup = function(e) {
   if (e.keyCode == 32) {
-    console.log("CAPTURED KEYSTROKE");
     svc.playIframeVideo();
   }
 };

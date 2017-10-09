@@ -5,7 +5,7 @@ svc.videoUrls = [
   {
     url: "us_etp_pipelines",
     caption:
-      "The Bayou Bridge Pipeline would carry oil transported via the Dakota Access Pipeline to refineries and international export terminals in Louisiana. They are both projects that would be completed by Energy Transfer Partners.",
+      "The Bayou Bridge Pipeline would carry oil transported via the Dakota Access Pipeline to refineries and international export terminals in Louisiana. Both pipelines are partially owned by Energy Transfer Partners, a Dallas-based company with a high number of safety violations.",
     mapId: "pipeline",
     loop: false,
     title: "Connection of Dakota Access Pipeline and Bayou Bridge Pipeline",
@@ -18,7 +18,7 @@ svc.videoUrls = [
   {
     url: "us_all_pipelines",
     caption:
-      "Approximately 299,000 miles of onshore gas transmission pipelines and 171,000 miles of onshore hazardous liquid pipelines move natural gas, crude oil, and petroleum products throughout the U.S. every day. There are over 2.1 million miles of distribution pipelines in service today. <hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</li></ul>",
+      "Approximately 299,000 miles of onshore gas transmission pipelines and 171,000 miles of onshore hazardous liquid pipelines move natural gas, crude oil, and petroleum products throughout the U.S. every day. <hr> <ul><li style='color:red'>Crude Oil Pipelines</li><li style='color:yellow'>Natural Gas Pipelines</li></ul>",
     mapId: "pipeline",
     loop: false,
     source: "Graphic source: American Energy Mapping",
@@ -31,7 +31,7 @@ svc.videoUrls = [
   {
     url: "us_spills_2010",
     caption:
-      "In a span of 5 years, More than 7 million gallons of crude oil have spilled from pipelines in the United States. There have been more than 3,300 incidents of crude oil and liquefied natural gas leaks or ruptures.",
+      "Over a span of 5 years, more than 7 million gallons of crude oil have spilled from pipelines in the United States. There have been more than 3,300 incidents of crude oil and liquefied natural gas leaks or ruptures during this time.",
     title: "Pipeline Spills Since 2010",
     loop: false,
     mapId: "pipeline",
@@ -43,7 +43,7 @@ svc.videoUrls = [
   {
     url: "us_etp_spills",
     caption:
-      "Energy Transfer Partners and its subsidiary Sunoco have filed 69 accidents over the past two years. An average of 2.8 spills every month. They have had more accidents than any other pipeline company this decade.",
+      "Energy Transfer Partners (ETP) and its subsidiary Sunoco have reported 69 accidents over the past two years. This represents an average of 2.8 spills every month. These accidents have polluted drinking water supplies in Texas and along the east coast.  ETP has caused more accidents than any other pipeline company this decade.",
     mapId: "pipeline",
     loop: true,
     title: "Energy Transfer Partners Spills in 2015-2016",
@@ -57,10 +57,10 @@ svc.videoUrls = [
   {
     url: "la_pipeline_path_tb",
     caption:
-      "The 162 mile Bayou Bridge pipeline would cross 11 parishes, 700 bodies of water, and impact over 600 acres of wetlands. The pipeline route runs through Bayou Lafourche, the drinking water supply for at least 300,000 people.",
+      "The 162 mile Bayou Bridge pipeline would cross 11 parishes,  700 bodies of water and would impact over 600 acres of wetlands. The pipeline route cuts across Bayou Lafourche, the drinking water supply for at least 300,000 people.",
     mapId: "louisiana",
     loop: false,
-    default: true,
+    default: false,
     title: "The Path Of The Bayou Bridge Pipeline",
     coords: {
       x: 6,
@@ -85,7 +85,7 @@ svc.videoUrls = [
   {
     url: "la_coastal_erosion_tb",
     caption:
-      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 (equivalent to the state of Delaware). The three main causes of land loss are reduced sediment flow from the Mississippi River (caused by man-made levees), subsidence (caused in part by oil exploration) and rising sea levels (caused by increased greenhouse gas emissions).",
+      "Louisiana has lost just under 1,900 square miles of land between 1932 and 2000 - equivalent to an area the size of the state of Delaware. Main causes of land loss are reduced sediment flow from the Mississippi River (caused by man-made levees), subsidence (caused mostly by oil exploration canals), channels and canals dug through the wetlands by the oil industry, and rising sea levels (caused by increased greenhouse gas emissions).",
     mapId: "louisiana",
     title: "Louisiana's Current Walkable Land",
     source:
@@ -99,9 +99,9 @@ svc.videoUrls = [
   {
     url: "la_pipeline_spills_tb",
     caption:
-      'There were 144 reported pipeline accidents in 2016. n average of 2.7 per week (not including unreported accidents). 48% of the accidents were caused by corrosion, leaks, holes and ruptures. 33% have "unknown or unexplained causes."',
+      'There were 153 reported pipeline accidents in 2016. This equates to an average of 2.7 per week (not including unreported accidents). 48% of the accidents were caused by corrosion, leaks, holes and ruptures. 33% have "unknown or unexplained causes."',
     mapId: "louisiana",
-    loop: true,
+    loop: false,
     source: "Sources: LA Bucket Brigade; National Response Center",
     title: "Louisiana Pipeline Accidents",
     coords: {
@@ -140,7 +140,6 @@ svc.initGalleryKeyControls = function() {
         break;
 
       case 39: // right
-        console.log("RIGHTKEY");
         break;
 
       case 40: // down
@@ -195,7 +194,6 @@ svc.switchVideo = function(targetId, videoId) {
   var title = videoObject.title;
   svc.setActiveButton(targetId, videoId);
   svc.handleVideoReplace(targetId, videoObject);
-  console.log($(".toggle-" + targetId + "-title"));
   $(".toggle-" + targetId + "-title").text(title);
   $(".toggle-" + targetId + "-caption").html(caption);
   $(".toggle-" + targetId + "-source").text(source);
