@@ -509,7 +509,15 @@ body,
   position: absolute;
   top: 2px;
   left: 1%;
+  width: 35.5px;
+  height: 35.5px;
   max-height: 90%;
+  background-image: url('../img/fire_river_logo_50x50.png');
+  background-size: contain;
+}
+
+.fireriver_logo:hover {
+  background-image: url('../img/fire_river_logo_color_50x50.png');
 }
 
 .show {
