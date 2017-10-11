@@ -289,7 +289,7 @@ a:hover {
   right: 10%;
   height: 35px;
   font-size: 20px;
-  top: -26px;
+  top: 0px;
   background-color: red;
   color: white;
 }
@@ -490,13 +490,9 @@ body,
 
 .addthis_inline_share_toolbox {
   position: absolute;
+  display: inline-block;
   top: 8px;
   left: 15%;
-}
-
-.addthis_inline_share_toolbox {
-  position: relative;
-  display: inline-block;
 }
 
 .logo-img {
