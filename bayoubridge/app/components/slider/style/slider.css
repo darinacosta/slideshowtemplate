@@ -79,8 +79,17 @@ h3.small-header {
 }
 
 .latest-project-button {
-  margin-bottom: 10px;
-  font-size: 10px;
+  background-color: black;
+  color:white;
+  -webkit-transition: background-color 1s ease-out, color 1s ease;
+  -moz-transition: background-color 1s ease-out, color 1s ease;
+  -o-transition: background-color 1s ease-out, color 1s ease;
+  transition: background-color 1s ease-out, color 1s ease;
+}
+
+.latest-project-button:hover {
+  background-color: white;
+  color:black;
 }
 
 .take-action-section p {
