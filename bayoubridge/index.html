@@ -412,21 +412,21 @@
           <h3 class="takeaction">Show financial support to the following organizations</h3>
           <hr class="hr-red">
           <div class="row" style="text-align:center;margin: 0 auto;display:block; margin:20px;">
-            <!--a href="http://www.unitedhoumanation.org/donate" target="_blank" style="color:black;">
+            <a href="http://www.unitedhoumanation.org/donate" target="_blank" style="color:black;">
               <div class="col-sm-4" style="background-color: white;padding: 10px;border: 1px solid black">
                   Mt Triumph Baptist Church<br> Environmental Fund
               </div>
-            </a-->
+            </a>
             <a href="http://www.unitedhoumanation.org/donate" target="_blank" style="color:black;">
-              <div class="col-sm-6" style="background-color: white;padding: 10px;border: 1px solid black">
+              <div class="col-sm-4" style="background-color: white;padding: 10px;border: 1px solid black">
                   United Houma Nation
-              <br class="desktop">
+              <br class="desktop"><br>
               </div>
             </a>
             <a href="https://louisiana-bucket-brigade.networkforgood.com/" target="_blank" style="color:black;">
-              <div class="col-sm-6" style="background-color: white;padding: 10px;border: 1px solid black">
+              <div class="col-sm-4" style="background-color: white;padding: 10px;border: 1px solid black">
                   Louisiana Bucket Brigade
-                <br class="desktop">
+                <br class="desktop"><br>
               </div>
             </a>
           </div>
@@ -444,14 +444,6 @@
           <a href="http://healthygulf.org/" target="_blank"><img src="app/assets/img/logos/healthygulf.png" class="logo-img"/></a>
           <a href="http://www.ienearth.org/" target="_blank"><img src="app/assets/img/logos/ienearth.png" class="logo-img"/></a>
           <a href="http://www.sierraclub.org/" target="_blank"><img src="app/assets/img/logos/sierraclub.png" class="logo-img"/></a>
-          <hr class="hr-black">
-          <p>
-            <a href="mailto:alexglustrom@gmail.com">
-              <button type="button" class="btn btn-secondary latest-project-button">
-                Contact the creators
-              </button>
-            </a>
-          </p>
         </div>
       </div>
     </div>
@@ -605,6 +597,37 @@
 <script src="app/assets/builds/app.bundle.js"></script>
 <!-- Global Site Tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-54333440-3"></script>
+<!-- Facebook Pixel Code -->
+<script>
+!(function(f, b, e, v, n, t, s) {
+  if (f.fbq) return;
+  n = f.fbq = function() {
+    n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+  };
+  if (!f._fbq) f._fbq = n;
+  n.push = n;
+  n.loaded = !0;
+  n.version = "2.0";
+  n.queue = [];
+  t = b.createElement(e);
+  t.async = !0;
+  t.src = v;
+  s = b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t, s);
+})(
+  window,
+  document,
+  "script",
+  "https://connect.facebook.net/en_US/fbevents.js"
+);
+fbq("init", "294791401013145");
+fbq("track", "PageView");
+</script>
+<noscript>
+ <img height="1" width="1"
+src="https://www.facebook.com/tr?id=294791401013145&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
 <script>
 window.dataLayer = window.dataLayer || [];
 function gtag() {
