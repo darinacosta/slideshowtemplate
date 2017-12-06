@@ -3,7 +3,7 @@ iframeSvc.players = [];
 iframeSvc.videos = [
   {
     id: "dallas",
-    url: "g_fAulbccsQ",
+    url: "nSvaEvhZARY",
     index: 0,
     slide: 1
   },
@@ -29,7 +29,7 @@ iframeSvc.videos = [
     id: "fisherman",
     index: 2,
     slide: 4,
-    url: "owiHlofUzoE"
+    url: "EyLn3GgfJSE"
   }
 ];
 
